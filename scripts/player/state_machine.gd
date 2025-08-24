@@ -1,6 +1,3 @@
-#na podstawie:
-# https://www.gdquest.com/tutorial/godot/design-patterns/finite-state-machine/
-
 class_name StateMachine extends Node
 
 @export var initial_state: State = null
