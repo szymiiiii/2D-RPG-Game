@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgi81duxxv45v"]
+
+[ext_resource type="Script" uid="uid://cjavyhdgm1i75" path="res://scripts/state_machine.gd" id="1_nj0rb"]
+[ext_resource type="Script" uid="uid://d11d33nv8vnlk" path="res://scripts/states_scripts/jumping.gd" id="2_6rk0d"]
+[ext_resource type="Script" uid="uid://30ofywuqnajv" path="res://scripts/states_scripts/walking.gd" id="2_a0fpy"]
+[ext_resource type="Script" uid="uid://bmcfe5b68loqn" path="res://scripts/states_scripts/falling.gd" id="3_s46hd"]
+[ext_resource type="Script" uid="uid://q1nh5pnt0mmm" path="res://scripts/states_scripts/running.gd" id="4_okvjo"]
+[ext_resource type="Script" uid="uid://bjq5yjai5xy7o" path="res://scripts/states_scripts/idle.gd" id="5_yux3b"]
+
+[node name="StateMachine" type="Node2D"]
+script = ExtResource("1_nj0rb")
+
+[node name="Walking" type="Node" parent="."]
+script = ExtResource("2_a0fpy")
+
+[node name="Falling" type="Node" parent="."]
+script = ExtResource("3_s46hd")
+
+[node name="Running" type="Node" parent="."]
+script = ExtResource("4_okvjo")
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("5_yux3b")
+
+[node name="Jumping" type="Node" parent="."]
+script = ExtResource("2_6rk0d")
