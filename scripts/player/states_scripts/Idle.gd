@@ -10,7 +10,11 @@ func physics_update(_delta: float) -> void:
 
 	if not player.is_on_floor():
 		finished.emit(FALLING)
-	elif Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_just_pressed("Jumping"):
 		finished.emit(JUMPING)
-	elif Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
-		finished.emit(RUNNING)
+	elif Input.is_action_pressed("Move_Left") or Input.is_action_pressed("Move_Right"):
+		if Input.is_action_pressed("Running"):
+			finished.emit(RUNNING)
+		else:
+			finished.emit(WALKING)
+	
