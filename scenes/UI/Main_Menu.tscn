@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://r7nm6c5w707o"]
+
+[ext_resource type="Texture2D" uid="uid://vn45p35j5i42" path="res://assets/politechnikalubelska.jpg" id="2_wbt1q"]
+[ext_resource type="Script" uid="uid://ro1lwgqmu1in" path="res://scripts/UI_Scripts/main_options.gd" id="3_otv4g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bfng"]
+texture = ExtResource("2_wbt1q")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e6vm"]
+bg_color = Color(0.894922, 0.894922, 0.894922, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 3
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_right = 1156.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_0bfng")
+
+[node name="Main_options" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 454.0
+offset_top = 203.0
+offset_right = 685.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_otv4g")
+
+[node name="Continue" type="Button" parent="Main_options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7e6vm")
+text = "Continue
+"
+
+[node name="Start" type="Button" parent="Main_options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7e6vm")
+text = "Start
+"
+
+[node name="Options" type="Button" parent="Main_options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7e6vm")
+text = "Options
+"
+
+[node name="Przegladanie Map" type="Button" parent="Main_options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7e6vm")
+text = "Mapy
+"
+
+[node name="Quit" type="Button" parent="Main_options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7e6vm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7e6vm")
+text = "Quit
+"
+
+[connection signal="pressed" from="Main_options/Continue" to="Main_options" method="_on_continue_pressed"]
+[connection signal="pressed" from="Main_options/Start" to="Main_options" method="_on_start_pressed"]
+[connection signal="pressed" from="Main_options/Options" to="Main_options" method="_on_options_pressed"]
+[connection signal="pressed" from="Main_options/Przegladanie Map" to="Main_options" method="_on_przegladanie_map_pressed"]

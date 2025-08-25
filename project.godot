@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gra"
-run/main_scene="uid://blygneb8hstup"
+run/main_scene="uid://r7nm6c5w707o"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
