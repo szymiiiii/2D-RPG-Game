@@ -7,7 +7,7 @@ const FALLING = "Falling"
 const WALKING = "Walking"
 
 var player: Player
-var direction = 1.0
+
 
 signal play_anim(animation_name)
 signal change_orientation
