@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 func on_change_orientation(set_value_or_mirror: int):
 	###W GODOCIE FLIP_H JAKO TRUE TO ODWRÓCONY STAN A FALSE NORMALNY
 	###dlatego podmieniłem 1 jako false a -1 jako true
+	### 0 po prostu podmienia wartość pod przeciwną
 	if set_value_or_mirror == 0:
 		print("zmieniam orientacje")
 		self.flip_h = not self.flip_h
