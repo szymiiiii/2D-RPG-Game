@@ -1,4 +1,4 @@
-class_name LoadingScreen extends Node2D
+class_name LoadingScreen extends Control
 
 ## Used by scene manager to display transitions and loading progress. You won't need to
 ## modify or work with any of the code in this class but I've annotated in case

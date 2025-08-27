@@ -2,7 +2,7 @@ extends VBoxContainer
 
 
 func _on_mapa_nr_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Maps/scena_1.tscn")
+	SceneManager.swap_scenes("res://scenes/UI/map_menu.tscn",self.get_parent(),self,"no_to_transition")
 
 
 func _on_mapa_nr_2_pressed() -> void:
@@ -18,4 +18,4 @@ func _on_mapa_nr_4_pressed() -> void:
 
 
 func _on_return_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/UI/Main_Menu.tscn")
+	SceneManager.swap_scenes("res://scenes/UI/main_options.tscn",self.get_parent(),self,"no_to_transition")
