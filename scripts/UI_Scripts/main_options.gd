@@ -14,7 +14,8 @@ func _on_options_pressed() -> void:
 
 
 func _on_przegladanie_map_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/UI/UI_Mapy.tscn")
+	SceneManager.swap_scenes("res://scenes/UI/map_menu.tscn",self.get_parent(),self,"wipe_to_right")
+	##get_tree().change_scene_to_file("res://scenes/UI/UI_Mapy.tscn")
 	print("mapy")
 
 

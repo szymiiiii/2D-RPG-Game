@@ -1,23 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2dsqie7r1qfb"]
+[gd_scene load_steps=4 format=3 uid="uid://ctvjdm5e7614b"]
 
 [ext_resource type="Texture2D" uid="uid://vn45p35j5i42" path="res://assets/politechnikalubelska.jpg" id="1_t6n04"]
-[ext_resource type="Script" uid="uid://dkc5nv5a26wcc" path="res://scripts/UI_Scripts/map_menu.gd" id="2_p48es"]
+[ext_resource type="PackedScene" uid="uid://bsnfsl7e3ix30" path="res://scenes/UI/map_menu.tscn" id="2_p48es"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p48es"]
 texture = ExtResource("1_t6n04")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78xnc"]
-bg_color = Color(0.894922, 0.894922, 0.894922, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_size = 3
 
 [node name="UiMapy" type="Control"]
 layout_mode = 3
@@ -36,98 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_p48es")
 
-[node name="Map_Menu" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.5
-offset_top = -110.5
-offset_right = 115.5
-offset_bottom = 110.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_p48es")
-
-[node name="Mapa_nr_1" type="Button" parent="Map_Menu"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
-text = "Mapa_nr_1
-"
-
-[node name="Mapa_nr_2" type="Button" parent="Map_Menu"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
-text = "Mapa_nr_2
-"
-
-[node name="Mapa_nr_3" type="Button" parent="Map_Menu"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
-text = "Mapa_nr_3
-"
-
-[node name="Mapa_nr_4" type="Button" parent="Map_Menu"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
-text = "Mapa_nr_4
-"
-
-[node name="Return" type="Button" parent="Map_Menu"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
-text = "Return
-"
-
-[connection signal="pressed" from="Map_Menu/Mapa_nr_1" to="Map_Menu" method="_on_mapa_nr_1_pressed"]
-[connection signal="pressed" from="Map_Menu/Mapa_nr_2" to="Map_Menu" method="_on_mapa_nr_2_pressed"]
-[connection signal="pressed" from="Map_Menu/Mapa_nr_3" to="Map_Menu" method="_on_mapa_nr_3_pressed"]
-[connection signal="pressed" from="Map_Menu/Mapa_nr_4" to="Map_Menu" method="_on_mapa_nr_4_pressed"]
-[connection signal="pressed" from="Map_Menu/Return" to="Map_Menu" method="_on_return_pressed"]
+[node name="Map_Menu" parent="." instance=ExtResource("2_p48es")]
+layout_mode = 0
+anchors_preset = 0

@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsnfsl7e3ix30"]
+
+[ext_resource type="Script" uid="uid://dkc5nv5a26wcc" path="res://scripts/UI_Scripts/map_menu.gd" id="1_7f4te"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78xnc"]
+bg_color = Color(0.894922, 0.894922, 0.894922, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 3
+
+[node name="Map_Menu" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -110.5
+offset_right = 115.5
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7f4te")
+
+[node name="Mapa_nr_1" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
+text = "Mapa_nr_1
+"
+
+[node name="Mapa_nr_2" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
+text = "Mapa_nr_2
+"
+
+[node name="Mapa_nr_3" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
+text = "Mapa_nr_3
+"
+
+[node name="Mapa_nr_4" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
+text = "Mapa_nr_4
+"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78xnc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_78xnc")
+text = "Return
+"
+
+[connection signal="pressed" from="Mapa_nr_1" to="." method="_on_mapa_nr_1_pressed"]
+[connection signal="pressed" from="Mapa_nr_2" to="." method="_on_mapa_nr_2_pressed"]
+[connection signal="pressed" from="Mapa_nr_3" to="." method="_on_mapa_nr_3_pressed"]
+[connection signal="pressed" from="Mapa_nr_4" to="." method="_on_mapa_nr_4_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
