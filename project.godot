@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SceneManager="*res://autoloads/SceneManager.gd"
+DoorManager="*res://autoloads/DoorManager.gd"
 GlobalVariables="*res://autoloads/GlobalVariables.gd"
+SceneManager="*res://autoloads/SceneManager.gd"
 
 [dotnet]
 
