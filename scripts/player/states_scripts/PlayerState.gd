@@ -6,6 +6,7 @@ const JUMPING = "Jumping"
 const FALLING = "Falling"
 const WALKING = "Walking"
 const GETTING_IN = "Getting_In"
+const GETTING_OUT = "Getting_Out"
 
 var player: Player
 
