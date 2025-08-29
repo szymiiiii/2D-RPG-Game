@@ -37,6 +37,7 @@ const TRANSITION_VALUES = {
 
 func _ready() -> void:
 	DoorManager.all_door_registrate_in_scene_manager.emit(self, id)
+	print("drzwi ", id)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var body_Name = body.name
@@ -45,6 +46,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		printerr("Doors.gd weszły w interakcje z wiezlem nie nazywajacym sie Player tylko: ", body_Name)
 		printerr("dlatego wylaczam drzwi aby nie bylo problemow")
 		collision_area.monitorable = false
+	elif DoorManager.did_player_go_through_doors:
+		print("Doors.gd weszło w interakcje z graczem ale przeszedl on juz przez drzwi")
 	elif (orientation != null && next_scene != null && transition_choice != null && id != null):
 		DoorManager.player_entered_doors.emit(id, orientation, TRANSITION_VALUES[transition_choice], LEVELS[next_scene], position)
 		
@@ -59,4 +62,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	DoorManager.player_exited_doors.emit()
+	if !DoorManager.did_player_go_through_doors:
+		DoorManager.player_exited_doors.emit()

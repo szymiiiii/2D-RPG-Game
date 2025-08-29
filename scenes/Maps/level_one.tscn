@@ -892,13 +892,15 @@ next_scene = 1
 position = Vector2(230, -136)
 rotation = -1.54287
 orientation = 1
+next_scene = 1
 id = 1
 
 [node name="Doors3" parent="." instance=ExtResource("4_su14p")]
 position = Vector2(531, -14)
 rotation = -1.54287
 orientation = 0
-id = 1
+next_scene = 1
+id = 2
 
 [node name="Player" parent="." instance=ExtResource("3_opmxo")]
 position = Vector2(47, -5)

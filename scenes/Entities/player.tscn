@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dba6tbl6tl0go"]
+[gd_scene load_steps=40 format=3 uid="uid://dba6tbl6tl0go"]
 
 [ext_resource type="Texture2D" uid="uid://cj64hkqlndnfm" path="res://assets/PC _ Computer - TRIBE NINE - Non-Playable Characters - Male Office Worker.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c5kfli0lf2di4" path="res://scripts/player/player.gd" id="1_g2els"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d11d33nv8vnlk" path="res://scripts/player/states_scripts/Jumping.gd" id="7_gv70w"]
 [ext_resource type="Script" uid="uid://bmcfe5b68loqn" path="res://scripts/player/states_scripts/Falling.gd" id="8_8i8gv"]
 [ext_resource type="Script" uid="uid://cihjrua8hw6ug" path="res://scripts/player/states_scripts/getting_in.gd" id="11_ckg7o"]
+[ext_resource type="Script" uid="uid://mrmg7lh8mgx4" path="res://scripts/player/states_scripts/getting_out.gd" id="11_er2rn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("1_3vyb7")
@@ -251,6 +252,9 @@ script = ExtResource("3_kwwe6")
 
 [node name="Idle" type="Node" parent="State_Machine"]
 script = ExtResource("4_o3xqn")
+
+[node name="Getting_Out" type="Node" parent="State_Machine"]
+script = ExtResource("11_er2rn")
 
 [node name="Walking" type="Node" parent="State_Machine"]
 script = ExtResource("5_gj83x")
