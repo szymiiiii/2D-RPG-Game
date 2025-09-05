@@ -885,20 +885,18 @@ layer_0/tile_data = PackedInt32Array(65537, 655360, 12, 65539, 655360, 12, 65540
 
 [node name="Doors" parent="." instance=ExtResource("4_su14p")]
 position = Vector2(424, -86)
-orientation = 2
+orientation = 1
 next_scene = 1
 
 [node name="Doors2" parent="." instance=ExtResource("4_su14p")]
-position = Vector2(230, -136)
-rotation = -1.54287
+position = Vector2(229, -151)
 orientation = 1
 next_scene = 1
 id = 1
 
 [node name="Doors3" parent="." instance=ExtResource("4_su14p")]
-position = Vector2(531, -14)
-rotation = -1.54287
-orientation = 0
+position = Vector2(507, -24)
+orientation = 2
 next_scene = 1
 id = 2
 

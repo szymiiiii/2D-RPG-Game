@@ -3,23 +3,35 @@ extends PlayerState
 var movement_direction_x: int
 var is_player_on_ground: bool
 var door_position_x
+var door_position_y
 var is_player_in_zone
 
 func enter(previous_state_path: String, data := {}) -> void:
 	is_player_on_ground =player.is_on_floor()
 	door_position_x = DoorManager.door_dictionary["door_position"].x
-	is_player_in_zone = player.position.x <= door_position_x + 5 && player.position.x >= door_position_x - 5
+	door_position_y = DoorManager.door_dictionary["door_position"].y
 	
-	if is_player_in_zone:
-		#DoorManager.player_ready_to_pass.emit(0.5)
-		play_anim.emit("turn_around")
+	var door_orientation = DoorManager.door_dictionary["door_orientation"]
+	
+	if !is_player_on_ground:
+		play_anim.emit("falling")
+	elif door_orientation == 2:
+		play_anim.emit("idle")
+		movement_direction_x = 0
 	else:
-		#DoorManager.player_ready_to_pass.emit(0.3)
-		if is_player_on_ground:
-			play_anim.emit("walking")
-		else:
-			play_anim.emit("falling")
-	pass
+		play_anim.emit("walking")
+		
+	if door_orientation == 1:
+		movement_direction_x = 1
+	elif door_orientation == 0:
+		movement_direction_x = -1
+	
+	if player.direction * movement_direction_x < 0:
+		player.direction *= -1
+		change_orientation.emit(0)
+	
+	
+	
 
 func physics_update(delta: float) -> void:
 	#var input_direction_x := Input.get_axis("Move_Left", "Move_Right")
@@ -40,14 +52,28 @@ func physics_update(delta: float) -> void:
 		#if player.direction * movement_direction_x < 0:
 			#player.direction *= -1
 			#change_orientation.emit(0)
-		#if is_player_on_ground != player.is_on_floor():
-			#play_anim.emit("walking")
-	#
-	#player.velocity.y += player.gravity * delta
+	if (player.position.x > door_position_x + 32 || player.position.x < door_position_x - 32 ):
+		movement_direction_x = 0
+	elif (player.position.y > door_position_y + 92 || player.position.y < door_position_y - 92 ):
+		movement_direction_x = 0
+		
+	if is_player_on_ground != player.is_on_floor():
+		if is_player_on_ground:
+			play_anim.emit("falling")
+		else:
+			play_anim.emit("walking")
+	player.velocity.x = player.speed * movement_direction_x * 0.4
+	player.velocity.y += player.gravity * delta
 #
-	#player.move_and_slide()
-	#
-	if !DoorManager.did_player_go_through_doors:
+	player.move_and_slide()
+	
+	if DoorManager.door_dictionary["door_orientation"] == 2:
+		print("udalo sie wyjsc")
+		DoorManager.did_player_go_through_doors = false
+		finished.emit(IDLE)
+	elif movement_direction_x == 0 || !DoorManager.did_player_go_through_doors:
+		DoorManager.did_player_go_through_doors = false
+		print("udalo sie wyjsc")
 		if not player.is_on_floor():
 			finished.emit(FALLING)
 		elif Input.is_action_just_pressed("Jumping"):
@@ -57,6 +83,8 @@ func physics_update(delta: float) -> void:
 				finished.emit(RUNNING)
 			else:
 				finished.emit(WALKING)
-	if Input.is_action_pressed("ui_cancel"):
-		DoorManager.did_player_go_through_doors = false
-		finished.emit(IDLE)
+		else:
+			finished.emit(IDLE)
+	#if Input.is_action_pressed("ui_cancel"):
+		#DoorManager.did_player_go_through_doors = false
+		#finished.emit(IDLE)
