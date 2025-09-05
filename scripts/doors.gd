@@ -23,7 +23,7 @@ const TRANSITION_VALUES = {
 # i w jaka animacja zostanie wywolana w Player node
 # w przypadku "vertical" musi najpierw nacisnac przycisk potwierdzajacy wejscie do nastepnej sceny
 # w przypadku right i left wystarczy samo wejscie w drzwi
-@export_enum("right", "left", "vertical") var orientation
+@export_enum("left", "right", "vertical") var orientation
 
 #nastepna scena to scena mapy do zaladowania zamiast obecnej
 @export var next_scene: Levels_Enum
