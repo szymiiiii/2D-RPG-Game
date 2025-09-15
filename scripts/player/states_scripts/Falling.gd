@@ -14,7 +14,9 @@ func physics_update(delta: float) -> void:
 	
 	player.move_and_slide()
 
-	if player.is_on_floor():
+	if DoorManager.is_player_inside_vertical_doors && Input.is_action_pressed("ui_accept") || DoorManager.is_player_inside_horizontal_doors:
+		finished.emit(GETTING_IN)
+	elif player.is_on_floor():
 		if is_equal_approx(input_direction_x, 0.0):
 			finished.emit(IDLE)
 		elif Input.is_action_pressed("Running"):
