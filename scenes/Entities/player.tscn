@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dba6tbl6tl0go"]
+[gd_scene load_steps=40 format=3 uid="uid://dba6tbl6tl0go"]
 
 [ext_resource type="Texture2D" uid="uid://cj64hkqlndnfm" path="res://assets/PC _ Computer - TRIBE NINE - Non-Playable Characters - Male Office Worker.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c5kfli0lf2di4" path="res://scripts/player/player.gd" id="1_g2els"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://q1nh5pnt0mmm" path="res://scripts/player/states_scripts/Running.gd" id="6_ljcip"]
 [ext_resource type="Script" uid="uid://d11d33nv8vnlk" path="res://scripts/player/states_scripts/Jumping.gd" id="7_gv70w"]
 [ext_resource type="Script" uid="uid://bmcfe5b68loqn" path="res://scripts/player/states_scripts/Falling.gd" id="8_8i8gv"]
+[ext_resource type="Script" uid="uid://cihjrua8hw6ug" path="res://scripts/player/states_scripts/getting_in.gd" id="11_ckg7o"]
+[ext_resource type="Script" uid="uid://mrmg7lh8mgx4" path="res://scripts/player/states_scripts/getting_out.gd" id="11_er2rn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("1_3vyb7")
@@ -65,6 +67,30 @@ region = Rect2(129, 410, 32, 34)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(161, 410, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbr4a"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(97, 106, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckg7o"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(129, 106, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er2rn"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(161, 106, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdo53"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(65, 106, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpmba"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(33, 106, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aolts"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(1, 106, 31, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_3vyb7")
@@ -156,6 +182,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bbr4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckg7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er2rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdo53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpmba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aolts")
+}],
+"loop": true,
+"name": &"turn_around",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qhqgy")
 }, {
 "duration": 1.0,
@@ -182,14 +231,16 @@ animations = [{
 size = Vector2(8, 21)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"walking"
-frame_progress = 0.490279
+animation = &"falling"
+frame_progress = 0.0375112
 script = ExtResource("3_ur7pv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -202,6 +253,9 @@ script = ExtResource("3_kwwe6")
 [node name="Idle" type="Node" parent="State_Machine"]
 script = ExtResource("4_o3xqn")
 
+[node name="Getting_Out" type="Node" parent="State_Machine"]
+script = ExtResource("11_er2rn")
+
 [node name="Walking" type="Node" parent="State_Machine"]
 script = ExtResource("5_gj83x")
 
@@ -213,3 +267,6 @@ script = ExtResource("7_gv70w")
 
 [node name="Falling" type="Node" parent="State_Machine"]
 script = ExtResource("8_8i8gv")
+
+[node name="Getting_In" type="Node" parent="State_Machine"]
+script = ExtResource("11_ckg7o")

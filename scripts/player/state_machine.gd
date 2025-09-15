@@ -3,7 +3,12 @@ class_name StateMachine extends Node
 @export var initial_state: State = null
 
 @onready var state: State = (func get_initial_state() -> State:
-	return initial_state if initial_state != null else get_child(0)
+	if DoorManager.did_player_go_through_doors:
+		return get_child(1) #Getting out
+	if initial_state != null :
+		return initial_state 
+	else:
+		return get_child(0) #idle
 ).call()
 
 

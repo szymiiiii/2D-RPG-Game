@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 func _on_mapa_nr_1_pressed() -> void:
-	SceneManager.swap_scenes("res://scenes/Gameplay.tscn" ,get_tree().root , get_tree().root.get_child(2),"no_to_transition")
+	SceneManager.swap_scenes("res://scenes/Gameplay.tscn" ,get_tree().root , self.get_parent().get_parent() ,"fade_to_black")
 
 
 func _on_mapa_nr_2_pressed() -> void:
