@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmxvf8myyfhsa"]
+
+[ext_resource type="Script" uid="uid://d31ys0656vf2" path="res://scripts/UI_Scripts/actionable.gd" id="1_mmc2d"]
+[ext_resource type="Resource" uid="uid://q2aajwnvk14q" path="res://dialogue/test.dialogue" id="2_2jdkn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jdkn"]
+
+[node name="Actionable" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_mmc2d")
+dialogue_resource = ExtResource("2_2jdkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2jdkn")
