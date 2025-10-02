@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt4oh68nhhnir"]
+[gd_scene load_steps=3 format=3 uid="uid://dt4oh68nhhnir"]
 
-[ext_resource type="PackedScene" uid="uid://blygneb8hstup" path="res://scenes/Maps/level_one.tscn" id="1_4aew2"]
+[ext_resource type="PackedScene" uid="uid://blygneb8hstup" path="res://scenes/Maps/level_1.tscn" id="1_4aew2"]
+[ext_resource type="PackedScene" uid="uid://bevkrrlrsecm1" path="res://scenes/UI/HUD.tscn" id="2_75vxi"]
 
 [node name="Gameplay" type="Node2D"]
 
@@ -8,8 +9,10 @@
 
 [node name="Scena1" parent="Levels" instance=ExtResource("1_4aew2")]
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("2_75vxi")]
+offset_left = -12.04
+offset_top = -3.832
+offset_right = 108.816
+offset_bottom = -3.944

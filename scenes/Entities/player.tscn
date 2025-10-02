@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dba6tbl6tl0go"]
+[gd_scene load_steps=33 format=3 uid="uid://dba6tbl6tl0go"]
 
 [ext_resource type="Texture2D" uid="uid://cj64hkqlndnfm" path="res://assets/PC _ Computer - TRIBE NINE - Non-Playable Characters - Male Office Worker.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c5kfli0lf2di4" path="res://scripts/player/player.gd" id="1_g2els"]
@@ -178,8 +178,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(8, 21)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wtrq"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wtrq"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
@@ -193,8 +195,8 @@ frame_progress = 0.490279
 script = ExtResource("3_ur7pv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -10.5)
-shape = SubResource("RectangleShape2D_dqkch")
+position = Vector2(0, -18)
+shape = SubResource("CapsuleShape2D_3wtrq")
 
 [node name="State_Machine" type="Node" parent="."]
 script = ExtResource("3_kwwe6")
@@ -213,3 +215,13 @@ script = ExtResource("7_gv70w")
 
 [node name="Falling" type="Node" parent="State_Machine"]
 script = ExtResource("8_8i8gv")
+
+[node name="ActionableFinder" type="Area2D" parent="."]
+position = Vector2(0, -12)
+rotation = 1.5708
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder"]
+position = Vector2(-5, 2.18557e-07)
+shape = SubResource("CircleShape2D_3wtrq")
