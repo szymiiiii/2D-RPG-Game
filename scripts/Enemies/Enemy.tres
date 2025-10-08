@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d4h0bt81bo4os"]
+
+[ext_resource type="Script" uid="uid://dh7k3ifjmvm8s" path="res://scripts/Enemies/enemy.gd" id="1_paox3"]
+[ext_resource type="Texture2D" uid="uid://emx53s8k80sc" path="res://assets/Battle/canvas6.png" id="2_1bhm0"]
+
+[resource]
+script = ExtResource("1_paox3")
+name = "Living Lantern"
+texture = ExtResource("2_1bhm0")
