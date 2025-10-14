@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8th6ka0v8v2o"]
+[gd_scene load_steps=10 format=3 uid="uid://b8th6ka0v8v2o"]
 
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_kvrdx"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="2_8s0k3"]
-[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/Entities/player.tscn" id="3_ogq8i"]
+[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_ogq8i"]
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="4_ogq8i"]
+[ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="5_ogq8i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmk63"]
 distance = -13.0
@@ -886,28 +887,19 @@ layer_0/tile_data = PackedInt32Array(65537, 655360, 12, 65539, 655360, 12, 65540
 [node name="Doors" parent="." instance=ExtResource("4_ogq8i")]
 position = Vector2(229, -154)
 orientation = 0
-transition_choice = 3
 
 [node name="Doors2" parent="." instance=ExtResource("4_ogq8i")]
 position = Vector2(423, -88)
 orientation = 0
-transition_choice = 3
 id = 1
 
 [node name="Doors3" parent="." instance=ExtResource("4_ogq8i")]
 position = Vector2(510, -23)
 orientation = 2
-transition_choice = 3
 id = 2
 
 [node name="Player" parent="." instance=ExtResource("3_ogq8i")]
 position = Vector2(47, -5)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerBodyCamera" parent="Player" instance=ExtResource("5_ogq8i")]
 position = Vector2(0, -8)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-drag_left_margin = 0.02
-drag_top_margin = 0.02
-drag_right_margin = 0.03
-drag_bottom_margin = 0.03

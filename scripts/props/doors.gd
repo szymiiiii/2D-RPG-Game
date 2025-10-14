@@ -1,19 +1,18 @@
 extends Node2D
 
 #levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w enum i słowniku
-enum Levels_Enum {one, two}
+enum Levels_Enum {one, two, house_entry, house_level}
 const LEVELS = {
 	Levels_Enum.one: "res://scenes/Maps/level_one.tscn",
 	Levels_Enum.two: "res://scenes/Maps/level_two.tscn",
+	Levels_Enum.house_entry: "res://scenes/Maps/house_entry.tscn",
+	Levels_Enum.house_level: "res://scenes/Maps/house_level.tscn",
 }
 
 #analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
-enum Transition_Enum {fade_to_black, fade_to_white, no_to_transition, wipe_to_right}
+enum Transition_Enum {fade_from_black}
 const TRANSITION_VALUES = {
-	Transition_Enum.fade_to_black: "fade_to_black",
-	Transition_Enum.fade_to_white: "fade_to_white",
-	Transition_Enum.no_to_transition: "no_to_transition",
-	Transition_Enum.wipe_to_right: "wipe_to_right",
+	Transition_Enum.fade_from_black: "fade_from_black",
 }
 
 @onready var collision_area = $Area2D
