@@ -62,6 +62,14 @@ func _on_attack_pressed() -> void:
 	await $AnimationPlayer.animation_finished
 	show_text("You dealt %d damage." % (GlobalVariables.sword*GlobalVariables.attack_power))
 	await text_closed
+	if $EnemyContainer/ProgressBar.value == 0:
+		$AnimationPlayer.play("enemy_dead")
+		await $AnimationPlayer.animation_finished
+		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
+		show_text("The %s has been defeated." % enemy.name)
+		await text_closed
+		await get_tree().create_timer(0.25).timeout
+		get_tree().quit()
 	enemy_turn()
 
 
