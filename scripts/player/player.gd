@@ -18,8 +18,8 @@ func _ready():
 			state_node.play_anim.connect(animated_sprite.on_play_animation)
 		
 			state_node.change_orientation.connect(animated_sprite.on_change_orientation)
-	print("bum_bum")
-	
+	#print("player has spawned and is ready")
+	reset_physics_interpolation()
 	DoorManager.player_ready_to_teleport_to_door.connect(self._on_ready_to_teleport_to_door)
 	DoorManager.player_ready.emit()
 
@@ -27,3 +27,5 @@ func _on_ready_to_teleport_to_door():
 	var teleport_position = DoorManager.door_dictionary["door_position"]
 	self.position.x = teleport_position.x
 	self.position.y = teleport_position.y + 32
+	print("player physics reset")
+	reset_physics_interpolation()

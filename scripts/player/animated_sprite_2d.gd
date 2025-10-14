@@ -21,5 +21,5 @@ func on_change_orientation(set_value_or_mirror: int):
 	
 func on_play_animation(anim_name: String):
 	await get_tree().create_timer(0.05).timeout
-	#print("zmieniam animacje na: ", anim_name)
+	#print("animacja ", animation.get_basename(), " przechodzi w ", anim_name)
 	play(anim_name)

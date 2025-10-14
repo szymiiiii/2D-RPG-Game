@@ -21,6 +21,8 @@ var door_dictionary = {
 	"door_position": Vector2(0, 0)
 }
 
+#tutaj przechowywane sa drzwi wysylajace sygnaly w ich funkcji ready()
+#sygnał all_door_registrate_in_scene_manager
 var door_list = [null, null, null, null, null, null, null, null, null, null ,null]
 
 func _ready() -> void:

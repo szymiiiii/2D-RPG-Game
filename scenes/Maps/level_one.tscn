@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://blygneb8hstup"]
+[gd_scene load_steps=10 format=3 uid="uid://blygneb8hstup"]
 
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_k6171"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="2_cbxj8"]
-[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/Entities/player.tscn" id="3_opmxo"]
+[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_opmxo"]
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="4_su14p"]
+[ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="5_su14p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmk63"]
 distance = -13.0
@@ -903,11 +904,5 @@ id = 2
 [node name="Player" parent="." instance=ExtResource("3_opmxo")]
 position = Vector2(47, -5)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="PlayerBodyCamera" parent="Player" instance=ExtResource("5_su14p")]
 position = Vector2(0, -8)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-drag_left_margin = 0.02
-drag_top_margin = 0.02
-drag_right_margin = 0.03
-drag_bottom_margin = 0.03

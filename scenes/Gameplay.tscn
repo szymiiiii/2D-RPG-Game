@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt4oh68nhhnir"]
 
-[ext_resource type="PackedScene" uid="uid://blygneb8hstup" path="res://scenes/Maps/level_one.tscn" id="1_4aew2"]
 [ext_resource type="Script" uid="uid://4tr6hl8gyo5b" path="res://scripts/level_container.gd" id="1_75vxi"]
+[ext_resource type="PackedScene" uid="uid://cptsmme1yc8hm" path="res://scenes/Maps/house_entry.tscn" id="2_75vxi"]
 
 [node name="Gameplay" type="Node2D"]
 
 [node name="Levels" type="Node2D" parent="."]
 script = ExtResource("1_75vxi")
 
-[node name="Scena1" parent="Levels" instance=ExtResource("1_4aew2")]
+[node name="HouseEntry" parent="Levels" instance=ExtResource("2_75vxi")]
+position = Vector2(1, 0)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
