@@ -61,13 +61,13 @@ func _on_player_exited_doors():
 	is_player_inside_horizontal_doors = false
 	did_player_go_through_doors = false
 	
-	door_dictionary = {
-		"door_id": 0,
-		"door_orientation": 0,
-		"transition_name": "",
-		"next_map_name": "",
-		"door_position": Vector2(0, 0)
-	}
+	#door_dictionary = {
+		#"door_id": 0,
+		#"door_orientation": 0,
+		#"transition_name": "",
+		#"next_map_name": "",
+		#"door_position": Vector2(0, 0)
+	#}
 	print("Door manager - gracz opuscil drzwi")
 
 func _on_all_door_registrate_in_scene_manager(door_node: Node2D, door_id: int):

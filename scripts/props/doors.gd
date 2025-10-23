@@ -1,12 +1,18 @@
 extends Node2D
 
 #levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w enum i słowniku
-enum Levels_Enum {one, two, house_entry, house_level}
+enum Levels_Enum {
+	one, two, 
+	house_entry, house_level, house_toilet, house_bedroom
+}
 const LEVELS = {
 	Levels_Enum.one: "res://scenes/Maps/level_one.tscn",
 	Levels_Enum.two: "res://scenes/Maps/level_two.tscn",
-	Levels_Enum.house_entry: "res://scenes/Maps/house_entry.tscn",
-	Levels_Enum.house_level: "res://scenes/Maps/house_level.tscn",
+	
+	Levels_Enum.house_entry: "res://scenes/Maps/house/house_entry.tscn",
+	Levels_Enum.house_level: "res://scenes/Maps/house/house_level.tscn",
+	Levels_Enum.house_toilet: "res://scenes/Maps/house/house_toilet.tscn",
+	Levels_Enum.house_bedroom: "res://scenes/Maps/house/house_bedroom.tscn"
 }
 
 #analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
@@ -34,9 +40,11 @@ const TRANSITION_VALUES = {
 # w przypadku 
 @export_range(0, 10) var id : int
 
+@export var are_doors_closed: bool = false
+
 func _ready() -> void:
 	DoorManager.all_door_registrate_in_scene_manager.emit(self, id)
-	print("drzwi ", id)
+	#print("drzwi ", id)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var body_Name = body.name
@@ -47,6 +55,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		collision_area.monitorable = false
 	elif DoorManager.did_player_go_through_doors:
 		print("Doors.gd weszło w interakcje z graczem ale przeszedl on juz przez drzwi")
+	elif are_doors_closed:
+		print("drzwi som zamkniete")
 	elif (orientation != null && next_scene != null && transition_choice != null && id != null):
 		DoorManager.player_entered_doors.emit(id, orientation, TRANSITION_VALUES[transition_choice], LEVELS[next_scene], position)
 		

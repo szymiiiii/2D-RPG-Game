@@ -20,7 +20,7 @@ func physics_update(delta: float) -> void:
 		finished.emit(GETTING_IN)
 	elif not player.is_on_floor():
 		finished.emit(FALLING)
-	elif Input.is_action_just_pressed("Jumping"):
+	elif Input.is_action_just_pressed("Jumping") && player.is_jumping_allowed:
 		finished.emit(JUMPING)
 	elif is_equal_approx(input_direction_x, 0.0):
 		finished.emit(IDLE)

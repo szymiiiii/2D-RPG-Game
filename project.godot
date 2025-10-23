@@ -27,7 +27,7 @@ project/assembly_name="Gra"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
@@ -70,3 +70,4 @@ common/physics_interpolation=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.18717614, 0.18717614, 0.18717614, 1)

@@ -62,7 +62,7 @@ func physics_update(delta: float) -> void:
 			play_anim.emit("falling")
 		else:
 			play_anim.emit("walking")
-	player.velocity.x = player.speed * movement_direction_x * 0.4
+	player.velocity.x = player.speed * movement_direction_x
 	player.velocity.y += player.gravity * delta
 #
 	player.move_and_slide()
@@ -76,7 +76,7 @@ func physics_update(delta: float) -> void:
 		print("udalo sie wyjsc")
 		if not player.is_on_floor():
 			finished.emit(FALLING)
-		elif Input.is_action_just_pressed("Jumping"):
+		elif Input.is_action_just_pressed("Jumping") && player.is_jumping_allowed:
 			finished.emit(JUMPING)
 		elif Input.is_action_pressed("Move_Left") or Input.is_action_pressed("Move_Right"):
 			if Input.is_action_pressed("Running"):
