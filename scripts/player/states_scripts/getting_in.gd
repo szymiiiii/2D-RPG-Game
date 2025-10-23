@@ -34,7 +34,7 @@ func physics_update(delta: float) -> void:
 	if !is_player_in_zone:
 		
 		movement_direction_x = clamp(door_position_x - player.position.x, -1, 1) 
-		player.velocity.x = player.speed * movement_direction_x
+		player.velocity.x = player.speed * movement_direction_x 
 		#print(movement_direction_x)
 		
 		if player.direction * movement_direction_x < 0:
@@ -42,8 +42,14 @@ func physics_update(delta: float) -> void:
 			change_orientation.emit(0)
 		if is_player_on_ground != player.is_on_floor():
 			play_anim.emit("walking")
+			
+	if(player.velocity.y < 0):
+		player.velocity.y += -player.velocity.y/2 + 1
+		#print("player.velocity.y true")
+	else:
+		player.velocity.y += (player.gravity + 400) * delta
+		#print("player.velocity.y false")
 	
-	player.velocity.y += player.gravity * delta
 
 	player.move_and_slide()
 

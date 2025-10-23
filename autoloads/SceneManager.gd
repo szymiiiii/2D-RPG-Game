@@ -34,7 +34,12 @@ func _add_loading_screen(transition_type:String="fade_to_black"):
 	_loading_screen.start_transition(_transition)
 	
 func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node=null, transition_type:String="fade_to_black") -> void:
-	
+	#print("swap_scenes( ",
+		#"\nscene_to_load: " ,  scene_to_load , 
+		#"\nload_into: " , load_into ,
+		#"\nscene_to_unload: " , scene_to_unload ,
+		#"\ntransition_type: " , transition_type ,
+		#"\n)")
 	if _loading_in_progress:
 		push_warning("SceneManager is already loading something")
 		return
