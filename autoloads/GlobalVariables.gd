@@ -5,8 +5,8 @@ extends Node
 @export var attack_power: int = 5
 @export var sword: int = 20
 @export var fireball: bool = true
-@export var poison_sting: bool = false
-@export var sting_ray: bool = false
+@export var poison_sting: bool = true
+@export var sting_ray: bool = true
 @export var penguin: String = ""
 
 @export var f_name: String = "Fireball"

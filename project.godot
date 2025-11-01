@@ -21,6 +21,7 @@ SceneManager="*res://autoloads/SceneManager.gd"
 GlobalVariables="*res://autoloads/GlobalVariables.gd"
 SignalBus="*res://autoloads/SignalBus.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+JsonData="*res://scripts/Inventory/JSONData.gd"
 
 [dialogue_manager]
 
