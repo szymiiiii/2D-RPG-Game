@@ -8,6 +8,7 @@ var e_health: int
 
 
 func _ready() -> void:
+	SignalBus.fireball.connect(fireball_pressed)
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
 	$EnemyContainer/Enemy.texture = enemy.texture
@@ -15,6 +16,9 @@ func _ready() -> void:
 	$Textbox.hide()
 	$ActionPanel.hide()
 	$MagicPanel.hide()
+	$MagicPanel/MagicContainer/Button.hide()
+	$MagicPanel/MagicContainer/Button2.hide()
+	$MagicPanel/MagicContainer/Button3.hide()
 	show_text("A wild %s appears" % enemy.name)
 	await text_closed
 	show_text("Stop right there")
@@ -46,6 +50,7 @@ func enemy_turn() -> void:
 	await $AnimationPlayer.animation_finished
 
 func _on_run_pressed() -> void:
+	$MagicPanel.hide()
 	$ActionPanel.hide()
 	show_text("You ran away")
 	await text_closed
@@ -76,7 +81,56 @@ func _on_attack_pressed() -> void:
 func _on_magic_pressed() -> void:
 	$MagicPanel.show()
 	if GlobalVariables.fireball:
-		var b: Button = $MagicButton
-		b.text = GlobalVariables.f_name
-		b.label = "%dmp" % GlobalVariables.b_cost
-		$MagicPanel/MagicContainer.add_child(b)
+		$MagicPanel/MagicContainer/Button/MagicButton.text = GlobalVariables.f_name
+		$MagicPanel/MagicContainer/Button.show()
+		var b = $MagicPanel/MagicContainer/Button/MagicButton
+		b.connect("pressed", fireball_pressed)
+	if GlobalVariables.poison_sting:
+		$MagicPanel/MagicContainer/Button2/MagicButton.text = GlobalVariables.p_name
+		$MagicPanel/MagicContainer/Button2/MagicButton/Label.text = "%dmp" % GlobalVariables.p_cost
+		$MagicPanel/MagicContainer/Button2.show()
+		var c = $MagicPanel/MagicContainer/Button2/MagicButton
+		c.connect("pressed", poison_pressed)
+	if GlobalVariables.sting_ray:
+		$MagicPanel/MagicContainer/Button3/MagicButton.text = GlobalVariables.b_name
+		$MagicPanel/MagicContainer/Button3/MagicButton/Label.text = "%dmp" % GlobalVariables.b_cost
+		$MagicPanel/MagicContainer/Button3.show()
+	
+
+func fireball_pressed():
+	show_text("You use fireball")
+	await text_closed
+	e_health = max(0, e_health - GlobalVariables.f_damage)
+	set_health($EnemyContainer/ProgressBar, e_health, enemy.health)
+	$AnimationPlayer.play("enemy_damage")
+	await $AnimationPlayer.animation_finished
+	show_text("You dealt %d damage." % GlobalVariables.f_damage)
+	await text_closed
+	if $EnemyContainer/ProgressBar.value == 0:
+		$AnimationPlayer.play("enemy_dead")
+		await $AnimationPlayer.animation_finished
+		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
+		show_text("The %s has been defeated." % enemy.name)
+		await text_closed
+		await get_tree().create_timer(0.25).timeout
+		get_tree().quit()
+	enemy_turn()
+
+func poison_pressed():
+	show_text("You use poison sting")
+	await text_closed
+	e_health = max(0, e_health - GlobalVariables.p_damage)
+	set_health($EnemyContainer/ProgressBar, e_health, enemy.health)
+	$AnimationPlayer.play("enemy_damage")
+	await $AnimationPlayer.animation_finished
+	show_text("You dealt %d damage." % GlobalVariables.p_damage)
+	await text_closed
+	if $EnemyContainer/ProgressBar.value == 0:
+		$AnimationPlayer.play("enemy_dead")
+		await $AnimationPlayer.animation_finished
+		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
+		show_text("The %s has been defeated." % enemy.name)
+		await text_closed
+		await get_tree().create_timer(0.25).timeout
+		get_tree().quit()
+	enemy_turn()

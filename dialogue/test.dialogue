@@ -1,6 +1,5 @@
 ~ start
 
-Player: Hello there.
 Penguin: What do you want?
 if GlobalVariables.penguin == "apple":
 	- I have an apple.

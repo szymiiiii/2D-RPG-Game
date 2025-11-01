@@ -1,0 +1,14 @@
+{
+	"Red Diamond": {
+		"ItemCategory": "Resource",
+		"StackSize": 99,
+		"Descryption": "A stone that's coloured red. That's all."
+	},
+	"Orange": {
+		"ItemCategory": "Resource",
+		"AddHealth": 5,
+		"AddEnergy": 1,
+		"StackSize": 99,
+		"Descryption": "A stone that's coloured red. That's all."
+	}
+}

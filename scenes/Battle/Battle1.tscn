@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8110o5l0h5qb"]
+[gd_scene load_steps=17 format=3 uid="uid://b8110o5l0h5qb"]
 
 [ext_resource type="Script" uid="uid://dw5nqoboy003h" path="res://scripts/UI_Scripts/battle.gd" id="1_esrg0"]
 [ext_resource type="Texture2D" uid="uid://bdk6firel2l8o" path="res://assets/Battle/dece1057-525b-4aa0-b741-a7dc78be4bbc-117377410.jpg" id="1_xuh7r"]
 [ext_resource type="Texture2D" uid="uid://emx53s8k80sc" path="res://assets/Battle/canvas6.png" id="2_esrg0"]
 [ext_resource type="Resource" uid="uid://d4h0bt81bo4os" path="res://scripts/Enemies/Enemy.tres" id="2_iuoyu"]
+[ext_resource type="PackedScene" uid="uid://bjpgw2byhibxb" path="res://scenes/Battle/Button1.tscn" id="5_1t35d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuh7r"]
 bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
@@ -297,6 +298,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button" parent="MagicPanel/MagicContainer" instance=ExtResource("5_1t35d")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="Button2" parent="MagicPanel/MagicContainer" instance=ExtResource("5_1t35d")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="Button3" parent="MagicPanel/MagicContainer" instance=ExtResource("5_1t35d")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
 
 [node name="Textbox" type="Panel" parent="."]
 visible = false
