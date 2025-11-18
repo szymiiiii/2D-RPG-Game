@@ -26,7 +26,7 @@ func physics_update(delta: float) -> void:
 	
 	
 	if is_player_in_zone != (player.position.x <= door_position_x + 5 && player.position.x >= door_position_x - 5 ):
-		print("pozycja drzwi x: ", door_position_x, " i pozycja gracza x: ", player.position.x)
+		#print("pozycja drzwi x: ", door_position_x, " i pozycja gracza x: ", player.position.x)
 		play_anim.emit("turn_around")
 		player.velocity.x = 0
 		is_player_in_zone = true

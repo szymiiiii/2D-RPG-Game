@@ -26,6 +26,7 @@ func start_transition(animation_name:String) -> void:
 		animation_name = "fade_to_black"
 	starting_animation_name = animation_name
 	anim_player.play(animation_name)
+	#print(animation_name)
 	#print("starting first screen animation: ", animation_name)
 	# if timer reaches the end before we finish loading, this will show the progress bar
 	timer.start()

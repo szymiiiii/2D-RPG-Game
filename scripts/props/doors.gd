@@ -16,9 +16,15 @@ const LEVELS = {
 }
 
 #analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
-enum Transition_Enum {fade_from_black}
+enum Transition_Enum {
+	fade_from_black,
+	fade_from_white,
+	no_to_transition,
+}
 const TRANSITION_VALUES = {
 	Transition_Enum.fade_from_black: "fade_from_black",
+	Transition_Enum.fade_from_white: "fade_from_white",
+	Transition_Enum.no_to_transition: "no_to_transition",
 }
 
 @onready var collision_area = $Area2D
