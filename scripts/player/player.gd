@@ -10,9 +10,6 @@ class_name Player extends CharacterBody2D
 
 @export var direction = 1.0
 
-
-
-
 func _ready():
 	#print("player ready")
 	for state_node in state_machine.get_children():

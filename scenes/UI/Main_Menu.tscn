@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://r7nm6c5w707o"]
 
-[ext_resource type="Script" uid="uid://d3cjpwn32yd4s" path="res://scripts/UI_Scripts/main_menu.gd" id="1_66axm"]
+[ext_resource type="Script" path="res://scripts/UI_Scripts/main_menu.gd" id="1_66axm"]
 [ext_resource type="PackedScene" uid="uid://c0ffmqaj8s7w0" path="res://scenes/UI/main_options.tscn" id="2_7vad4"]
 [ext_resource type="Texture2D" uid="uid://vn45p35j5i42" path="res://assets/politechnikalubelska.jpg" id="2_wbt1q"]
 

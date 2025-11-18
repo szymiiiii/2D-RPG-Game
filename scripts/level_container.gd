@@ -1,10 +1,29 @@
 extends Node2D
 
+
 func _ready() -> void:
 	DoorManager.level_Container = self
 	DoorManager.player_ready.connect(_on_player_ready)
 	
+	load_level(SaveGameManager.currentLevel.level_scene_path)
 	
+func load_level(path: String):
+	SaveGameManager._load()
+	var currentLevelPath = SaveGameManager.currentLevel.level_scene_path
+	if(currentLevelPath == "" || !GlobalVariables.is_continue_enabled):
+		add_child(load("res://scenes/Maps/house/house_bedroom.tscn").instantiate())
+	else:
+		
+		add_child(load(currentLevelPath).instantiate())
+		
 func _on_player_ready():
 	print("level_container_reset")
 	reset_physics_interpolation()
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	if node is Node2D:
+		#print(node.scene_file_path)
+		SaveGameManager.currentLevel.level_scene_path = node.scene_file_path
+		#currentLevel = node
+		

@@ -1,18 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt4oh68nhhnir"]
 
-[ext_resource type="Script" uid="uid://4tr6hl8gyo5b" path="res://scripts/level_container.gd" id="1_75vxi"]
-[ext_resource type="PackedScene" uid="uid://bv70ouxflgiq1" path="res://scenes/Maps/house/house_bedroom.tscn" id="2_75vxi"]
+[ext_resource type="Script" path="res://scripts/level_container.gd" id="1_75vxi"]
+[ext_resource type="PackedScene" uid="uid://4svjkqfwdq3f" path="res://scenes/UI/ESC_Menu.tscn" id="3_5sdaa"]
 
 [node name="Gameplay" type="Node2D"]
 
 [node name="Levels" type="Node2D" parent="."]
 script = ExtResource("1_75vxi")
 
-[node name="HouseLevel" parent="Levels" instance=ExtResource("2_75vxi")]
-position = Vector2(1, 0)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="."]
+[node name="HUD" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EscMenu" parent="CanvasLayer/HUD" instance=ExtResource("3_5sdaa")]
+layout_mode = 1
+
+[connection signal="child_entered_tree" from="Levels" to="Levels" method="_on_child_entered_tree"]

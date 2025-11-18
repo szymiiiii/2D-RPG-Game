@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4svjkqfwdq3f"]
 
-[ext_resource type="Script" uid="uid://dnor2vwa4gtgi" path="res://scripts/UI_Scripts/ESC_options.gd" id="1_rpfql"]
+[ext_resource type="Script" path="res://scripts/UI_Scripts/options/ESC_options.gd" id="1_rpfql"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v881c"]
 bg_color = Color(0.894922, 0.894922, 0.894922, 1)
@@ -24,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Main_options" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,9 +43,9 @@ script = ExtResource("1_rpfql")
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
@@ -53,28 +54,28 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
 text = "Resume
 "
 
-[node name="Options" type="Button" parent="Main_options"]
+[node name="Save" type="Button" parent="Main_options"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
-text = "Options
+text = "Save Game
 "
 
 [node name="Return" type="Button" parent="Main_options"]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
@@ -83,6 +84,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
 text = "Return
 "
 
+[node name="Quit" type="Button" parent="Main_options"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
+text = "Quit
+"
+
 [connection signal="pressed" from="Main_options/Resume" to="Main_options" method="_on_resume_pressed"]
-[connection signal="pressed" from="Main_options/Options" to="Main_options" method="_on_options_pressed"]
+[connection signal="pressed" from="Main_options/Save" to="Main_options" method="_on_save_pressed"]
 [connection signal="pressed" from="Main_options/Return" to="Main_options" method="_on_return_pressed"]
+[connection signal="pressed" from="Main_options/Quit" to="Main_options" method="_on_quit_pressed"]

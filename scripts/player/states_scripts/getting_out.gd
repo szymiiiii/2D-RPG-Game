@@ -73,6 +73,7 @@ func physics_update(delta: float) -> void:
 		finished.emit(IDLE)
 	elif movement_direction_x == 0 || !DoorManager.did_player_go_through_doors:
 		DoorManager.did_player_go_through_doors = false
+		get_tree().create_timer(0.05).timeout
 		print("udalo sie wyjsc")
 		if not player.is_on_floor():
 			finished.emit(FALLING)
