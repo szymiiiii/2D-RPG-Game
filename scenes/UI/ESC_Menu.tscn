@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4svjkqfwdq3f"]
 
-[ext_resource type="Script" path="res://scripts/UI_Scripts/options/ESC_options.gd" id="1_rpfql"]
+[ext_resource type="Script" uid="uid://dnor2vwa4gtgi" path="res://scripts/UI_Scripts/options/ESC_options.gd" id="1_rpfql"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v881c"]
 bg_color = Color(0.894922, 0.894922, 0.894922, 1)
@@ -43,9 +43,9 @@ script = ExtResource("1_rpfql")
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
@@ -58,9 +58,9 @@ text = "Resume
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
@@ -73,9 +73,9 @@ text = "Save Game
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
@@ -88,9 +88,9 @@ text = "Return
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
