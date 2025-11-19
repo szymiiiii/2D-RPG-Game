@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bbudoqvovjiay"]
 
-[ext_resource type="Script" path="res://scripts/UI_Scripts/loading_screen.gd" id="1_dcngq"]
+[ext_resource type="Script" uid="uid://ct1hqollvc6ji" path="res://scripts/UI_Scripts/loading_screen.gd" id="1_dcngq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6esrm"]
 bg_color = Color(0, 0, 0, 1)
@@ -355,15 +355,15 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6esrm"]
 _data = {
-"RESET": SubResource("Animation_47pac"),
-"fade_from_black": SubResource("Animation_8afnu"),
-"fade_from_white": SubResource("Animation_mo2l8"),
-"fade_to_black": SubResource("Animation_ygk06"),
-"fade_to_white": SubResource("Animation_q4crm"),
-"no_from_transition": SubResource("Animation_d6d14"),
-"no_to_transition": SubResource("Animation_djpho"),
-"wipe_from_right": SubResource("Animation_dcngq"),
-"wipe_to_right": SubResource("Animation_6esrm")
+&"RESET": SubResource("Animation_47pac"),
+&"fade_from_black": SubResource("Animation_8afnu"),
+&"fade_from_white": SubResource("Animation_mo2l8"),
+&"fade_to_black": SubResource("Animation_ygk06"),
+&"fade_to_white": SubResource("Animation_q4crm"),
+&"no_from_transition": SubResource("Animation_d6d14"),
+&"no_to_transition": SubResource("Animation_djpho"),
+&"wipe_from_right": SubResource("Animation_dcngq"),
+&"wipe_to_right": SubResource("Animation_6esrm")
 }
 
 [node name="LoadingScreen" type="CanvasLayer"]
@@ -410,7 +410,7 @@ grow_vertical = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_6esrm")
+&"": SubResource("AnimationLibrary_6esrm")
 }
 
 [node name="Timer" type="Timer" parent="."]
