@@ -1,30 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpoo25ghowlro"]
+[gd_scene load_steps=2 format=3 uid="uid://cpoo25ghowlro"]
 
-[ext_resource type="Texture2D" uid="uid://cay6ruqu7v4j0" path="res://assets/Items/pickups.png" id="1_06x4e"]
 [ext_resource type="Script" uid="uid://c0mh8qldmtpfa" path="res://scripts/Inventory/Item_script.tres.gd" id="1_qum4w"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbkru"]
-texture = ExtResource("1_06x4e")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-2:2/size_in_atlas = Vector2i(2, 1)
-2:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_wqbh2"]
-tile_size = Vector2i(80, 80)
-sources/1 = SubResource("TileSetAtlasSource_rbkru")
 
 [node name="Item" type="Node2D"]
 z_index = 1
@@ -36,22 +12,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 60.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="TileMapLayer" type="TileMapLayer" parent="TextureRect"]
-position = Vector2(20, 20)
-tile_set = SubResource("TileSet_wqbh2")
-
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 33.0
+offset_top = 31.0
+offset_right = 73.0
+offset_bottom = 54.0
 scale = Vector2(0.7, 0.7)
 text = "99"

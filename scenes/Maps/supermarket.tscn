@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://djb81kyscsj4r"]
+
+[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/Entities/player.tscn" id="1_5objd"]
+
+[node name="Supermarket" type="Node2D"]
+
+[node name="Background" type="TileMapLayer" parent="."]
+
+[node name="Things" type="TileMapLayer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_5objd")]
+position = Vector2(46, 5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -8)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+drag_left_margin = 0.02
+drag_top_margin = 0.02
+drag_right_margin = 0.03
+drag_bottom_margin = 0.03
+
+[node name="Foreground" type="TileMapLayer" parent="."]

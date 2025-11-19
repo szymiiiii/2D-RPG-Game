@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dba6tbl6tl0go"]
+[gd_scene load_steps=35 format=3 uid="uid://dba6tbl6tl0go"]
 
 [ext_resource type="Texture2D" uid="uid://cj64hkqlndnfm" path="res://assets/PC _ Computer - TRIBE NINE - Non-Playable Characters - Male Office Worker.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c5kfli0lf2di4" path="res://scripts/player/player.gd" id="1_g2els"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://q1nh5pnt0mmm" path="res://scripts/player/states_scripts/Running.gd" id="6_ljcip"]
 [ext_resource type="Script" uid="uid://d11d33nv8vnlk" path="res://scripts/player/states_scripts/Jumping.gd" id="7_gv70w"]
 [ext_resource type="Script" uid="uid://bmcfe5b68loqn" path="res://scripts/player/states_scripts/Falling.gd" id="8_8i8gv"]
+[ext_resource type="Script" uid="uid://cyi7yvq5fn1f5" path="res://scripts/Inventory/pickup_area.gd" id="10_bbr4a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("1_3vyb7")
@@ -183,6 +184,10 @@ radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3wtrq"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckg7o"]
+radius = 11.0
+height = 26.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
 
@@ -225,3 +230,16 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder"]
 position = Vector2(-5, 2.18557e-07)
 shape = SubResource("CircleShape2D_3wtrq")
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("10_bbr4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(0, -17)
+shape = SubResource("CapsuleShape2D_ckg7o")
+
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="body_exited" from="PickupArea" to="." method="_on_pickup_area_body_exited"]
+[connection signal="input_event" from="PickupArea" to="PickupArea" method="_on_input_event"]
