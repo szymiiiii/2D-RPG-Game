@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://blygneb8hstup"]
+[gd_scene load_steps=10 format=3 uid="uid://blygneb8hstup"]
 
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_k6171"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="2_cbxj8"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/Entities/player.tscn" id="3_opmxo"]
-[ext_resource type="PackedScene" uid="uid://bevkrrlrsecm1" path="res://scenes/UI/HUD.tscn" id="4_j7vvh"]
 [ext_resource type="PackedScene" uid="uid://dmfhqptu21aou" path="res://scenes/Entities/penguin.tscn" id="5_2xung"]
 [ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="6_4otp6"]
 
@@ -619,14 +618,6 @@ sources/1 = SubResource("TileSetAtlasSource_1shnu")
 
 [node name="Scena1" type="Node2D"]
 position = Vector2(1, 0)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("4_j7vvh")]
-offset_left = -98.0
-offset_top = 314.24
-offset_right = -688.424
-offset_bottom = 62.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(47, -13)

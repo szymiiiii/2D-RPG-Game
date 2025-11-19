@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt4oh68nhhnir"]
+[gd_scene load_steps=5 format=3 uid="uid://dt4oh68nhhnir"]
 
 [ext_resource type="PackedScene" uid="uid://blygneb8hstup" path="res://scenes/Maps/level_1.tscn" id="1_4aew2"]
 [ext_resource type="PackedScene" uid="uid://bevkrrlrsecm1" path="res://scenes/UI/HUD.tscn" id="2_75vxi"]
+[ext_resource type="Script" uid="uid://cd2o3r1i7e3wb" path="res://scripts/Inventory/user_interface.gd" id="3_a8mty"]
+[ext_resource type="PackedScene" uid="uid://cp0dwcio5vdld" path="res://scenes/Inventory/Inventory.tscn" id="4_jfxgp"]
 
 [node name="Gameplay" type="Node2D"]
 
@@ -16,3 +18,8 @@ offset_left = -12.04
 offset_top = -3.832
 offset_right = 108.816
 offset_bottom = -3.944
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("3_a8mty")
+
+[node name="Inventory" parent="UserInterface" instance=ExtResource("4_jfxgp")]
