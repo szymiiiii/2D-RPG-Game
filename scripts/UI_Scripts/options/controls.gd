@@ -14,7 +14,9 @@ var input_actions = {
 	"Jumping": "Jump",
 	"Move_Down": "Move Down",
 	"Interact": "Interact",
-	"Exit": "Exit"
+	"Exit": "Exit",
+	"Inventory": "Inventory",
+	"pickup": "Pickup"
 }
 func _ready():
 	_create_action_list()

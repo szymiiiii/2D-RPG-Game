@@ -13,8 +13,10 @@ func physics_update(delta: float) -> void:
 		change_orientation.emit(0)
 	
 	player.move_and_slide()
-
-	if DoorManager.is_player_inside_vertical_doors && Input.is_action_pressed("Interact") || DoorManager.is_player_inside_horizontal_doors:
+	
+	if GlobalVariables.is_idle_forced:
+		finished.emit(IDLE)
+	elif DoorManager.is_player_inside_vertical_doors && Input.is_action_pressed("Interact") || DoorManager.is_player_inside_horizontal_doors:
 		finished.emit(GETTING_IN)
 	elif not player.is_on_floor():
 		finished.emit(FALLING)

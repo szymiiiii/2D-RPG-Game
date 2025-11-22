@@ -1,9 +1,14 @@
 extends Node2D
 
-#levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w enum i słowniku
+#levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w Levels_Enum i słowniku LEVELS
 enum Levels_Enum {
 	one, two, 
-	house_entry, house_level, house_toilet, house_bedroom
+	
+	house_entry, house_level, house_toilet, house_bedroom,
+	
+	path_one_two, office
+	
+	#TRZEBA DODAWAĆ OPCJE ENUM OD DOŁU TAK ABY NIE POPSUC ISTNIEJACYCH DRZWI
 }
 const LEVELS = {
 	Levels_Enum.one: "res://scenes/Maps/level_one.tscn",
@@ -12,7 +17,10 @@ const LEVELS = {
 	Levels_Enum.house_entry: "res://scenes/Maps/house/house_entry.tscn",
 	Levels_Enum.house_level: "res://scenes/Maps/house/house_level.tscn",
 	Levels_Enum.house_toilet: "res://scenes/Maps/house/house_toilet.tscn",
-	Levels_Enum.house_bedroom: "res://scenes/Maps/house/house_bedroom.tscn"
+	Levels_Enum.house_bedroom: "res://scenes/Maps/house/house_bedroom.tscn",
+	
+	Levels_Enum.path_one_two: "res://scenes/Maps/level_1-2.tscn",
+	Levels_Enum.office: "res://scenes/Maps/office.tscn",
 }
 
 #analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
@@ -31,7 +39,7 @@ const TRANSITION_VALUES = {
 @onready var collision_shape = $Area2D/CollisionShape2D
 
 #orientacja okreslajaca w jaki sposob gracz moze prowadzic interakcje z drzwiami
-# i w jaka animacja zostanie wywolana w Player node
+# i jaka animacja zostanie wywolana w Player node
 # w przypadku "vertical" musi najpierw nacisnac przycisk potwierdzajacy wejscie do nastepnej sceny
 # w przypadku right i left wystarczy samo wejscie w drzwi
 @export_enum("left", "right", "vertical") var orientation

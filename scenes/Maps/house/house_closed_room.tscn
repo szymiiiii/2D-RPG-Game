@@ -197,7 +197,7 @@ position = Vector2(-8, 8)
 tile_set = SubResource("TileSet_w740c")
 
 [node name="Player" parent="." instance=ExtResource("3_houdp")]
-position = Vector2(-152, -16)
+position = Vector2(-56, -18)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("4_tpqxq")]

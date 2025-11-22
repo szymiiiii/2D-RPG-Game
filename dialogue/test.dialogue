@@ -1,10 +1,12 @@
 ~ start
 
+
 Penguin: What do you want?
 if GlobalVariables.penguin == "apple":
 	- I have an apple.
 		Penguin: That's great. Give me.
 		set GlobalVariables.penguin = "gave"
+		=> END
 elif GlobalVariables.penguin == "gave":
 	Player: Enjoying the apple?
 	Penguin: I had better.
@@ -14,7 +16,7 @@ else:
 		Penguin: Keep it to yourself.
 		=> END
 
-=> END
+
 
 ~ get_apple
 

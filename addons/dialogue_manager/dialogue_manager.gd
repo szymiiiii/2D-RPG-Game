@@ -105,6 +105,7 @@ func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_
 
 	# If our dialogue is nothing then we hit the end
 	if not _is_valid(dialogue):
+		
 		dialogue_ended.emit.call_deferred(resource)
 		return null
 
@@ -120,6 +121,7 @@ func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_
 				pass
 		if actual_next_id in [DMConstants.ID_END_CONVERSATION, DMConstants.ID_NULL, null]:
 			# End the conversation
+			#print("ballon ended")
 			dialogue_ended.emit.call_deferred(resource)
 			return null
 		else:
@@ -465,14 +467,16 @@ func static_id_to_line_ids(resource: DialogueResource, static_id: String) -> Pac
 # Call "start" on the given balloon.
 func _start_balloon(balloon: Node, resource: DialogueResource, title: String, extra_game_states: Array) -> void:
 	get_current_scene.call().add_child(balloon)
-
+	
 	if balloon.has_method(&"start"):
 		balloon.start(resource, title, extra_game_states)
 	elif balloon.has_method(&"Start"):
 		balloon.Start(resource, title, extra_game_states)
 	else:
 		assert(false, DMConstants.translate(&"runtime.dialogue_balloon_missing_start_method"))
-
+		
+	#print("ballon started")
+	
 	dialogue_started.emit(resource)
 	bridge_dialogue_started.emit(resource)
 

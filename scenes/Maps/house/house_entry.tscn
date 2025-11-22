@@ -210,7 +210,7 @@ tile_map_data = PackedByteArray("AAALAPn/AQAEAAEAAAAKAPn/AQADAAEAAAAIAPn/AQADAAE
 tile_set = SubResource("TileSet_6f83k")
 
 [node name="Player" parent="." instance=ExtResource("2_6f83k")]
-position = Vector2(39, -20)
+position = Vector2(66, -17)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("3_xxh34")]
