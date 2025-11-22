@@ -1,0 +1,271 @@
+[gd_scene load_steps=7 format=4 uid="uid://lcq34efw7nh4"]
+
+[ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_jq2tj"]
+[ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="2_3roai"]
+[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_olkda"]
+[ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_n5fa0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mh8do"]
+texture = ExtResource("2_3roai")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+8:4/0 = 0
+8:5/0 = 0
+7:5/0 = 0
+7:4/0 = 0
+7:3/0 = 0
+8:1/0 = 0
+6:4/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+1:11/0 = 0
+1:12/0 = 0
+1:13/0 = 0
+1:14/0 = 0
+1:15/0 = 0
+1:16/0 = 0
+0:16/0 = 0
+0:15/0 = 0
+0:14/0 = 0
+0:13/0 = 0
+0:12/0 = 0
+0:11/0 = 0
+2:12/0 = 0
+2:13/0 = 0
+2:14/0 = 0
+2:15/0 = 0
+2:16/0 = 0
+2:17/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+16:12/0 = 0
+15:12/0 = 0
+14:12/0 = 0
+13:12/0 = 0
+12:12/0 = 0
+11:12/0 = 0
+10:12/0 = 0
+9:12/0 = 0
+8:12/0 = 0
+7:12/0 = 0
+7:11/0 = 0
+7:10/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+18:10/0 = 0
+18:11/0 = 0
+17:10/0 = 0
+16:10/0 = 0
+15:10/0 = 0
+14:10/0 = 0
+13:10/0 = 0
+12:10/0 = 0
+11:10/0 = 0
+12:7/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+14:8/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+15:7/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+11:6/0 = 0
+10:6/0 = 0
+9:6/0 = 0
+10:4/0 = 0
+10:3/0 = 0
+10:2/0 = 0
+10:1/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+11:1/0 = 0
+11:2/0 = 0
+11:3/0 = 0
+11:4/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+14:4/0 = 0
+14:3/0 = 0
+14:2/0 = 0
+14:1/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+13:0/0 = 0
+13:1/0 = 0
+13:2/0 = 0
+13:3/0 = 0
+13:4/0 = 0
+12:4/0 = 0
+12:3/0 = 0
+12:2/0 = 0
+12:1/0 = 0
+12:0/0 = 0
+16:8/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+17:6/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+18:7/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+19:7/0 = 0
+19:8/0 = 0
+3:6/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+4:8/0 = 0
+4:6/0 = 0
+3:8/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w740c"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_mh8do")
+
+[node name="HouseLevel" type="Node2D"]
+
+[node name="HouseEntryDoor" parent="." instance=ExtResource("1_jq2tj")]
+position = Vector2(-160, -48)
+orientation = 1
+next_scene = 3
+id = 2
+
+[node name="Tilesets" type="Node2D" parent="."]
+
+[node name="PhysicsLayer" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, 1)
+tile_map_data = PackedByteArray("AAAAAP//AQAEAAAAAAABAP//AQAEAAAAAAACAP//AQAEAAAAAAADAP//AQAEAAAAAAAEAP//AQAEAAAAAAAFAP//AQAEAAAAAAAGAP//AQAEAAAAAAAHAP//AQAEAAAAAAAIAP//AQAEAAAAAAAJAP//AQAEAAAAAAAKAP//AQAEAAAAAAALAP//AQAEAAAAAAALAP7/AQAEAAAAAAALAP3/AQAEAAAAAAALAPz/AQAEAAAAAAALAPv/AQAEAAAAAAALAPr/AQAEAAAAAAALAPn/AQAEAAAAAAAKAPn/AQAEAAAAAAAJAPn/AQAEAAAAAAAIAPn/AQAEAAAAAAAGAPn/AQAEAAAAAAAHAPn/AQAEAAAAAAAFAPn/AQAEAAAAAAAEAPn/AQAEAAAAAAADAPn/AQAEAAAAAAABAPn/AQAEAAAAAAACAPn/AQAEAAAAAAAAAPn/AQAEAAAAAAAKAPr/AQAEAAAAAAAKAPv/AQAEAAAAAAAKAPz/AQAEAAAAAAAKAP3/AQAEAAAAAAAKAP7/AQAEAAAAAAD/////AQAEAAAAAAD+////AQAEAAAAAAD9////AQAEAAAAAAD8////AQAEAAAAAAD7////AQAEAAAAAAD6////AQAEAAAAAAD5////AQAEAAAAAAD4////AQAEAAAAAAD3////AQAEAAAAAAD2////AQAEAAAAAAD1////AQAEAAAAAAD1//7/AQAEAAAAAAD1//z/AQAEAAAAAAD1//3/AQAEAAAAAAD1//v/AQAEAAAAAAD1//r/AQAEAAAAAAD1//n/AQAEAAAAAAD2//n/AQAEAAAAAAD3//n/AQAEAAAAAAD4//n/AQAEAAAAAAD5//n/AQAEAAAAAAD6//n/AQAEAAAAAAD7//n/AQAEAAAAAAD8//n/AQAEAAAAAAD9//n/AQAEAAAAAAD+//n/AQAEAAAAAAD///n/AQAEAAAAAAD0//n/AQAEAAAAAAD0//r/AQAEAAAAAAD0//v/AQAEAAAAAAD0//z/AQAEAAAAAAD0//3/AQAEAAAAAAD0//7/AQAEAAAAAAD0////AQAEAAAAAAAAAPr/AQAEAAAAAAAAAPv/AQAEAAAAAAAAAPz/AQAEAAAAAAAAAP3/AQAEAAAAAAAAAP7/AQAEAAAAAAD+//7/AQAEAAAAAAD+//3/AQAEAAAAAAD+//z/AQAEAAAAAAD+//v/AQAEAAAAAAD+//r/AQAEAAAAAAA=")
+tile_set = SubResource("TileSet_w740c")
+
+[node name="Background" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAD6//v/AQAFAAIAAAD6//z/AQAFAAMAAAD6//3/AQAFAAIAAAD6//7/AQAFAAMAAAD7//v/AQAFAAIAAAD7//z/AQAFAAMAAAD7//3/AQAFAAIAAAD7//7/AQAFAAMAAAD8//v/AQAFAAIAAAD8//z/AQAFAAMAAAD8//3/AQAFAAIAAAD8//7/AQAFAAMAAAD9//v/AQAFAAIAAAD9//z/AQAFAAMAAAD9//3/AQAFAAIAAAD9//7/AQAFAAMAAAD+//v/AQAFAAIAAAD+//z/AQAFAAMAAAD+//3/AQAFAAIAAAD+//7/AQAFAAMAAAD3//v/AQAFAAIAAAD3//z/AQAFAAMAAAD3//3/AQAFAAIAAAD3//7/AQAFAAMAAAD2//v/AQAFAAIAAAD2//z/AQAFAAMAAAD2//3/AQAFAAIAAAD2//7/AQAFAAMAAAD4//v/AQAFAAIAAAD4//z/AQAFAAMAAAD4//3/AQAFAAIAAAD4//7/AQAFAAMAAAD5//v/AQAFAAIAAAD5//z/AQAFAAMAAAD5//3/AQAFAAIAAAD5//7/AQAFAAMAAAD///v/AQAFAAIAAAD///z/AQAFAAMAAAD///3/AQAFAAIAAAD///7/AQAFAAMAAAD2//r/AQAFAAEAAAD3//r/AQAFAAEAAAD4//r/AQAFAAEAAAD5//r/AQAFAAEAAAD6//r/AQAFAAEAAAD7//r/AQAFAAEAAAD8//r/AQAFAAEAAAD9//r/AQAFAAEAAAD+//r/AQAFAAEAAAD///r/AQAFAAEAAAD2////AQAEAAQAAAD2/wAAAQAEAAUAAAD3////AQAFAAQAAAD3/wAAAQAFAAUAAAD4////AQAGAAQAAAD4/wAAAQAGAAUAAAD5////AQAEAAQAAAD5/wAAAQAEAAUAAAD6////AQAFAAQAAAD6/wAAAQAFAAUAAAD7////AQAGAAQAAAD7/wAAAQAGAAUAAAD8////AQAEAAQAAAD8/wAAAQAEAAUAAAD9////AQAFAAQAAAD9/wAAAQAFAAUAAAD+////AQAGAAQAAAD+/wAAAQAGAAUAAAD/////AQAEAAQAAAD//wAAAQAEAAUAAAA=")
+tile_set = SubResource("TileSet_w740c")
+
+[node name="Asymmetrical Background" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(24, -16)
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneProps" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAD+//7/AQAQAAcAAAD+////AQAQAAgAAAD///7/AQARAAcAAAD/////AQARAAgAAAD7//3/AQASAAYAAAD7//7/AQASAAcAAAD7////AQASAAgAAAD8//3/AQATAAYAAAD8//7/AQATAAcAAAD8////AQATAAgAAAD9//z/AQAPAAYAAAD9//3/AQAPAAcAAAD9//7/AQAMAAcAAAD9////AQAMAAgAAAD7//r/AQAAAA4AAAD7//v/AQAAAA8AAAD8//r/AQABAA4AAAD8//v/AQABAA8AAAD3//3/AQACAAwAAAD4//3/AQADAAYAAAD4//7/AQADAAcAAAD4////AQADAAgAAAD5//3/AQAEAAYAAAD5//7/AQAEAAcAAAD5////AQAEAAgAAAD4//z/AQAFAAcAAAD5//z/AQAGAAcAAAA=")
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneProps2" type="TileMapLayer" parent="Tilesets"]
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneBorders" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAAAAP//AQAHAAAAADAAAP3/AQACAAQAAAAAAP7/AQACAAUAAAAAAPv/AQACAAQAAAAAAPz/AQACAAUAAAAAAPr/AQACAAUAAAD1//v/AQAHAAAAAAD1//z/AQAHAAEAAAD1//3/AQAHAAIAAAD1//7/AQAHAAMAAAD1////AQAHAAQAAAD1/wAAAQAHAAUAAAD2//v/AQAIAAAAAAD2//z/AQAIAAEAAAD2//3/AQAIAAIAAAD2//7/AQAIAAMAAAD2////AQAIAAQAAAD2/wAAAQAIAAUAAAD///r/AQADAAEAAAD+//r/AQADAAEAAAD9//r/AQADAAEAAAD8//r/AQADAAEAAAD7//r/AQADAAEAAAD6//r/AQADAAEAAAD5//r/AQADAAEAAAD4//r/AQADAAEAAAD3//r/AQADAAEAAAD2//r/AQADAAEAAAA=")
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneBorders2" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(-8, 8)
+tile_map_data = PackedByteArray("AAAAAPn/AQAEAAEAAAD2//n/AQACAAEAAAA=")
+tile_set = SubResource("TileSet_w740c")
+
+[node name="Player" parent="." instance=ExtResource("3_olkda")]
+position = Vector2(-90, -17)
+is_jumping_allowed = false
+
+[node name="PlayerBodyCamera" parent="Player" instance=ExtResource("4_n5fa0")]
+position = Vector2(0, -40)
