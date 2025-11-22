@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://dh013ww0cclyd"]
+[gd_scene load_steps=17 format=4 uid="uid://dh013ww0cclyd"]
 
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_55u23"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="2_hvk8v"]
 [ext_resource type="Texture2D" uid="uid://becrfv54japps" path="res://assets/Day_background.png" id="3_1uhcu"]
-[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/Entities/player.tscn" id="3_7t0gg"]
+[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_7t0gg"]
 [ext_resource type="PackedScene" uid="uid://clbqbcg4c0suy" path="res://scenes/Inventory/item_drop.tscn" id="5_4ws5y"]
+[ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="5_m2s53"]
+[ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="7_1pnvl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hvk8v"]
 texture = ExtResource("1_55u23")
@@ -4059,17 +4061,21 @@ scale = Vector2(3.9184155, 5.691784)
 tile_map_data = PackedByteArray("AADy//3/AQAkAAIAAAAKAP3/AQAaAA8AAAAhAP3/AQAkAAIAAAA=")
 tile_set = SubResource("TileSet_4ws5y")
 
-[node name="Player" parent="." instance=ExtResource("3_7t0gg")]
-position = Vector2(37, -21)
+[node name="Doors" parent="." instance=ExtResource("7_1pnvl")]
+position = Vector2(6, -39)
+orientation = 2
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -8)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-drag_left_margin = 0.02
-drag_top_margin = 0.02
-drag_right_margin = 0.03
-drag_bottom_margin = 0.03
+[node name="Doors2" parent="." instance=ExtResource("7_1pnvl")]
+position = Vector2(2261, -487)
+orientation = 2
+next_scene = 1
+id = 1
+
+[node name="Player" parent="." instance=ExtResource("3_7t0gg")]
+position = Vector2(75, -9)
+jump_impulse = 600.0
+
+[node name="PlayerBodyCamera" parent="Player" instance=ExtResource("5_m2s53")]
 
 [node name="ItemDrop" parent="." instance=ExtResource("5_4ws5y")]
 position = Vector2(103.99999, -22.999998)

@@ -17,7 +17,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	
 	#print(player.velocity.y)
-	if Input.is_action_just_released("Jumping"):
+	if Input.is_action_just_released("Jumping") || GlobalVariables.is_idle_forced:
 		player.velocity.y = player.velocity.y/3
 		
 	if player.direction * input_direction_x < 0:

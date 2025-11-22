@@ -12,6 +12,8 @@ func set_keybindings_to_default():
 	config_file.set_value("keybinding", "Move_Down", "S")
 	config_file.set_value("keybinding", "Interact", "Enter")
 	config_file.set_value("keybinding", "Exit", "Escape")
+	config_file.set_value("keybinding", "Inventory", "I")
+	config_file.set_value("keybinding", "Pickup", "F")
 
 #AUDIO DODAM WRAZ Z FMOD
 func set_audio_to_default():

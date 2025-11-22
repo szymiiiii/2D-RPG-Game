@@ -41,61 +41,61 @@ script = ExtResource("1_rpfql")
 
 [node name="Resume" type="Button" parent="Main_options"]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 text = "Resume
 "
 
 [node name="Save" type="Button" parent="Main_options"]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 text = "Save Game
 "
 
 [node name="Return" type="Button" parent="Main_options"]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 text = "Return
 "
 
 [node name="Quit" type="Button" parent="Main_options"]
 layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v881c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v881c")
 text = "Quit
 "
 
