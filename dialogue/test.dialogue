@@ -1,0 +1,27 @@
+~ start
+
+
+Penguin: What do you want?
+if GlobalVariables.penguin == "apple":
+	- I have an apple.
+		Penguin: That's great. Give me.
+		set GlobalVariables.penguin = "gave"
+		=> END
+elif GlobalVariables.penguin == "gave":
+	Player: Enjoying the apple?
+	Penguin: I had better.
+	=> END
+else:
+	- Just wanted to talk.
+		Penguin: Keep it to yourself.
+		=> END
+
+
+
+~ get_apple
+
+Player: [Wave]Yoink![/Wave]
+set GlobalVariables.penguin = "apple"
+You stole the apple.
+
+=> END

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmfhqptu21aou"]
+
+[ext_resource type="Texture2D" uid="uid://ciu4g8e5ikwil" path="res://assets/sprPenguinP.png" id="1_b3h8v"]
+[ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="2_hbiua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjoc8"]
+atlas = ExtResource("1_b3h8v")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbiua"]
+atlas = ExtResource("1_b3h8v")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6kxo7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjoc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbiua")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3h8v"]
+radius = 8.0
+height = 28.0
+
+[node name="Penguin" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6kxo7")
+animation = &"idle"
+frame_progress = 0.341272
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_b3h8v")
+
+[node name="Actionable" parent="." instance=ExtResource("2_hbiua")]
