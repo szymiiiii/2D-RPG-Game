@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt4oh68nhhnir"]
+[gd_scene load_steps=5 format=3 uid="uid://dt4oh68nhhnir"]
 
 [ext_resource type="Script" uid="uid://4tr6hl8gyo5b" path="res://scripts/level_container.gd" id="1_75vxi"]
-[ext_resource type="PackedScene" uid="uid://4svjkqfwdq3f" path="res://scenes/UI/ESC_Menu.tscn" id="3_5sdaa"]
+[ext_resource type="PackedScene" uid="uid://bevkrrlrsecm1" path="res://scenes/UI/HUD.tscn" id="2_a8mty"]
+[ext_resource type="Script" uid="uid://cd2o3r1i7e3wb" path="res://scripts/Inventory/user_interface.gd" id="3_a8mty"]
+[ext_resource type="PackedScene" uid="uid://cp0dwcio5vdld" path="res://scenes/Inventory/Inventory.tscn" id="4_jfxgp"]
 
 [node name="Gameplay" type="Node2D"]
 
@@ -10,15 +12,13 @@ script = ExtResource("1_75vxi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("2_a8mty")]
+offset_right = 219.42859
+offset_bottom = -6.1035156e-05
 
-[node name="EscMenu" parent="CanvasLayer/HUD" instance=ExtResource("3_5sdaa")]
-layout_mode = 1
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("3_a8mty")
+
+[node name="Inventory" parent="UserInterface" instance=ExtResource("4_jfxgp")]
 
 [connection signal="child_entered_tree" from="Levels" to="Levels" method="_on_child_entered_tree"]
