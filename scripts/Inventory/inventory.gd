@@ -7,7 +7,7 @@ var holding_item = null
 func _ready() -> void:
 	for slots in invent_slots.get_children():
 		slots.gui_input.connect(slot_gui_input.bind(slots))
-	#initialize_inventory()
+	initialize_inventory()
 		
 func initialize_inventory():
 	var slots = invent_slots.get_children()

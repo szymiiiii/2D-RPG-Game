@@ -42,7 +42,7 @@ func putIntoSlot(new_item):
 
 func initialize_item(item_name, item_quantity):
 	if item == null:
-		item = ItemClass.instance()
+		item = ItemClass.instantiate()
 		add_child(item)
 		item.set_item(item_name, item_quantity)
 	else:

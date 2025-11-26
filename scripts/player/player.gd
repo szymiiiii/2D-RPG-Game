@@ -34,9 +34,9 @@ func _on_ready_to_teleport_to_door():
 #Janek MERGE
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pickup"):
-		print("pickup")
+		#print("pickup")
 		if $PickupArea.items_in_range.size() > 0:
-			print("action")
+			#print("action")
 			var pickup_itme = $PickupArea.items_in_range.values()[0]
 			pickup_itme.pick_up_item(pickup_itme)
 			$PickupArea.items_in_range.erase(pickup_itme)
