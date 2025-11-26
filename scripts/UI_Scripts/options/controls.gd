@@ -18,6 +18,7 @@ var input_actions = {
 	"Inventory": "Inventory",
 	"pickup": "Pickup"
 }
+
 func _ready():
 	_create_action_list()
 

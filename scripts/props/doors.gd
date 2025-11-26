@@ -1,6 +1,6 @@
 extends Node2D
 
-#levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w Levels_Enum i słowniku LEVELS
+##levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w Levels_Enum i słowniku LEVELS
 enum Levels_Enum {
 	one, two, 
 	
@@ -8,7 +8,7 @@ enum Levels_Enum {
 	
 	path_one_two, office
 	
-	#TRZEBA DODAWAĆ OPCJE ENUM OD DOŁU TAK ABY NIE POPSUC ISTNIEJACYCH DRZWI
+	##TRZEBA DODAWAĆ OPCJE ENUM OD DOŁU TAK ABY NIE POPSUC ISTNIEJACYCH DRZWI
 }
 const LEVELS = {
 	Levels_Enum.one: "res://scenes/Maps/level_one.tscn",
@@ -23,7 +23,7 @@ const LEVELS = {
 	Levels_Enum.office: "res://scenes/Maps/office.tscn",
 }
 
-#analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
+##analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
 enum Transition_Enum {
 	fade_from_black,
 	fade_from_white,
@@ -38,20 +38,20 @@ const TRANSITION_VALUES = {
 @onready var collision_area = $Area2D
 @onready var collision_shape = $Area2D/CollisionShape2D
 
-#orientacja okreslajaca w jaki sposob gracz moze prowadzic interakcje z drzwiami
-# i jaka animacja zostanie wywolana w Player node
-# w przypadku "vertical" musi najpierw nacisnac przycisk potwierdzajacy wejscie do nastepnej sceny
-# w przypadku right i left wystarczy samo wejscie w drzwi
+##orientacja okreslajaca w jaki sposob gracz moze prowadzic interakcje z drzwiami
+## i jaka animacja zostanie wywolana w Player node
+## w przypadku "vertical" musi najpierw nacisnac przycisk potwierdzajacy wejscie do nastepnej sceny
+## w przypadku right i left wystarczy samo wejscie w drzwi
 @export_enum("left", "right", "vertical") var orientation
 
-#nastepna scena to scena mapy do zaladowania zamiast obecnej
+##nastepna scena to scena mapy do zaladowania zamiast obecnej
 @export var next_scene: Levels_Enum
 
-#wybor przejscia uzywanego przez SceneManagera
+##wybor przejscia uzywanego przez SceneManagera
 @export var transition_choice: Transition_Enum
 
-#wybor id, Player zostanie zespawnowany na nastepnej scenie przy drzwiach o tym samym numerze id
-# w przypadku 
+##wybor id, Player zostanie zespawnowany na nastepnej scenie przy drzwiach o tym samym numerze id
+## w przypadku 
 @export_range(0, 10) var id : int
 
 @export var are_doors_closed: bool = false

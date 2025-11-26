@@ -7,6 +7,7 @@ var inventory = {
 }
 
 func add_item(item_name, item_quanity):
+	#print("add_item: ", item_name, ", quantity: ", item_quanity)
 	for item in inventory:
 		if inventory[item][0] == item_name:
 			#TODO Check if slot is full
