@@ -4,7 +4,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey && event.is_action("Exit"):
 		if event.is_pressed() and not event.is_echo():
 			self.visible = !self.visible
-			GlobalVariables.is_idle_forced = true
+			GlobalVariables.is_idle_forced = !GlobalVariables.is_idle_forced
 
 func _on_resume_pressed() -> void:
 	print("resume")
