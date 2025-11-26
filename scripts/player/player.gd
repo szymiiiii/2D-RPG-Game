@@ -38,7 +38,7 @@ func _input(event: InputEvent) -> void:
 		if $PickupArea.items_in_range.size() > 0:
 			print("action")
 			var pickup_itme = $PickupArea.items_in_range.values()[0]
-			pickup_itme.pick_up_item(self)
+			pickup_itme.pick_up_item(pickup_itme)
 			$PickupArea.items_in_range.erase(pickup_itme)
 	elif event.is_action_pressed("Interact"):
 		var action = actionable_finder.get_overlapping_areas()
