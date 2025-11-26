@@ -68,7 +68,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		printerr("dlatego wylaczam drzwi aby nie bylo problemow")
 		collision_area.monitorable = false
 	elif DoorManager.did_player_go_through_doors:
-		print("Doors.gd weszło w interakcje z graczem ale przeszedl on juz przez drzwi")
+		pass
+		#print("Doors.gd weszło w interakcje z graczem ale przeszedl on juz przez drzwi")
 	elif are_doors_closed:
 		print("drzwi som zamkniete")
 	elif (orientation != null && next_scene != null && transition_choice != null && id != null):

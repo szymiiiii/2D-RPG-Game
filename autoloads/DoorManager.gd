@@ -52,7 +52,7 @@ func _on_player_in_doors(door_id: int, door_orientation: int, transition_name: S
 			"next_map_name": next_map_name,
 			"door_position": door_position
 		}
-		print("Door manager - door id: ", door_dictionary["door_id"], ", orient: ", door_dictionary["door_orientation"])
+		#print("Door manager - door id: ", door_dictionary["door_id"], ", orient: ", door_dictionary["door_orientation"])
 	else:
 		printerr("Door manager - gracz juz jest w drzwiach a probuje dostac sie do kolejnych")
 
@@ -68,7 +68,7 @@ func _on_player_exited_doors():
 		#"next_map_name": "",
 		#"door_position": Vector2(0, 0)
 	#}
-	print("Door manager - gracz opuscil drzwi")
+	#print("Door manager - gracz opuscil drzwi")
 
 func _on_all_door_registrate_in_scene_manager(door_node: Node2D, door_id: int):
 	if door_list[door_id] == null:
@@ -106,7 +106,7 @@ func _on_player_ready():
 					"next_map_name": "",
 					"door_position": door_target.position
 				}
-				print("DoorManager - udalo sie przejsc i zapisac dane nowych drzwi")
+				#print("DoorManager - udalo sie przejsc i zapisac dane nowych drzwi")
 				player_ready_to_teleport_to_door.emit()
 			else:
 				printerr("DoorManager - nie ma odpowiednika z wypelniona orientacja na obecnej scenie")
