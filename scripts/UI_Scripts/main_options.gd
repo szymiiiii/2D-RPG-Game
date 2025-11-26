@@ -1,10 +1,17 @@
 extends VBoxContainer
 
+@onready var continueButton: Button = $Continue
+
+func _ready() -> void:
+	print(SaveGameManager.checkIfSaveExists())
+	continueButton.visible = SaveGameManager.checkIfSaveExists()
 
 func _on_continue_pressed() -> void:
-	GlobalVariables.is_continue_enabled = true
-	SceneManager.swap_scenes("res://scenes/Gameplay.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
-	
+	if SaveGameManager.checkIfSaveExists():
+		GlobalVariables.is_continue_enabled = true
+		SceneManager.swap_scenes("res://scenes/Gameplay.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
+	else:
+		print("nie ma pliku zapisu gry")
 
 
 func _on_start_pressed() -> void:
