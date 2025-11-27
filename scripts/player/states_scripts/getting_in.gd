@@ -6,6 +6,7 @@ var door_position_x
 var is_player_in_zone
 
 func enter(previous_state_path: String, data := {}) -> void:
+	#print("player got into getting IN state")
 	is_player_on_ground =player.is_on_floor()
 	door_position_x = DoorManager.door_dictionary["door_position"].x
 	is_player_in_zone = player.position.x <= door_position_x + 5 && player.position.x >= door_position_x - 5
@@ -19,12 +20,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 			play_anim.emit("walking")
 		else:
 			play_anim.emit("falling")
+	
 	pass
 
 func physics_update(delta: float) -> void:
 	#var input_direction_x := Input.get_axis("Move_Left", "Move_Right")
-	
-	
+	#print("getting_in: \nis_player_in_zone - ", is_player_in_zone,)
 	if is_player_in_zone != (player.position.x <= door_position_x + 5 && player.position.x >= door_position_x - 5 ):
 		#print("pozycja drzwi x: ", door_position_x, " i pozycja gracza x: ", player.position.x)
 		play_anim.emit("turn_around")
