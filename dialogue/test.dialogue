@@ -27,7 +27,6 @@ You stole the apple.
 => END
 
 ~ battle
-
 The battle starts...
 set GlobalVariables.is_in_battle = true
 => END

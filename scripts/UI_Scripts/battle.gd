@@ -57,9 +57,7 @@ func _on_run_pressed() -> void:
 	$MagicPanel.hide()
 	$ActionPanel.hide()
 	show_text("You ran away")
-	await text_closed
-	await get_tree().create_timer(1.0).timeout
-	get_tree().quit()
+	_end_battle()
 
 
 func _on_attack_pressed() -> void:
@@ -137,6 +135,8 @@ func _end_battle():
 	await text_closed
 	await get_tree().create_timer(0.25).timeout
 	visible = false
+	GlobalVariables.is_in_battle = false
+	SignalBus.battle_ended.emit()
 	#get_tree().quit()
 	
 func _player_joins_battle():
