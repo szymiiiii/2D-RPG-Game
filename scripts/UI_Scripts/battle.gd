@@ -8,6 +8,7 @@ var e_health: int
 
 
 func _ready() -> void:
+	SignalBus.is_in_battle.connect(_player_joins_battle)
 	SignalBus.fireball.connect(fireball_pressed)
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
@@ -19,11 +20,14 @@ func _ready() -> void:
 	$MagicPanel/MagicContainer/Button.hide()
 	$MagicPanel/MagicContainer/Button2.hide()
 	$MagicPanel/MagicContainer/Button3.hide()
+	print("visible")
+	visible = false
 	show_text("A wild %s appears" % enemy.name)
 	await text_closed
 	show_text("Stop right there")
 	await text_closed
 	$ActionPanel.show()
+	
 	
 func _input(event) -> void:
 	if (Input.is_action_just_pressed("Interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $Textbox.visible:
@@ -72,9 +76,7 @@ func _on_attack_pressed() -> void:
 		await $AnimationPlayer.animation_finished
 		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
 		show_text("The %s has been defeated." % enemy.name)
-		await text_closed
-		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		_end_battle()
 	enemy_turn()
 
 
@@ -111,9 +113,7 @@ func fireball_pressed():
 		await $AnimationPlayer.animation_finished
 		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
 		show_text("The %s has been defeated." % enemy.name)
-		await text_closed
-		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		_end_battle()
 	enemy_turn()
 
 func poison_pressed():
@@ -130,7 +130,15 @@ func poison_pressed():
 		await $AnimationPlayer.animation_finished
 		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
 		show_text("The %s has been defeated." % enemy.name)
-		await text_closed
-		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		_end_battle()
 	enemy_turn()
+	
+func _end_battle():
+	await text_closed
+	await get_tree().create_timer(0.25).timeout
+	visible = false
+	#get_tree().quit()
+	
+func _player_joins_battle():
+	
+	visible = true

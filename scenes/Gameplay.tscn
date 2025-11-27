@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt4oh68nhhnir"]
+[gd_scene load_steps=6 format=3 uid="uid://dt4oh68nhhnir"]
 
 [ext_resource type="Script" uid="uid://4tr6hl8gyo5b" path="res://scripts/level_container.gd" id="1_75vxi"]
 [ext_resource type="PackedScene" uid="uid://bevkrrlrsecm1" path="res://scenes/UI/HUD.tscn" id="2_a8mty"]
 [ext_resource type="Script" uid="uid://cd2o3r1i7e3wb" path="res://scripts/Inventory/user_interface.gd" id="3_a8mty"]
+[ext_resource type="PackedScene" uid="uid://b8110o5l0h5qb" path="res://scenes/Battle/Battle1.tscn" id="3_jfxgp"]
 [ext_resource type="PackedScene" uid="uid://cp0dwcio5vdld" path="res://scenes/Inventory/Inventory.tscn" id="4_jfxgp"]
 
 [node name="Gameplay" type="Node2D"]
@@ -18,6 +19,8 @@ offset_bottom = -6.1035156e-05
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource("3_a8mty")
+
+[node name="Battle1" parent="UserInterface" instance=ExtResource("3_jfxgp")]
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource("4_jfxgp")]
 

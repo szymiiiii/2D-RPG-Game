@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs6f1jo7jg1c3"]
+
+[ext_resource type="Script" uid="uid://wlj56i5uxok7" path="res://scripts/Enemies/enemy_actionable.gd" id="1_il6if"]
+[ext_resource type="Script" uid="uid://cv0846abwnjra" path="res://scripts/Enemies/basic_enemy.gd" id="1_l7yrx"]
+[ext_resource type="Texture2D" uid="uid://emx53s8k80sc" path="res://assets/Battle/canvas6.png" id="1_xr4v0"]
+[ext_resource type="Resource" uid="uid://q2aajwnvk14q" path="res://dialogue/test.dialogue" id="2_il6if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7yrx"]
+size = Vector2(290, 156)
+
+[node name="BasicEnemy" type="Node2D"]
+script = ExtResource("1_l7yrx")
+dialogue_resource = ExtResource("2_il6if")
+dialogue_start = "battle"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_il6if")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -30)
+shape = SubResource("RectangleShape2D_l7yrx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xr4v0")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -42,7 +42,9 @@ func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node
 		#"\n)")
 	if _loading_in_progress:
 		push_warning("SceneManager is already loading something")
-		return
+		while(_loading_in_progress):
+			await get_tree().create_timer(0.25).timeout
+		
 	
 	_loading_in_progress = true
 	if load_into == null: load_into = get_tree().root

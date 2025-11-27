@@ -6,6 +6,7 @@ signal player_ready(Player)
 var is_continue_enabled = false
 var has_dialog_started = false
 var is_idle_forced = false
+var is_in_battle = false
 
 #Janek
 @export var health: int = 100
@@ -52,4 +53,6 @@ func _dialogue_started(resource: DialogueResource) -> void:
 func _dialogue_ended(resource: DialogueResource) -> void:
 	has_dialog_started = false
 	is_idle_forced = false
+	if is_in_battle == true:
+		SignalBus.is_in_battle.emit()
 	pass
