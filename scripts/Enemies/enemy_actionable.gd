@@ -11,4 +11,6 @@ func action() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	action()
+	if !basic_enemy.is_in_battle:
+		basic_enemy.is_in_battle = true
+		action()
