@@ -10,23 +10,9 @@ var e_health: int
 func _ready() -> void:
 	SignalBus.is_in_battle.connect(_player_joins_battle)
 	SignalBus.fireball.connect(fireball_pressed)
-	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
-	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
-	$EnemyContainer/Enemy.texture = enemy.texture
-	e_health = enemy.health
-	$Textbox.hide()
-	$ActionPanel.hide()
-	$MagicPanel.hide()
-	$MagicPanel/MagicContainer/Button.hide()
-	$MagicPanel/MagicContainer/Button2.hide()
-	$MagicPanel/MagicContainer/Button3.hide()
-	print("visible")
+
 	visible = false
-	show_text("A wild %s appears" % enemy.name)
-	await text_closed
-	show_text("Stop right there")
-	await text_closed
-	$ActionPanel.show()
+	
 	
 	
 func _input(event) -> void:
@@ -140,5 +126,20 @@ func _end_battle():
 	#get_tree().quit()
 	
 func _player_joins_battle():
-	
+	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
+	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
+	$EnemyContainer/Enemy.texture = enemy.texture
+	e_health = enemy.health
+	$Textbox.hide()
+	$ActionPanel.hide()
+	$MagicPanel.hide()
+	$MagicPanel/MagicContainer/Button.hide()
+	$MagicPanel/MagicContainer/Button2.hide()
+	$MagicPanel/MagicContainer/Button3.hide()
 	visible = true
+	show_text("A wild %s appears" % enemy.name)
+	$AnimationPlayer.play("RESET")
+	await text_closed
+	show_text("Stop right there")
+	await text_closed
+	$ActionPanel.show()
