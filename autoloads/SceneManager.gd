@@ -34,7 +34,12 @@ func _add_loading_screen(transition_type:String="fade_to_black"):
 	_loading_screen.start_transition(_transition)
 	
 func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node=null, transition_type:String="fade_to_black") -> void:
-	
+	#print("swap_scenes( ",
+		#"\nscene_to_load: " ,  scene_to_load , 
+		#"\nload_into: " , load_into ,
+		#"\nscene_to_unload: " , scene_to_unload ,
+		#"\ntransition_type: " , transition_type ,
+		#"\n)")
 	if _loading_in_progress:
 		push_warning("SceneManager is already loading something")
 		return
@@ -48,26 +53,9 @@ func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node
 	_load_content(scene_to_load)	
 	
 	
-func swap_scenes_zelda(scene_to_load:String, load_into:Node, scene_to_unload:Node, move_dir:Vector2) -> void:
-	
-	if _loading_in_progress:
-		push_warning("SceneManager is already loading something")
-		return
-	
-	_transition = "zelda"
-	_load_scene_into = load_into
-	_scene_to_unload = scene_to_unload
-	_zelda_transition_direction = move_dir
-	_load_content(scene_to_load)
-	
 func _load_content(content_path:String) -> void:
 	
 	load_start.emit(_loading_screen)
-	
-	# zelda transition doesn't use a loading screen
-	if _transition != "zelda":
-		await _loading_screen.transition_in_complete
-		
 	_content_path = content_path
 	var loader = ResourceLoader.load_threaded_request(content_path)
 	if not ResourceLoader.exists(content_path) or loader == null:

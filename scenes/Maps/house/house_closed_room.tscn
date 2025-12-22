@@ -1,0 +1,204 @@
+[gd_scene load_steps=7 format=4 uid="uid://dor2vo8j04w7k"]
+
+[ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_kt7c7"]
+[ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="2_t63ip"]
+[ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_houdp"]
+[ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_tpqxq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mh8do"]
+texture = ExtResource("2_t63ip")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+8:4/0 = 0
+8:5/0 = 0
+7:5/0 = 0
+7:4/0 = 0
+7:3/0 = 0
+8:1/0 = 0
+6:4/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+1:11/0 = 0
+1:12/0 = 0
+1:13/0 = 0
+1:14/0 = 0
+1:15/0 = 0
+1:16/0 = 0
+0:16/0 = 0
+0:15/0 = 0
+0:14/0 = 0
+0:13/0 = 0
+0:12/0 = 0
+0:11/0 = 0
+2:12/0 = 0
+2:13/0 = 0
+2:14/0 = 0
+2:15/0 = 0
+2:16/0 = 0
+2:17/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+16:12/0 = 0
+15:12/0 = 0
+14:12/0 = 0
+13:12/0 = 0
+12:12/0 = 0
+11:12/0 = 0
+10:12/0 = 0
+9:12/0 = 0
+8:12/0 = 0
+7:12/0 = 0
+7:11/0 = 0
+7:10/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+18:10/0 = 0
+18:11/0 = 0
+17:10/0 = 0
+16:10/0 = 0
+15:10/0 = 0
+14:10/0 = 0
+13:10/0 = 0
+12:10/0 = 0
+11:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w740c"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_mh8do")
+
+[node name="HouseLevel" type="Node2D"]
+
+[node name="HouseEntryDoor" parent="." instance=ExtResource("1_kt7c7")]
+position = Vector2(-160, -48)
+orientation = 1
+next_scene = 3
+id = 4
+
+[node name="Tilesets" type="Node2D" parent="."]
+
+[node name="PhysicsLayer" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, 2)
+tile_map_data = PackedByteArray("AAAAAP//AQAEAAAAAAABAP//AQAEAAAAAAACAP//AQAEAAAAAAADAP//AQAEAAAAAAAEAP//AQAEAAAAAAAFAP//AQAEAAAAAAAGAP//AQAEAAAAAAAHAP//AQAEAAAAAAAIAP//AQAEAAAAAAAJAP//AQAEAAAAAAAKAP//AQAEAAAAAAALAP//AQAEAAAAAAALAP7/AQAEAAAAAAALAP3/AQAEAAAAAAALAPz/AQAEAAAAAAALAPv/AQAEAAAAAAALAPr/AQAEAAAAAAALAPn/AQAEAAAAAAAKAPn/AQAEAAAAAAAJAPn/AQAEAAAAAAAIAPn/AQAEAAAAAAAGAPn/AQAEAAAAAAAHAPn/AQAEAAAAAAAFAPn/AQAEAAAAAAAEAPn/AQAEAAAAAAADAPn/AQAEAAAAAAABAPn/AQAEAAAAAAACAPn/AQAEAAAAAAAAAPn/AQAEAAAAAAAKAPr/AQAEAAAAAAAKAPv/AQAEAAAAAAAKAPz/AQAEAAAAAAAKAP3/AQAEAAAAAAAKAP7/AQAEAAAAAAD/////AQAEAAAAAAD+////AQAEAAAAAAD9////AQAEAAAAAAD8////AQAEAAAAAAD7////AQAEAAAAAAD6////AQAEAAAAAAD5////AQAEAAAAAAD4////AQAEAAAAAAD3////AQAEAAAAAAD2////AQAEAAAAAAD1////AQAEAAAAAAD1//7/AQAEAAAAAAD1//z/AQAEAAAAAAD1//3/AQAEAAAAAAD1//v/AQAEAAAAAAD1//r/AQAEAAAAAAD1//n/AQAEAAAAAAD2//n/AQAEAAAAAAD3//n/AQAEAAAAAAD4//n/AQAEAAAAAAD5//n/AQAEAAAAAAD6//n/AQAEAAAAAAD7//n/AQAEAAAAAAD8//n/AQAEAAAAAAD9//n/AQAEAAAAAAD+//n/AQAEAAAAAAD///n/AQAEAAAAAAD0//n/AQAEAAAAAAD0//r/AQAEAAAAAAD0//v/AQAEAAAAAAD0//z/AQAEAAAAAAD0//3/AQAEAAAAAAD0//7/AQAEAAAAAAD0////AQAEAAAAAAA=")
+tile_set = SubResource("TileSet_w740c")
+
+[node name="Background" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, -8)
+tile_set = SubResource("TileSet_w740c")
+
+[node name="Asymmetrical Background" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(24, -16)
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneProps" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, -8)
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneProps2" type="TileMapLayer" parent="Tilesets"]
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneBorders" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(0, -8)
+tile_set = SubResource("TileSet_w740c")
+
+[node name="SceneBorders2" type="TileMapLayer" parent="Tilesets"]
+position = Vector2(-8, 8)
+tile_set = SubResource("TileSet_w740c")
+
+[node name="Player" parent="." instance=ExtResource("3_houdp")]
+position = Vector2(-56, -18)
+is_jumping_allowed = false
+
+[node name="PlayerBodyCamera" parent="Player" instance=ExtResource("4_tpqxq")]
+position = Vector2(0, -40)

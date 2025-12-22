@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bevkrrlrsecm1"]
+[gd_scene load_steps=6 format=3 uid="uid://bevkrrlrsecm1"]
 
 [ext_resource type="Script" uid="uid://cpuil2sjwxvqu" path="res://scripts/UI_Scripts/health_bar.gd" id="1_5fyfn"]
+[ext_resource type="PackedScene" uid="uid://4svjkqfwdq3f" path="res://scenes/UI/ESC_Menu.tscn" id="1_7n4fj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n4fj"]
 corner_radius_top_left = 15
@@ -18,7 +19,7 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ip4n"]
 
-[node name="Hud" type="Control"]
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +29,9 @@ grow_vertical = 2
 scale = Vector2(0.84, 1)
 size_flags_horizontal = 0
 size_flags_vertical = 4
+
+[node name="EscMenu" parent="." instance=ExtResource("1_7n4fj")]
+layout_mode = 1
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 layout_mode = 1
