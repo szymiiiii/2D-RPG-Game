@@ -1,5 +1,17 @@
 extends Node
 
+#szymi
+signal player_ready(Player)
+
+
+
+var is_continue_enabled = false
+var has_dialog_started = false
+var is_idle_forced = false
+
+@onready var battle = preload("res://scenes/Battle/Battle1.tscn")
+
+#Janek
 @export var health: int = 100
 @export var curr_health: int = 50
 @export var attack_power: int = 5
@@ -27,6 +39,24 @@ extends Node
 @export var b_time: int = 15
 @export var b_cost: int = 15
 
+func _ready() -> void:
+	DialogueManager.dialogue_started.connect(_dialogue_started)
+	DialogueManager.dialogue_ended.connect(_dialogue_ended)
+
 func _set_health() -> void:
 	#if first == false:
 		pass
+		
+func _dialogue_started(resource: DialogueResource) -> void:
+	#print("dialgoue started")
+	has_dialog_started = true
+	is_idle_forced = true
+	pass
+	
+func _dialogue_ended(resource: DialogueResource) -> void:
+	has_dialog_started = false
+	is_idle_forced = false
+	pass
+	
+
+		

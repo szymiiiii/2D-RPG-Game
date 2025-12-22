@@ -10,5 +10,20 @@
 		"AddEnergy": 1,
 		"StackSize": 99,
 		"Descryption": "A stone that's coloured red. That's all."
+	},
+	"The Coat": {
+		"ItemCategory": "Shirt",
+		"StackSize": 1,
+		"Descryption": "Buisness tailored"
+	},
+	"The Pants": {
+		"ItemCategory": "Pants",
+		"StackSize": 1,
+		"Descryption": "Buisness tailored"
+	},
+	"The Boots": {
+		"ItemCategory": "Shoes",
+		"StackSize": 1,
+		"Descryption": "Buisness tailored"
 	}
 }

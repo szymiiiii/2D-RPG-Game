@@ -1,4 +1,4 @@
-class_name LoadingScreen extends Control
+class_name LoadingScreen extends CanvasLayer
 
 ## Used by scene manager to display transitions and loading progress. You won't need to
 ## modify or work with any of the code in this class but I've annotated in case
@@ -26,7 +26,8 @@ func start_transition(animation_name:String) -> void:
 		animation_name = "fade_to_black"
 	starting_animation_name = animation_name
 	anim_player.play(animation_name)
-	
+	#print(animation_name)
+	#print("starting first screen animation: ", animation_name)
 	# if timer reaches the end before we finish loading, this will show the progress bar
 	timer.start()
 	
@@ -41,6 +42,7 @@ func finish_transition() -> void:
 		push_warning("'%s' animation does not exist" % ending_animation_name)
 		ending_animation_name = "fade_from_black"
 	anim_player.play(ending_animation_name)
+	#print("starting second screen animation: ", ending_animation_name)
 	# once this final animation plays, we can free this scene
 	await anim_player.animation_finished
 	queue_free()
