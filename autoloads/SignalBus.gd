@@ -1,8 +1,6 @@
 extends Node
 signal signal1()
-signal textbox_closed
-signal fireball()
-signal poisoned
+signal hiding
 
 func _ready() -> void:	
 	signal1.connect(_funkcja)

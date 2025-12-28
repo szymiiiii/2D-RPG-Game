@@ -9,6 +9,7 @@ var empty = preload("res://assets/Items/Item_slot.png")
 var taken_style: StyleBoxTexture = null
 var empty_style: StyleBoxTexture = null
 
+const Item = preload("res://scripts/Inventory/Item_script.tres.gd")
 var ItemClass = preload("res://scenes/Inventory/Item.tscn")
 var item = null
 
@@ -60,34 +61,36 @@ func putIntoSlot(new_item):
 	add_child(item)
 	refresh_style()
 
-func initialize_item(item_name, item_quantity, item_descryption):
+func initialize_item(item_name, item_quantity, item_descryption, item_category, item_variable):
 	if item == null:
 		item = ItemClass.instantiate()
 		add_child(item)
-		item.set_item(item_name, item_quantity, item_descryption)
+		item.set_item(item_name, item_quantity, item_descryption, item_category, item_variable)
 	else:
-		item.set_item(item_name, item_quantity, item_descryption)
+		item.set_item(item_name, item_quantity, item_descryption, item_category, item_variable)
 	refresh_style()
 	
 func hovering_start():
-	if slotType == SlotType.ITEMS:
-		descryption_instance.position = Vector2(50,50)
-		var descryption_name = descryption_instance.get_node("TextureRect/VBoxContainer/Name")
-		var descryption_desc = descryption_instance.get_node("TextureRect/VBoxContainer/Descryption")
-		descryption_name.text = PlayerInventory.inventory[slot_index][0]
-		descryption_desc.text = PlayerInventory.inventory[slot_index][2]
-		var descrypton_location = get_node(".")
-		descrypton_location.add_child(descryption_instance)
-	else:
-		descryption_instance.position = Vector2(50,50)
-		var descryption_name = descryption_instance.get_node("TextureRect/VBoxContainer/Name")
-		var descryption_desc = descryption_instance.get_node("TextureRect/VBoxContainer/Descryption")
-		descryption_name.text = PlayerInventory.equips[slot_index][0]
-		descryption_desc.text = PlayerInventory.equips[slot_index][2]
-		var descrypton_location = get_node(".")
-		descrypton_location.add_child(descryption_instance)
+	if item != null:
+		if slotType == SlotType.ITEMS:
+			descryption_instance.position = Vector2(50,50)
+			var descryption_name = descryption_instance.get_node("TextureRect/VBoxContainer/Name")
+			var descryption_desc = descryption_instance.get_node("TextureRect/VBoxContainer/Descryption")
+			descryption_name.text = PlayerInventory.inventory[slot_index][0]
+			descryption_desc.text = PlayerInventory.inventory[slot_index][2]
+			var inv = find_parent("Inventory")
+			inv.add_child(descryption_instance)
+		else:
+			descryption_instance.position = Vector2(50,50)
+			var descryption_name = descryption_instance.get_node("TextureRect/VBoxContainer/Name")
+			var descryption_desc = descryption_instance.get_node("TextureRect/VBoxContainer/Descryption")
+			descryption_name.text = PlayerInventory.equips[slot_index][0]
+			descryption_desc.text = PlayerInventory.equips[slot_index][2]
+			var inv = find_parent("Inventory")
+			inv.add_child(descryption_instance)
 	
 	
 func hovering_end():
 	await get_tree().create_timer(2.0).timeout
-	remove_child(descryption_instance)
+	var inv = find_parent("Inventory")
+	inv.remove_child(descryption_instance)
