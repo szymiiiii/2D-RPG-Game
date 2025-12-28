@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bjob6ob2jm2t6"
+path="res://.godot/imported/LordOrigami.dialogue-185998cec3a98487af46d4c563a83149.tres"
+
+[deps]
+
+source_file="res://dialogue/LordOrigami.dialogue"
+dest_files=["res://.godot/imported/LordOrigami.dialogue-185998cec3a98487af46d4c563a83149.tres"]
+
+[params]
+
+defaults=true

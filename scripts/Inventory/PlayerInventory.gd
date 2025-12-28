@@ -5,18 +5,18 @@ const ItemClass = preload("res://scripts/Inventory/Item_script.tres.gd")
 const NUM_INVENTORY_SLOTS = 24
 
 var inventory = {
-	0: ["Orange", 1, "d"],
-	1: ["RedDiamond", 23, "d"],
-	2: ["RedDiamond", 95, "d"]
+	0: ["Orange", 1, "d", "Resource", 20],
+	1: ["RedDiamond", 23, "d", "Resource", 0],
+	2: ["RedDiamond", 95, "d", "Resource", 0]
 }
 
 var equips = {
-	0: ["The Coat", 1, "d"],
-	1: ["The Pants", 1, "d"],
-	2: ["The Boots", 1, "d"],
+	0: ["The Coat", 1, "d", "Shirt", 2],
+	1: ["The Pants", 1, "d", "Pants", 2],
+	2: ["The Boots", 1, "d", "Shoes", 2]
 }
 
-func add_item(item_name, item_quanity, item_descryption):
+func add_item(item_name, item_quanity, item_descryption, item_category, item_variable):
 	#print("add_item: ", item_name, ", quantity: ", item_quanity)
 	for item in inventory:
 		if inventory[item][0] == item_name:
@@ -24,11 +24,11 @@ func add_item(item_name, item_quanity, item_descryption):
 			var able_to_add = stack_size - inventory[item][1]
 			if able_to_add >= item_quanity:
 				inventory[item][1] += item_quanity
-				update_slot_visual(item, inventory[item][0], inventory[item][1], inventory[item][2])
+				update_slot_visual(item, inventory[item][0], inventory[item][1], inventory[item][2], inventory[item][3], inventory[item][4])
 				return
 			else:
 				inventory[item][1] += able_to_add
-				update_slot_visual(item, inventory[item][0], inventory[item][1], inventory[item][2])
+				update_slot_visual(item, inventory[item][0], inventory[item][1], inventory[item][2], inventory[item][3], inventory[item][4])
 				item_quanity = item_quanity - able_to_add
 			#TODO Check if slot is full
 			#inventory[item][1] += item_quanity
@@ -37,7 +37,7 @@ func add_item(item_name, item_quanity, item_descryption):
 	for i in range(NUM_INVENTORY_SLOTS):
 		if inventory.has(i) == false:
 			inventory[i] = [item_name, item_quanity]
-			update_slot_visual(i, inventory[i][0], inventory[i][1], inventory[i][2])
+			update_slot_visual(i, inventory[i][0], inventory[i][1], inventory[i][2], inventory[i][3], inventory[i][4])
 			return
 
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass):
@@ -64,9 +64,9 @@ func add_item_quanity(slot: SlotClass, quanity_to_add: int):
 		_:
 			inventory[slot.slot_index][1] += quanity_to_add
 
-func update_slot_visual(slot_index, item_name, new_quantity, item_descryption):
+func update_slot_visual(slot_index, item_name, new_quantity, item_descryption, item_category, item_variable):
 	var slot = get_tree().root.get_node("res://scenes/Inventory/Inventory/GridContainer/Slot" + str(slot_index + 1))
 	if slot.item != null:
-		slot.item.set_item(item_name, new_quantity, item_descryption)
+		slot.item.set_item(item_name, new_quantity, item_descryption, item_category, item_variable)
 	else:
-		slot.initialize_item(item_name, new_quantity)
+		slot.initialize_item(item_name, new_quantity, item_descryption, item_category, item_variable)

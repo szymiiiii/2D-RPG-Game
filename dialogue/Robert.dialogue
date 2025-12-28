@@ -1,0 +1,47 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ introduction
+Robert: What do you want? 
+Robert: I am busy.
+- Could you help me with something?
+	Robert: Are you serious? I have to give the CEO important message.
+	{{GlobalVariables.player_name}}: So do I. We can give him the message together.
+	Robert: Hmm...
+	Robert: Well it's better than stressing out.
+	Robert: Let's go
+	if GlobalVariables.friendship == 1:
+		=> friend_dialogue
+- Just looking around
+	Robert: Don't distract me.
+	=> END
+
+~ friend_dialogue
+{{GlobalVariables.player_name}}: By the way, what got you so stressed out?
+Robert: It's the boss.
+Robert: A person of my position is required to always be on top of things.
+{{GlobalVariables.player_name}}: You can't always predict things you know.
+{{GlobalVariables.player_name}}: You will eventually burn yourself out.
+Robert: Time will tell for know we have work to do.
+
+~ day2_end
+Robert: You know, I've never properly thanked you.
+{{GlobalVariables.player_name}}: For what?
+Robert: Every day for me is a constant struggle.
+Robert: Success became my go to method for explaining my lack of social life and people to call friends.
+Robert: But today you've showed me kindness, when you could have just ignored me.
+Robert: And for that I say thank you and have a good evening.
+[wait=5]
+Robert: Also give me some fruits tomorrow, if you can.
+Robert: I've seen you carrying them around the streets.
+Robert: And it would be nice to eat them during lunch.
+=> END
