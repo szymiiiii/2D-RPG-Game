@@ -29,5 +29,11 @@
 		"StackSize": 1,
 		"Descryption": "Buisness tailored",
 		"ItemVariable": 2
+	},
+	"The Sword": {
+		"ItemCategory": "Sword",
+		"StackSize": 1,
+		"Descryption": "Imagination tailored",
+		"ItemVariable": 10
 	}
 }

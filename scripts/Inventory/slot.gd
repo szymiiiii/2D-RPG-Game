@@ -24,7 +24,8 @@ enum SlotType{
 	ITEMS,
 	SHIRT,
 	PANTS,
-	SHOES
+	SHOES,
+	SWORD
 }
 
 func _ready() -> void:
@@ -73,7 +74,7 @@ func initialize_item(item_name, item_quantity, item_descryption, item_category, 
 func hovering_start():
 	if item != null:
 		if slotType == SlotType.ITEMS:
-			descryption_instance.position = Vector2(50,50)
+			descryption_instance.position = $".".position
 			var descryption_name = descryption_instance.get_node("TextureRect/VBoxContainer/Name")
 			var descryption_desc = descryption_instance.get_node("TextureRect/VBoxContainer/Descryption")
 			descryption_name.text = PlayerInventory.inventory[slot_index][0]
@@ -81,7 +82,7 @@ func hovering_start():
 			var inv = find_parent("Inventory")
 			inv.add_child(descryption_instance)
 		else:
-			descryption_instance.position = Vector2(50,50)
+			descryption_instance.position = $".".position
 			var descryption_name = descryption_instance.get_node("TextureRect/VBoxContainer/Name")
 			var descryption_desc = descryption_instance.get_node("TextureRect/VBoxContainer/Descryption")
 			descryption_name.text = PlayerInventory.equips[slot_index][0]
