@@ -42,4 +42,5 @@ Ania: Thanks for making me tag along.
 Ania: I really needed some distraction from this jerk.
 Ania: It may not mean much, but if you ever feel like garbage. Call me.
 Ania: See ya.
+set GlobalVariables.friendship += 1
 => END

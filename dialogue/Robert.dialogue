@@ -13,14 +13,15 @@ Nathan: For more information see the online documentation.
 ~ introduction
 Robert: What do you want? 
 Robert: I am busy.
-- Could you help me with something?
-	Robert: Are you serious? I have to give the CEO important message.
-	{{GlobalVariables.player_name}}: So do I. We can give him the message together.
-	Robert: Hmm...
-	Robert: Well it's better than stressing out.
-	Robert: Let's go
-	if GlobalVariables.friendship == 1:
-		=> friend_dialogue
+if GlobalVariables.friendship == 1:
+	- Could you help me with something?
+		Robert: Are you serious? I have to give the CEO important message.
+		{{GlobalVariables.player_name}}: So do I. We can give him the message together.
+		Robert: Hmm...
+		Robert: Well it's better than stressing out.
+		Robert: Let's go
+		if GlobalVariables.friendship == 1:
+			=> friend_dialogue
 - Just looking around
 	Robert: Don't distract me.
 	=> END
