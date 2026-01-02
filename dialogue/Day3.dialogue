@@ -9,3 +9,28 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+~ monologue
+Coworker: Hey you're here.
+Coworker: Listen. Managment called and said, that since you're going on a vacation, you will be responsible for today's paperwork.
+Player: Wai-
+Coworker: [speed=5] Thanks, bye.[/speed]
+Player: ...
+Player: [wave] You have got to be kidding me.[/wave]
+if GlobalVariables.friendship == 2:
+	Robert: Hey there what is wrong?
+	Player: Robert? Ania?
+	Ania: They really have it out for you.
+	Player: Day after day it's nothing, but work and work.
+	Robert: Don't worry we will take care of this together.
+	=> friend_end
+else :
+	Player: [wave] I can't take this anymore.[/wave]
+	=> END
+	
+~ friend_end
+Player: Thank you both for everything.
+Ania: Don't worry about it and hey if you have the time maybe we can go on vacation together.
+Robert: How does that sound.
+Player: Great. I'll see you later.
+=> END

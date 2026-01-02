@@ -98,18 +98,19 @@ func _on_magic_pressed() -> void:
 	$ActionPanel/HBoxContainer/Magic/MagicPanel.show()
 	if GlobalVariables.fireball:
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton.text = GlobalVariables.f_name
+		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button.show()
 		var b = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton
 		b.connect("pressed", fireball_pressed)
 	if GlobalVariables.poison_sting:
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton.text = GlobalVariables.p_name
-		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton/Label.text = "%dmp" % GlobalVariables.p_cost
+		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2.show()
 		var c = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton
 		c.connect("pressed", poison_pressed)
 	if GlobalVariables.sting_ray:
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton.text = GlobalVariables.b_name
-		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton/Label.text = "%dmp" % GlobalVariables.b_cost
+		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3.show()
 		var d =$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton
 		d.connect("pressed", bleed_pressed)
