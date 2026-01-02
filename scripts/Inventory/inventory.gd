@@ -19,6 +19,7 @@ func _ready() -> void:
 	e_slots[0].slotType = SlotClass.SlotType.SHIRT
 	e_slots[1].slotType = SlotClass.SlotType.PANTS
 	e_slots[2].slotType = SlotClass.SlotType.SHOES
+	e_slots[3].slotType = SlotClass.SlotType.SWORD
 	initialize_inventory()
 	initialize_equips()
 		
@@ -32,7 +33,7 @@ func initialize_equips():
 	var e_slots = equip_slots.get_children()
 	for i in range(e_slots.size()):
 		if PlayerInventory.equips.has(i):
-			e_slots[i].initialize_item(PlayerInventory.equips[i][0], PlayerInventory.equips[i][1], PlayerInventory.inventory[i][2], PlayerInventory.inventory[i][3], PlayerInventory.inventory[i][4])
+			e_slots[i].initialize_item(PlayerInventory.equips[i][0], PlayerInventory.equips[i][1], PlayerInventory.equips[i][2], PlayerInventory.equips[i][3], PlayerInventory.equips[i][4])
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -66,6 +67,14 @@ func able_to_put_into_slot(slot: SlotClass):
 	if holding_item == null:
 		return true
 	var holding_item_category = JsonData.item_data[holding_item.item_name]["ItemCategory"]
+	if slot.slotType == SlotClass.SlotType.SHIRT:
+		return holding_item_category == "Shirt"
+	elif slot.slotType == SlotClass.SlotType.PANTS:
+		return holding_item_category == "Pants"
+	elif slot.slotType == SlotClass.SlotType.SHOES:
+		return holding_item_category == "Shoes"
+	elif slot.slotType == SlotClass.SlotType.SWORD:
+		return holding_item_category == "Sword"
 	return true
 
 func left_click_empty(slot: SlotClass):

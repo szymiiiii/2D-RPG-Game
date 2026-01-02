@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp0dwcio5vdld"]
+[gd_scene load_steps=12 format=3 uid="uid://cp0dwcio5vdld"]
 
 [ext_resource type="Script" uid="uid://c7e622b1ady3m" path="res://scripts/Inventory/inventory.gd" id="1_ny0tn"]
 [ext_resource type="Texture2D" uid="uid://dp2tsoqoqvs71" path="res://assets/Items/Inventory_background.png" id="1_u08j2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://86a5odcjxebu" path="res://assets/Items/The Coat.png" id="6_om3m5"]
 [ext_resource type="Texture2D" uid="uid://cah4nuc3wiqxi" path="res://assets/Items/The Pants.png" id="7_e1bgs"]
 [ext_resource type="Texture2D" uid="uid://bdqhi8dxm8isw" path="res://assets/Items/The Boots.png" id="8_ctp1g"]
+[ext_resource type="Texture2D" uid="uid://cnomplmeryih" path="res://assets/Items/The Sword.png" id="9_om3m5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny0tn"]
 texture = ExtResource("2_ilh4p")
@@ -211,11 +212,11 @@ texture = ExtResource("5_optds")
 
 [node name="EquipSlots" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = -282.0
+offset_left = -330.0
 offset_top = -172.0
-offset_right = -202.0
+offset_right = 2.0
 offset_bottom = -92.0
-columns = 3
+columns = 4
 
 [node name="ShirtSlot" type="Panel" parent="EquipSlots"]
 custom_minimum_size = Vector2(80, 80)
@@ -283,6 +284,28 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ctp1g")
 
+[node name="SwordSlot" type="Panel" parent="EquipSlots"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1qaj")
+script = ExtResource("3_ilh4p")
+
+[node name="TextureRect" type="TextureRect" parent="EquipSlots/SwordSlot"]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_om3m5")
+
 [connection signal="mouse_entered" from="GridContainer/Slot1" to="." method="_on_slot_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/Slot1" to="." method="_on_slot_mouse_exited"]
 [connection signal="mouse_entered" from="GridContainer/Slot2" to="." method="_on_slot_mouse_entered"]
@@ -337,3 +360,5 @@ texture = ExtResource("8_ctp1g")
 [connection signal="mouse_exited" from="EquipSlots/PantsSlot" to="." method="_on_slot_mouse_exited"]
 [connection signal="mouse_entered" from="EquipSlots/ShoesSlot" to="." method="_on_slot_mouse_entered"]
 [connection signal="mouse_exited" from="EquipSlots/ShoesSlot" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="EquipSlots/SwordSlot" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="EquipSlots/SwordSlot" to="." method="_on_slot_mouse_exited"]

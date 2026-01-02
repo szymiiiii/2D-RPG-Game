@@ -15,10 +15,10 @@ func _ready() -> void:
 
 func level_up():
 	if current_exp >= level_2 and player_level == 1:
-		GlobalVariables.poison_sting == true
+		GlobalVariables.poison_sting = true
 		player_level = 2
 	elif current_exp >= level_3 and player_level == 2:
-		GlobalVariables.sting_ray == true
+		GlobalVariables.sting_ray = true
 		player_level = 3
 
 func exp_get(exp: int):

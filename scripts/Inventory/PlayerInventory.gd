@@ -13,7 +13,8 @@ var inventory = {
 var equips = {
 	0: ["The Coat", 1, "d", "Shirt", 2],
 	1: ["The Pants", 1, "d", "Pants", 2],
-	2: ["The Boots", 1, "d", "Shoes", 2]
+	2: ["The Boots", 1, "d", "Shoes", 2],
+	3: ["The Sword", 1, "Imagination tailored", "Sword", 5]
 }
 
 func add_item(item_name, item_quanity, item_descryption, item_category, item_variable):
@@ -43,23 +44,23 @@ func add_item(item_name, item_quanity, item_descryption, item_category, item_var
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass):
 	
 	match slot.SlotType:
-		SlotClass.SlotType.SHIRT or SlotClass.SlotType.PANTS or SlotClass.SlotType.SHOES:
-			equips[slot.slot_index] = [item.item_name, item.item_quantity]
+		SlotClass.SlotType.SHIRT or SlotClass.SlotType.PANTS or SlotClass.SlotType.SHOES or SlotClass.SlotType.SWORD:
+			equips[slot.slot_index] = [item.item_name, item.item_quantity, item.item_descryption, item.item_category, item.item_variable]
 		_:
-			inventory[slot.slot_index] = [item.item_name, item.item_quantity]
+			inventory[slot.slot_index] = [item.item_name, item.item_quantity, item.item_descryption, item.item_category, item.item_variable]
 	
 
 func remove_item(slot: SlotClass):
 	
 	match slot.SlotType:
-		SlotClass.SlotType.SHIRT or SlotClass.SlotType.PANTS or SlotClass.SlotType.SHOES:
+		SlotClass.SlotType.SHIRT or SlotClass.SlotType.PANTS or SlotClass.SlotType.SHOES or SlotClass.SlotType.SWORD:
 			equips.erase(slot.slot_index)
 		_:
 			inventory.erase(slot.slot_index)
 	
 func add_item_quanity(slot: SlotClass, quanity_to_add: int):
 	match slot.SlotType:
-		SlotClass.SlotType.SHIRT or SlotClass.SlotType.PANTS or SlotClass.SlotType.SHOES:
+		SlotClass.SlotType.SHIRT or SlotClass.SlotType.PANTS or SlotClass.SlotType.SHOES or SlotClass.SlotType.SWORD:
 			equips[slot.slot_index][1] += quanity_to_add
 		_:
 			inventory[slot.slot_index][1] += quanity_to_add

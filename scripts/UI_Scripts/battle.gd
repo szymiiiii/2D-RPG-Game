@@ -6,6 +6,7 @@ signal death
 @export var enemy: Resource = null
 var player_health = GlobalVariables.curr_health
 @export var e_health: int
+@export var e_exp: int
 const InventoryClass = preload("res://scripts/Inventory/PlayerInventory.gd")
 const ItemClass = preload("res://scripts/Inventory/Item_script.tres.gd")
 @onready var button = preload("res://scenes/Battle/Button1.tscn")
@@ -14,12 +15,14 @@ const ItemClass = preload("res://scripts/Inventory/Item_script.tres.gd")
 func _ready() -> void:
 	death.connect(dead)
 	SignalBus.hiding.connect(hide_item)
+	SignalBus.health_up.connect(healing_item)
 	item_press.connect(_on_item_pressed)
 	#$ActionPanel/HBoxContainer/Item.emit(item_press)
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
 	$EnemyContainer/Enemy.texture = enemy.texture
 	e_health = enemy.health
+	e_exp = enemy.enemy_exp
 	$Textbox.hide()
 	$ActionPanel.hide()
 	$ActionPanel/HBoxContainer/Magic/MagicPanel.hide()
@@ -33,6 +36,8 @@ func _ready() -> void:
 			GlobalVariables.player_pants = PlayerInventory.equips[i][4]
 		if PlayerInventory.equips[i][3] == "Shoes":
 			GlobalVariables.player_boots = PlayerInventory.equips[i][4]
+		if PlayerInventory.equips[i][3] == "Sword":
+			GlobalVariables.sword = PlayerInventory.equips[i][4]
 	show_text("A wild %s appears" % enemy.name)
 	await text_closed
 	show_text("Stop right there")
@@ -49,6 +54,8 @@ func set_health(progress_bar, health, max_health) -> void:
 	progress_bar.max_value = max_health
 	progress_bar.get_node("Label").text = "HP:%d/%d" % [health, max_health]
 
+func healing_item():
+	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
 
 func show_text(text):
 	$Textbox.show()
@@ -104,6 +111,8 @@ func _on_magic_pressed() -> void:
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton.text = GlobalVariables.b_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton/Label.text = "%dmp" % GlobalVariables.b_cost
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3.show()
+		var d =$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton
+		d.connect("pressed", bleed_pressed)
 	
 
 func fireball_pressed():
@@ -131,7 +140,23 @@ func poison_pressed():
 	await $AnimationPlayer.animation_finished
 	show_text("You dealt %d damage." % GlobalVariables.p_damage)
 	await text_closed
-	SignalBus.poisoned.emit()
+	_posion()
+	if $EnemyContainer/ProgressBar.value == 0:
+		dead()
+	else :
+		enemy_turn()
+
+func bleed_pressed():
+	$ActionPanel/HBoxContainer/Magic/MagicPanel.hide()
+	show_text("You use sting ray")
+	await text_closed
+	e_health = max(0, e_health - GlobalVariables.b_damage)
+	set_health($EnemyContainer/ProgressBar, e_health, enemy.health)
+	$AnimationPlayer.play("enemy_damage")
+	await $AnimationPlayer.animation_finished
+	show_text("You dealt %d damage." % GlobalVariables.b_damage)
+	await text_closed
+	_bleed()
 	if $EnemyContainer/ProgressBar.value == 0:
 		dead()
 	else :
@@ -142,6 +167,16 @@ func _posion():
 		for i in range(15):
 			await get_tree().create_timer(2.0).timeout
 			e_health = max(0, e_health - GlobalVariables.p_effect)
+			set_health($EnemyContainer/ProgressBar, e_health, enemy.health)
+			if $EnemyContainer/ProgressBar.value == 0:
+				dead()
+				break
+
+func _bleed():
+	if get_tree().current_scene.name == "Battle1":
+		for i in range(2):
+			await get_tree().create_timer(30.0).timeout
+			e_health = max(0, e_health - GlobalVariables.b_effect)
 			set_health($EnemyContainer/ProgressBar, e_health, enemy.health)
 			if $EnemyContainer/ProgressBar.value == 0:
 				dead()
@@ -166,12 +201,12 @@ func _on_item_pressed():
 			print("Hello2")
 	else :
 		$ActionPanel/HBoxContainer/Item/ItemPanel.show()
-		var battle = $"."
 		var items = $ActionPanel/HBoxContainer/Item/ItemPanel/ItemContainer.get_children()
-		for i in range(items.size()):
-			var label_count = items[i].get_node("MagicButton/Label")
-			if label_count.text == "0":
-				battle.remove_child(items[i])
+		for i in range(0, items.size(), 2):
+			if items[i] == button:
+				var label_count = items[i].get_node("MagicButton/Label")
+				if label_count.text == "0":
+					items.remove_child(items[i])
 
 func hide_item():
 	$ActionPanel/HBoxContainer/Item/ItemPanel.hide()
@@ -183,9 +218,18 @@ func dead():
 		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
 		show_text("The %s has been defeated." % enemy.name)
 		await text_closed
+		PlayerLevel.exp_get(e_exp)
 		if PlayerLevel.current_exp >= PlayerLevel.level_2 and PlayerLevel.player_level == 1:
+			show_text("You are now level 2.")
+			await text_closed
+			show_text("You have learnt Poison Sting")
+			await text_closed
 			PlayerLevel.new_level.emit()
 		elif PlayerLevel.current_exp >= PlayerLevel.level_3 and PlayerLevel.player_level == 2:
+			show_text("You are now level 3.")
+			await text_closed
+			show_text("You have learnt Sting Ray")
+			await text_closed
 			PlayerLevel.new_level.emit()
 		await get_tree().create_timer(0.25).timeout
 		get_tree().quit()
