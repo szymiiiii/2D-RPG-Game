@@ -1,6 +1,7 @@
 extends Node2D
 
-##levele możliwe do przejscia dalej mozna je tu dodawac uzupełniając analogicznie opcje w Levels_Enum i słowniku LEVELS
+##In case you want to add new level, just add new positions in Levels_Enum 
+##and constant LEVELS in analogic way to whats below 
 enum Levels_Enum {
 	one, two, 
 	
@@ -8,7 +9,7 @@ enum Levels_Enum {
 	
 	path_one_two, office
 	
-	##TRZEBA DODAWAĆ OPCJE ENUM OD DOŁU TAK ABY NIE POPSUC ISTNIEJACYCH DRZWI
+	##Add new enum positions from below, so it wont break existing doors 
 }
 const LEVELS = {
 	Levels_Enum.one: "res://scenes/Maps/level_one.tscn",
@@ -55,6 +56,7 @@ const TRANSITION_VALUES = {
 @export_range(0, 10) var id : int
 
 @export var are_doors_closed: bool = false
+var door_sound_event: FmodEvent = null
 
 func _ready() -> void:
 	DoorManager.all_door_registrate_in_scene_manager.emit(self, id)
@@ -73,6 +75,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif are_doors_closed:
 		print("drzwi som zamkniete")
 	elif (orientation != null && next_scene != null && transition_choice != null && id != null):
+		 
 		DoorManager.player_entered_doors.emit(id, orientation, TRANSITION_VALUES[transition_choice], LEVELS[next_scene], position)
 		
 		# UWAGA SceneManager zostanie wywolany w stanie GETTING_IN

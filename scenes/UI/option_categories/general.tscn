@@ -5,13 +5,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfep1"]
 bg_color = Color(1, 1, 1, 0.678431)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di6hf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5tkcm"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xyx7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfep1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xyx7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5tkcm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di6hf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xyx7"]
 bg_color = Color(0, 0, 0, 1)
@@ -57,10 +57,10 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxFlat_yfep1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yfep1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_yfep1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yfep1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yfep1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfep1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yfep1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Button"]
 layout_mode = 1
@@ -82,10 +82,10 @@ size_flags_horizontal = 3
 
 [node name="FullscreenToggle" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Button/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_di6hf")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_5tkcm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yfep1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3xyx7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yfep1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5tkcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_di6hf")
 
 [node name="Return" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

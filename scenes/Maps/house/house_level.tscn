@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://duo0g7asg8hy8"]
+[gd_scene load_steps=8 format=4 uid="uid://duo0g7asg8hy8"]
 
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_tw7bn"]
+[ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_wo2ky"]
 [ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="2_wo2ky"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_a6b50"]
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_scscm"]
@@ -161,6 +162,12 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_mh8do")
 
 [node name="HouseLevel" type="Node2D"]
+
+[node name="MusicScene" parent="." instance=ExtResource("1_wo2ky")]
+position = Vector2(-56, 32)
+songs = 4
+volume = 0.629
+fade_in_time_msec = 10000
 
 [node name="Doors" type="Node2D" parent="."]
 

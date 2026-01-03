@@ -8,6 +8,10 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://audio/inzynierka_fmod/Build/Desktop"
+
 [application]
 
 config/name="Gra"
@@ -27,6 +31,9 @@ SignalBus="*res://autoloads/SignalBus.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 JsonData="*res://scripts/Inventory/JSONData.gd"
 PlayerInventory="*res://scripts/Inventory/PlayerInventory.gd"
+FmodManager="*res://addons/fmod/FmodManager.gd"
+BankAutoloadFmod="*res://autoloads/bankAutoloadFMOD.tscn"
+MusicPlayer="*res://autoloads/MusicPlayer.gd"
 
 [dialogue_manager]
 
@@ -38,7 +45,7 @@ project/assembly_name="Gra"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/fmod/plugin.cfg")
 
 [input]
 

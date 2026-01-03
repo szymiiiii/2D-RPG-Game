@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://bv70ouxflgiq1"]
+[gd_scene load_steps=8 format=4 uid="uid://bv70ouxflgiq1"]
 
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_h4fv6"]
+[ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_lrjha"]
 [ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="2_lrjha"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_j6jlh"]
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_w2yl7"]
@@ -202,6 +203,15 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_mh8do")
 
 [node name="HouseLevel" type="Node2D"]
+
+[node name="MusicScene2" parent="." instance=ExtResource("1_lrjha")]
+position = Vector2(-112, 64)
+songs = 4
+volume = 0.61
+fade_in_time_msec = 10000
+ambience = 4
+amb_volume = 0.11
+amb_fade_in_time_msec = 1000
 
 [node name="HouseEntryDoor" parent="." instance=ExtResource("1_h4fv6")]
 position = Vector2(-160, -48)

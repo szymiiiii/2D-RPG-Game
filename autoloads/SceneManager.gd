@@ -4,6 +4,7 @@ const LEVEL_H:int = 144
 const LEVEL_W:int = 240	
 const VERSION:String = "1.1"
 
+signal start_swapping()
 signal load_start(loading_screen)
 signal scene_added(loadaed_scene:Node, loading_screen)
 signal load_complete(loaded_scene:Node)
@@ -40,6 +41,7 @@ func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node
 		#"\nscene_to_unload: " , scene_to_unload ,
 		#"\ntransition_type: " , transition_type ,
 		#"\n)")
+	
 	if _loading_in_progress:
 		push_warning("SceneManager is already loading something")
 		while(_loading_in_progress):

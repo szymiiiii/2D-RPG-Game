@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{2c21c706-c4c8-46b8-8806-943869e3e930}">
+		<property name="assetPath">
+			<value>room-tone-office-12-59350.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>134.71199999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1979996-f8e8-48fe-a856-54c63b3bf75a}</destination>
+		</relationship>
+	</object>
+</objects>

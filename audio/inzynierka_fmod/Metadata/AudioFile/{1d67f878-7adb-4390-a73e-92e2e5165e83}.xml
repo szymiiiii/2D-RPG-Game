@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{1d67f878-7adb-4390-a73e-92e2e5165e83}">
+		<property name="assetPath">
+			<value>wind-blowing-sfx-01-423673.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>16.800000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1979996-f8e8-48fe-a856-54c63b3bf75a}</destination>
+		</relationship>
+	</object>
+</objects>

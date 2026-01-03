@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{cc4be156-7d18-46ce-9458-4a3a6d37c283}">
+		<property name="name">
+			<value>Reverb Mix</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c7e7341e-0126-4dd9-a3f1-33da484b0940}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{eb6f01be-af04-4045-a3d6-2d4c9b245fb8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{eb6f01be-af04-4045-a3d6-2d4c9b245fb8}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{8bb8010c-9f57-4de4-b7fa-357df975c773}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{8bb8010c-9f57-4de4-b7fa-357df975c773}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>

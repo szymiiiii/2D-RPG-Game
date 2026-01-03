@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://g1ix5vttmyx4"]
+
+[node name="BankAutoloadFmod" type="Node"]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://audio/inzynierka_fmod/Build/Desktop/Master.strings.bank", "res://audio/inzynierka_fmod/Build/Desktop/Master.bank", "res://audio/inzynierka_fmod/Build/Desktop/2D-RPG-Game.bank", "res://audio/inzynierka_fmod/Build/Desktop/test do gierki.bank", "res://audio/inzynierka_fmod/Build/Desktop/2D RPG Game.bank"]

@@ -1,0 +1,16 @@
+{53d4c475-8abd-4c00-9752-ac61779e765b} bank:/2D RPG Game
+{2fe0dccb-3235-4b0a-8dba-df2218f82a99} bank:/2D-RPG-Game
+{653b0f89-17df-4ed1-a753-9faf1c1d6d97} bank:/Master
+{fd262f5d-66a4-0293-211a-1551edee6b0f} bank:/Master.strings
+{3f9ff739-29db-4bfe-811d-158a57d2cd3a} bank:/test do gierki
+{1e5b41bf-7b62-4ba3-9690-18aaba8fd38d} bus:/
+{6207a80a-509d-45cf-a882-4e0289bc7a5f} bus:/Reverb
+{bdff7077-0f39-46c4-b8f9-c1bdafe792ba} event:/main menu
+{6d7d03ca-f62c-43ea-b9c7-cde992f14280} event:/main menu
+{bf017bde-92c5-4cf9-b375-33f37e43083b} event:/menu event
+{d38cd79e-4060-413c-bf6d-ebaea667c0ed} event:/menu event
+{70a161bd-7860-44a1-963b-d740496c5170} event:/plugin
+{516a7aff-72a3-4239-8ef9-d4b60e046c64} event:/soundwave
+{1bf9bc31-1af3-4186-8a4f-4dce7e25a1b2} event:/soundwaveOnAcid
+{a169947c-3c92-40a6-a262-934b0dba6165} parameter:/Distorition Mix
+{eb6f01be-af04-4045-a3d6-2d4c9b245fb8} parameter:/Reverb Mix

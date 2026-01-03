@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{3f58253f-16b2-4c19-a992-bdc9078f8f44}">
+		<property name="assetPath">
+			<value>ost jakies takie nwm.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>174.52408163265306</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1979996-f8e8-48fe-a856-54c63b3bf75a}</destination>
+		</relationship>
+	</object>
+</objects>
