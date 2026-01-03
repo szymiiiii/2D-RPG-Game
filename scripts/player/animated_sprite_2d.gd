@@ -8,11 +8,11 @@ var jumping_sound: FmodEvent = null
 
 func _ready():
 	walking_sound = FmodServer.create_event_instance("event:/walking")
-	walking_sound.volume = 1.5
+	walking_sound.volume = 0.5
 	falling_sound = FmodServer.create_event_instance("event:/falling")
-	falling_sound.volume = 1.5
+	falling_sound.volume = 0.5
 	jumping_sound = FmodServer.create_event_instance("event:/jumping")
-	jumping_sound.volume = 1.5
+	jumping_sound.volume = 0.5
 
 func on_change_orientation(set_value_or_mirror: int):
 	###W GODOCIE FLIP_H JAKO TRUE TO ODWRÓCONY STAN A FALSE NORMALNY
@@ -47,5 +47,8 @@ func _process(delta: float) -> void:
 	if frame_counter % frames_count == 0:
 		#print(frame)
 		if (animation.get_basename() == "walking" || animation.get_basename() == "running") && (frame == 0 || frame == 3):
+			if(walking_sound.get_playback_state() == FmodServer.FMOD_STUDIO_PLAYBACK_PLAYING):
+				walking_sound.stop(FmodServer.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+				walking_sound.release()
 			walking_sound.start()
 	frame_counter += 1

@@ -32,6 +32,7 @@ func _ready() -> void:
 	item_descryption = ITEM_DESCRYPTION[item_choice]
 	item_category = str(JsonData.item_data[item_choice]["ItemCategory"])
 	item_variable = int(JsonData.item_data[item_choice]["ItemVariable"])
+	
 func _physics_process(delta):
 	if being_picked_up == false:
 		velocity = velocity.move_toward(Vector2(0, MAX_SPEED), ACCELERATION * delta)

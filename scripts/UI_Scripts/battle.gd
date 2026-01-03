@@ -52,7 +52,7 @@ func _on_run_pressed() -> void:
 	$ActionPanel/HBoxContainer/Magic/MagicPanel.hide()
 	$ActionPanel.hide()
 	show_text("You ran away")
-	_end_battle()
+	_end_battle(false)
 
 
 func _on_attack_pressed() -> void:
@@ -210,22 +210,23 @@ func dead():
 			PlayerLevel.new_level.emit()
 		await get_tree().create_timer(0.25).timeout
 		#get_tree().quit()
-		_end_battle()
+		_end_battle(false)
 	elif $PlayerPanel/HBoxContainer/ProgressBar.value == 0:
 		show_text("The Player has been defeated.")
 		await text_closed
 		await get_tree().create_timer(0.25).timeout
 		#get_tree().quit()
-		_end_battle()
+		_end_battle(true)
 
 
-#szymi
-func _end_battle():
-	await text_closed
-	await get_tree().create_timer(0.25).timeout
+#szymi 
+##jest używane przy ucieczce, śmierci gracza lub przeciwnika
+func _end_battle(player_died: bool):
 	visible = false
 	GlobalVariables.is_in_battle = false
 	SignalBus.battle_ended.emit()
+	if player_died:
+		SceneManager.swap_scenes("res://scenes/UI/Main_Menu.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
 	#get_tree().quit()
 	
 func _player_joins_battle():
