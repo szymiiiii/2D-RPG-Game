@@ -1,0 +1,31 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ begin_day
+{{GlobalVariables.player_name}}: Another day, another shift towards vacation.
+=> END
+
+~ end_day
+{{GlobalVariables.player_name}}: Home sweet home. Time for some rest.
+=> END
+
+~ boss_1
+{{GlobalVariables.player_name}}: Alright time to finish the task.
+=> END
+
+~ boss_2
+{{GlobalVariables.player_name}}: The boss is happy and so am I.
+=> END
+
+~ boss_3
+{{GlobalVariables.player_name}}: What in the world was that about?
+=> END

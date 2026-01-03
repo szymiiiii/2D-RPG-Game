@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b4ooj5og1gpsj"
+path="res://.godot/imported/Ania.dialogue-5336509bcbee6b0a1c269555a04ec2a1.tres"
+
+[deps]
+
+source_file="res://dialogue/Ania.dialogue"
+dest_files=["res://.godot/imported/Ania.dialogue-5336509bcbee6b0a1c269555a04ec2a1.tres"]
+
+[params]
+
+defaults=true

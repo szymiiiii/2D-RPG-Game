@@ -1,0 +1,34 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ introduction_with_friend
+{{GlobalVariables.player_name}}: Excuse me?
+Manager: [wave][speed=5] WHAT DO YOU WANT? [/wave][/speed]
+{{GlobalVariables.player_name}}: I just wanted to a..
+Manager: [wave][speed=5] I AM EXTREMELY BUSY YOU LITTLE.. [/wave][/speed]
+Ania: Miss?
+Manager: Oh Ania. I didn't expect you to come so soon. What brings you here?
+Ania: I know you mean well, but you shouldn't be pissed in my regard.
+Manager: This moron should have known better, than to leave such a good person like you.
+Ania: I know.
+Ania: Do you have some cartridges for printers?
+Manager: Last shelf at the end of the store.
+Ania: Thanks, see you later.
+=> END
+
+~ introduction_without_friend
+{{GlobalVariables.player_name}}: Excuse me?
+Manager: [wave][speed=5] WHAT DO YOU WANT? [/wave][/speed]
+{{GlobalVariables.player_name}}: I just wanted to a..
+Manager: [wave][speed=5] I AM EXTREMELY BUSY YOU LITTLE PUNK [/wave][/speed]
+Manager: [wave][speed=5] SO TAKE YOUR COMPLAINTS AND BRING THEM TO SOMEONE WHO CARES [/wave][/speed]
+=> END

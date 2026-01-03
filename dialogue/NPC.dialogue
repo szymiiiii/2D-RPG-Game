@@ -1,0 +1,32 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ coworker1
+Employee: I used to be a deadbeat just like you.
+Employee: But then I took a job to the EXTREME.
+=> END
+
+~ coworker2
+Employee: What?
+Employee: Don't you have anything better to do?
+=> END
+
+~ coworker3
+Employee: Sorting papers gets easier, when you get into a flow.
+=> END
+
+~ coworker4
+Employee: [[Give me a break.|No more.|When will it end?]]
+=> END
+
+~ coworker5
+Employee: [[Got a light?|You want something?|Too busy to talk.]]

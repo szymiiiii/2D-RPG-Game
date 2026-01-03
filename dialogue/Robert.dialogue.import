@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dxt2vqfa6ikuj"
+path="res://.godot/imported/Robert.dialogue-27fa02563b98d34f729a5e66257c4a72.tres"
+
+[deps]
+
+source_file="res://dialogue/Robert.dialogue"
+dest_files=["res://.godot/imported/Robert.dialogue-27fa02563b98d34f729a5e66257c4a72.tres"]
+
+[params]
+
+defaults=true

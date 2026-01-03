@@ -1,0 +1,34 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ cafe_with_friend
+Boss: [wave][speed=3]What took you so long?
+Boss: [wave]Do you have any idea how long I waited? [/speed]
+{{GlobalVariables.player_name}}: I under...
+Boss: [wave][speed=3]I haven't finished.[/wave][/speed]
+Robert: Sir.
+Boss: Ah Robert, what are you doing?
+Robert: On behalf of my friend, I would like to apologize. He was late, because he was helping with work.
+Boss: Is that true?
+Robert: Yes.
+Boss: I see.
+Boss: Well I can't blame an employee for doing his work. But next time try not to be late.
+{{GlobalVariables.player_name}}: Yes sir.
+=> END
+
+~ cafe_without_friend
+Boss: [wave][speed=3]What took you so long?
+Boss: [wave]Do you have any idea how long I waited? [/speed]
+{{GlobalVariables.player_name}}: I under...
+Boss: [wave][speed=3]I haven't finished.[/wave][/speed]
+Boss: [speed=0.1] You have failed me for the last time.[/speed]
+=> END

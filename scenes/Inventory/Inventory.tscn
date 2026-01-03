@@ -1,18 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp0dwcio5vdld"]
+[gd_scene load_steps=12 format=3 uid="uid://cp0dwcio5vdld"]
 
 [ext_resource type="Script" uid="uid://c7e622b1ady3m" path="res://scripts/Inventory/inventory.gd" id="1_ny0tn"]
 [ext_resource type="Texture2D" uid="uid://dp2tsoqoqvs71" path="res://assets/Items/Inventory_background.png" id="1_u08j2"]
 [ext_resource type="Texture2D" uid="uid://w0dnyygjqwnq" path="res://assets/Items/Item_slot.png" id="2_ilh4p"]
 [ext_resource type="Script" uid="uid://dsqtsfvgx0yvi" path="res://scripts/Inventory/slot.gd" id="3_ilh4p"]
+[ext_resource type="Texture2D" uid="uid://ba3ikui8il0ft" path="res://assets/Character.png" id="5_optds"]
+[ext_resource type="Texture2D" uid="uid://86a5odcjxebu" path="res://assets/Items/The Coat.png" id="6_om3m5"]
+[ext_resource type="Texture2D" uid="uid://cah4nuc3wiqxi" path="res://assets/Items/The Pants.png" id="7_e1bgs"]
+[ext_resource type="Texture2D" uid="uid://bdqhi8dxm8isw" path="res://assets/Items/The Boots.png" id="8_ctp1g"]
+[ext_resource type="Texture2D" uid="uid://cnomplmeryih" path="res://assets/Items/The Sword.png" id="9_om3m5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ny0tn"]
 texture = ExtResource("2_ilh4p")
 
-[node name="Inventory" type="Node2D"]
-position = Vector2(575, 325)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1qaj"]
+texture = ExtResource("2_ilh4p")
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 575.0
+offset_top = 325.0
+offset_right = 575.0
+offset_bottom = 325.0
 script = ExtResource("1_ny0tn")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,6 +43,7 @@ size_flags_vertical = 6
 texture = ExtResource("1_u08j2")
 
 [node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -36,6 +51,8 @@ offset_top = -240.0
 offset_right = 340.0
 offset_bottom = 240.0
 grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 4
@@ -183,3 +200,165 @@ custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ny0tn")
 script = ExtResource("3_ilh4p")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -282.0
+offset_top = -88.0
+offset_right = -42.0
+offset_bottom = 200.0
+size_flags_vertical = 8
+texture = ExtResource("5_optds")
+
+[node name="EquipSlots" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = -330.0
+offset_top = -172.0
+offset_right = 2.0
+offset_bottom = -92.0
+columns = 4
+
+[node name="ShirtSlot" type="Panel" parent="EquipSlots"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1qaj")
+script = ExtResource("3_ilh4p")
+
+[node name="TextureRect" type="TextureRect" parent="EquipSlots/ShirtSlot"]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_om3m5")
+
+[node name="PantsSlot" type="Panel" parent="EquipSlots"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1qaj")
+script = ExtResource("3_ilh4p")
+
+[node name="TextureRect" type="TextureRect" parent="EquipSlots/PantsSlot"]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_e1bgs")
+
+[node name="ShoesSlot" type="Panel" parent="EquipSlots"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1qaj")
+script = ExtResource("3_ilh4p")
+
+[node name="TextureRect" type="TextureRect" parent="EquipSlots/ShoesSlot"]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ctp1g")
+
+[node name="SwordSlot" type="Panel" parent="EquipSlots"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1qaj")
+script = ExtResource("3_ilh4p")
+
+[node name="TextureRect" type="TextureRect" parent="EquipSlots/SwordSlot"]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_om3m5")
+
+[connection signal="mouse_entered" from="GridContainer/Slot1" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot1" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot2" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot2" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot3" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot3" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot4" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot4" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot5" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot5" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot6" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot6" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot7" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot7" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot8" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot8" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot9" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot9" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot10" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot10" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot11" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot11" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot12" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot12" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot13" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot13" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot14" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot14" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot15" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot15" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot16" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot16" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot17" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot17" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot18" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot18" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot19" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot19" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot20" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot20" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot21" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot21" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot22" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot22" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot23" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot23" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="GridContainer/Slot24" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Slot24" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="EquipSlots/ShirtSlot" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="EquipSlots/ShirtSlot" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="EquipSlots/PantsSlot" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="EquipSlots/PantsSlot" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="EquipSlots/ShoesSlot" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="EquipSlots/ShoesSlot" to="." method="_on_slot_mouse_exited"]
+[connection signal="mouse_entered" from="EquipSlots/SwordSlot" to="." method="_on_slot_mouse_entered"]
+[connection signal="mouse_exited" from="EquipSlots/SwordSlot" to="." method="_on_slot_mouse_exited"]

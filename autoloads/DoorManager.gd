@@ -83,7 +83,7 @@ func _clear_door_list():
 func _on_player_ready_to_pass(timer_time: float):
 	await get_tree().create_timer(timer_time).timeout
 	_clear_door_list()
-	print(door_dictionary["next_map_name"],level_Container,level_Container.get_child(0),door_dictionary["transition_name"])
+	#print(door_dictionary["next_map_name"],level_Container,level_Container.get_child(0),door_dictionary["transition_name"])
 	did_player_go_through_doors = true
 	is_player_inside_vertical_doors = false
 	is_player_inside_horizontal_doors = false

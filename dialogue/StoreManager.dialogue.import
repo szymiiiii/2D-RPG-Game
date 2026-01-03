@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cfdtr7gf15ajd"
+path="res://.godot/imported/StoreManager.dialogue-214f003e6f2590e6a2e03df1c94bce82.tres"
+
+[deps]
+
+source_file="res://dialogue/StoreManager.dialogue"
+dest_files=["res://.godot/imported/StoreManager.dialogue-214f003e6f2590e6a2e03df1c94bce82.tres"]
+
+[params]
+
+defaults=true
