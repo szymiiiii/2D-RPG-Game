@@ -17,6 +17,8 @@ var equips = {
 	3: ["The Sword", 1, "Imagination tailored", "Sword", 5]
 }
 
+var inventory_ui = null
+
 func add_item(item_name, item_quanity, item_descryption, item_category, item_variable):
 	#print("add_item: ", item_name, ", quantity: ", item_quanity)
 	for item in inventory:
@@ -35,9 +37,14 @@ func add_item(item_name, item_quanity, item_descryption, item_category, item_var
 			#inventory[item][1] += item_quanity
 			#return
 			
+	# PlayerInventory.gd
+
 	for i in range(NUM_INVENTORY_SLOTS):
 		if inventory.has(i) == false:
-			inventory[i] = [item_name, item_quanity]
+			# MUSISZ dodać wszystkie parametry, inaczej UI się pogubi
+			inventory[i] = [item_name, item_quanity, item_descryption, item_category, item_variable]
+		
+			# Kluczowy krok: Powiadom UI o zmianie
 			update_slot_visual(i, inventory[i][0], inventory[i][1], inventory[i][2], inventory[i][3], inventory[i][4])
 			return
 
@@ -65,9 +72,17 @@ func add_item_quanity(slot: SlotClass, quanity_to_add: int):
 		_:
 			inventory[slot.slot_index][1] += quanity_to_add
 
-func update_slot_visual(slot_index, item_name, new_quantity, item_descryption, item_category, item_variable):
-	var slot = get_tree().root.get_node("res://scenes/Inventory/Inventory/GridContainer/Slot" + str(slot_index + 1))
-	if slot.item != null:
-		slot.item.set_item(item_name, new_quantity, item_descryption, item_category, item_variable)
-	else:
-		slot.initialize_item(item_name, new_quantity, item_descryption, item_category, item_variable)
+# PlayerInventory.gd
+
+func update_slot_visual(slot_index, item_name, new_quantity, item_desc, item_cat, item_var):
+	# Sprawdzamy, czy scena Inventory jest w ogóle otwarta
+	if inventory_ui != null:
+		# Tutaj precyzyjnie wskazujemy na GridContainer wewnątrz Twojej sceny
+		var grid = inventory_ui.get_node("GridContainer") 
+		var slots = grid.get_children()
+		if slot_index < slots.size():
+			var slot = slots[slot_index]
+			if slot.item != null:
+				slot.item.set_item(item_name, new_quantity, item_desc, item_cat, item_var)
+			else:
+				slot.initialize_item(item_name, new_quantity, item_desc, item_cat, item_var)
