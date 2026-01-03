@@ -4079,12 +4079,15 @@ jump_impulse = 600.0
 
 [node name="ItemDrop" parent="." instance=ExtResource("5_4ws5y")]
 position = Vector2(103.99999, -22.999998)
+item_choice = 1
 
 [node name="ItemDrop2" parent="." instance=ExtResource("5_4ws5y")]
 position = Vector2(160, -24)
+item_choice = 1
 
 [node name="ItemDrop3" parent="." instance=ExtResource("5_4ws5y")]
 position = Vector2(197, -90.99999)
+item_choice = 1
 
 [node name="ItemDrop4" parent="." instance=ExtResource("5_4ws5y")]
 position = Vector2(253, -91)
