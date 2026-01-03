@@ -9,13 +9,23 @@ var is_idle_forced = false
 var is_in_battle = false
 
 #Janek
+
+@onready var battle = preload("res://scenes/Battle/Battle1.tscn")
+
+#Janek
+@export var player_name = null
+@export var player_shirt = 0
+@export var player_pants = 0
+@export var player_boots = 0
+
+@export var friendship = 0
 @export var health: int = 100
 @export var curr_health: int = 50
-@export var attack_power: int = 5
+@export var attack_power: int = 4
 @export var sword: int = 20
 @export var fireball: bool = true
-@export var poison_sting: bool = true
-@export var sting_ray: bool = true
+@export var poison_sting: bool = false
+@export var sting_ray: bool = false
 @export var penguin: String = ""
 
 @export var f_name: String = "Fireball"

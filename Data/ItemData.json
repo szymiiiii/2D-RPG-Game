@@ -2,13 +2,38 @@
 	"RedDiamond": {
 		"ItemCategory": "Resource",
 		"StackSize": 99,
-		"Descryption": "A stone that's coloured red. That's all."
+		"Descryption": "A stone that's coloured red. That's all.",
+		"ItemVariable": 0
 	},
 	"Orange": {
 		"ItemCategory": "Resource",
-		"AddHealth": 5,
-		"AddEnergy": 1,
 		"StackSize": 99,
-		"Descryption": "A stone that's coloured red. That's all."
+		"Descryption": "A stone that's coloured red. That's all.",
+		"ItemVariable": 20
+		
+	},
+	"The Coat": {
+		"ItemCategory": "Shirt",
+		"StackSize": 1,
+		"Descryption": "Buisness tailored",
+		"ItemVariable": 2
+	},
+	"The Pants": {
+		"ItemCategory": "Pants",
+		"StackSize": 1,
+		"Descryption": "Buisness tailored",
+		"ItemVariable": 2
+	},
+	"The Boots": {
+		"ItemCategory": "Shoes",
+		"StackSize": 1,
+		"Descryption": "Buisness tailored",
+		"ItemVariable": 2
+	},
+	"The Sword": {
+		"ItemCategory": "Sword",
+		"StackSize": 1,
+		"Descryption": "Imagination tailored",
+		"ItemVariable": 10
 	}
 }

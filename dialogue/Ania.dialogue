@@ -1,0 +1,46 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+~ introduction
+Ania: [wave] *sniff* *sniff* [/wave]
+- What's wrong?
+	{{GlobalVariables.player_name}}: What's wrong?
+	Ania: [wave]My boyfriend broke up with me![/wave]
+	{{GlobalVariables.player_name}}: Look I know this isn't the right time, but could you help me with changing the cartridge in the printer?
+	Ania: [wave]*sniff*[/wave] Might as well do that instead of crying all day.
+	{{GlobalVariables.player_name}}: Let's go then.
+- Nevermind
+	=> END
+
+~ store
+Ania: Sorry, but I've gotta ask.
+Ania: Why did you jump when we were walking towards the store?
+- Stretching
+	Ania: ...[wait=2] [speed=0.1]Right.[/speed]
+	=> END
+- Just an impulse
+	Ania: An impulse compelled you to jump in front of the streetlight?
+	{{GlobalVariables.player_name}}: Shut up.
+	=> END
+
+~ store_closing
+Ania: Well that was interesting. Wanna head back?
+=> END
+
+~ day1_end
+Ania: Listen.
+Ania: Thanks for making me tag along.
+Ania: I really needed some distraction from this jerk.
+Ania: It may not mean much, but if you ever feel like garbage. Call me.
+Ania: See ya.
+set GlobalVariables.friendship += 1
+=> END
