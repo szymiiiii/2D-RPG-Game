@@ -246,8 +246,8 @@ script = ExtResource("1_g2els")
 texture_filter = 1
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
-animation = &"falling"
-frame_progress = 0.0375112
+animation = &"walking"
+frame_progress = 0.31536007
 script = ExtResource("3_ur7pv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

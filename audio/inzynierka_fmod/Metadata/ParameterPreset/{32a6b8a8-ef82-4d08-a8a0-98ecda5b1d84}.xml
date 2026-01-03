@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{32a6b8a8-ef82-4d08-a8a0-98ecda5b1d84}">
+		<property name="name">
+			<value>Distorition Mix</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c7e7341e-0126-4dd9-a3f1-33da484b0940}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a169947c-3c92-40a6-a262-934b0dba6165}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a169947c-3c92-40a6-a262-934b0dba6165}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

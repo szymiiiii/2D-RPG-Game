@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://4svjkqfwdq3f"]
+[gd_scene load_steps=5 format=3 uid="uid://4svjkqfwdq3f"]
 
 [ext_resource type="Script" uid="uid://dnor2vwa4gtgi" path="res://scripts/UI_Scripts/options/ESC_options.gd" id="1_rpfql"]
+
+[sub_resource type="Theme" id="Theme_rpfql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpfql"]
+bg_color = Color(0, 0, 0, 0.6627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v881c"]
 bg_color = Color(0.894922, 0.894922, 0.894922, 1)
@@ -22,6 +27,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rpfql")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpfql")
 
 [node name="Main_options" type="VBoxContainer" parent="."]
 visible = false

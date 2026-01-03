@@ -4,12 +4,17 @@ var movement_direction_x: int
 var is_player_on_ground: bool
 var door_position_x
 var is_player_in_zone
+var door_sound_event: FmodEvent = null
 
 func enter(previous_state_path: String, data := {}) -> void:
 	#print("player got into getting IN state")
 	is_player_on_ground =player.is_on_floor()
 	door_position_x = DoorManager.door_dictionary["door_position"].x
 	is_player_in_zone = player.position.x <= door_position_x + 5 && player.position.x >= door_position_x - 5
+	
+	door_sound_event = FmodServer.create_event_instance("event:/door sounds")
+	door_sound_event.volume = 1.5
+	door_sound_event.start()
 	
 	if is_player_in_zone:
 		DoorManager.player_ready_to_pass.emit(0.5)

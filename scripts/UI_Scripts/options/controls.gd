@@ -2,6 +2,7 @@ extends Control
 
 @onready var input_button_scene = preload("res://scenes/UI/option_categories/control_button.tscn")
 @onready var action_list: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
+var menu_interaction: FmodEvent = null
 
 var is_remapping = false
 var action_to_remap = null
@@ -21,7 +22,8 @@ var input_actions = {
 
 func _ready():
 	_create_action_list()
-
+	menu_interaction = FmodServer.create_event_instance("event:/menu event")
+	menu_interaction.volume = 0.5
 
 func _create_action_list():
 	for item in action_list.get_children():
@@ -44,6 +46,7 @@ func _create_action_list():
 		button.pressed.connect(_on_button_pressed.bind(button, action))
 	
 func _on_button_pressed(button, action):
+	menu_interaction.start()
 	if !is_remapping:
 		is_remapping = true
 		action_to_remap = action
@@ -68,6 +71,7 @@ func _input(event):
 				action_to_remap = null
 				remapping_button = null
 				
+				menu_interaction.start()
 				accept_event()
 				
 				
@@ -78,6 +82,7 @@ func _update_action_list(button, event):
 
 
 func _on_default_pressed() -> void:
+	menu_interaction.start()
 	InputMap.load_from_project_settings()
 	for action in input_actions:
 		var events = InputMap.action_get_events(action)
@@ -87,4 +92,5 @@ func _on_default_pressed() -> void:
 
 
 func _on_return_pressed() -> void:
+	menu_interaction.start()
 	SceneManager.swap_scenes("res://scenes/UI/game_options.tscn",self.get_parent(),self,"no_to_transition")

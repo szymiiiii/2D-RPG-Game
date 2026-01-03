@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://crdc0k3mn164d"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tppmy"]
-bg_color = Color(1, 1, 1, 0.741176)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nws31"]
 bg_color = Color(0, 0, 0, 0.835294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tppmy"]
+bg_color = Color(1, 1, 1, 0.741176)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(0, 30)
 focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxFlat_tppmy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tppmy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tppmy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nws31")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tppmy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tppmy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tppmy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
