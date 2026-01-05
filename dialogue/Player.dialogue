@@ -11,7 +11,9 @@ Nathan: For more information see the online documentation.
 => END
 
 ~ begin_day
-{{GlobalVariables.player_name}}: Another day, another shift towards vacation.
+{{GlobalVariables.player_name}}: Agh, I really dont want to go to work tonight.
+{{GlobalVariables.player_name}}: But another day, another shift towards vacation.
+{{GlobalVariables.player_name}}: I guess i should grab some of my things from toilet (pressing F key)
 => END
 
 ~ end_day
@@ -28,4 +30,21 @@ Nathan: For more information see the online documentation.
 
 ~ boss_3
 {{GlobalVariables.player_name}}: What in the world was that about?
+=> END
+
+~ ending_A
+{{GlobalVariables.player_name}}: Finally the end of never ending documents to work with...
+{{GlobalVariables.player_name}}: Now I can just focus on relaxation. Deciding to go to this beach was such a great idea.
+{{GlobalVariables.player_name}}: If I could I would stop meeting my coworkers entirly.
+{{GlobalVariables.player_name}}: Although I guess its not too bad, if I can take a break from it all for a whole month.
+THE END
+=> END
+
+~ ending_B
+{{GlobalVariables.player_name}}: Finally the end of never ending documents to work with...
+{{GlobalVariables.player_name}}: Now I can just focus on relaxation. Deciding to go to this lake was such a great idea.
+{{GlobalVariables.player_name}}: If I could I would stop meeting my coworkers entirly.
+{{GlobalVariables.player_name}}: Although I guess its not too bad, if I can take a break from it all for a whole month.
+{{GlobalVariables.player_name}}: It is all thanks to my friends that I'm still sane. Im really greatfull for what they have done for me
+THE END
 => END

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://blygneb8hstup"]
+[gd_scene load_steps=15 format=3 uid="uid://blygneb8hstup"]
 
 [ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_00vmj"]
+[ext_resource type="Script" uid="uid://csg28xgm8keu1" path="res://scenes/Maps/level_one.gd" id="1_06thq"]
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_k6171"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="2_cbxj8"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_opmxo"]
@@ -622,6 +623,7 @@ sources/1 = SubResource("TileSetAtlasSource_1shnu")
 
 [node name="Scena1" type="Node2D"]
 position = Vector2(1, 0)
+script = ExtResource("1_06thq")
 
 [node name="MusicScene" parent="." instance=ExtResource("1_00vmj")]
 volume = 0.17

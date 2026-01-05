@@ -36,12 +36,16 @@ func _on_return_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	menu_interaction.start()
+	get_tree().quit()
 	pass # Replace with function body.
 
 
 func _on_save_pressed() -> void:
 	menu_interaction.start()
+	GlobalVariables.save_game()
 	SaveGameManager.save()
+	GameProgressSaver.save_game()
+	PlayerInventory.save_inventory()
 	panel.visible = !panel.visible
 	self.visible = !self.visible
 	print("zapisano mapę")

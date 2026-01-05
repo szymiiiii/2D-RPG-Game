@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://brcdykxjwgt70"]
+
+[ext_resource type="Texture2D" uid="uid://7083dflxgqwg" path="res://assets/NPC/NPC2.png" id="1_xsbr6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25b5i"]
+atlas = ExtResource("1_xsbr6")
+region = Rect2(35, 13, 31, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qolc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25b5i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="WorkerTwo" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qolc4")
+animation = &"idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qolc4")
+animation = &"idle"

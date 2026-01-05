@@ -7,7 +7,12 @@ enum Levels_Enum {
 	
 	house_entry, house_level, house_toilet, house_bedroom,
 	
-	path_one_two, office
+	path_one_two, office,
+	
+	night,
+	supermarket,
+	coffee,
+	lord_origami
 	
 	##Add new enum positions from below, so it wont break existing doors 
 }
@@ -22,6 +27,11 @@ const LEVELS = {
 	
 	Levels_Enum.path_one_two: "res://scenes/Maps/level_1-2.tscn",
 	Levels_Enum.office: "res://scenes/Maps/office.tscn",
+	Levels_Enum.night: "res://scenes/Maps/night.tscn",
+	Levels_Enum.supermarket: "res://scenes/Maps/supermarket.tscn",
+	Levels_Enum.coffee: "res://scenes/Maps/coffee.tscn",
+	Levels_Enum.lord_origami: "res://scenes/Maps/house/house_closed_room.tscn",
+	
 }
 
 ##analogicznie jak wyzej ale nalezy brac pod uwage jakie animacje istnieja w loading screen
@@ -56,14 +66,23 @@ const TRANSITION_VALUES = {
 @export_range(0, 10) var id : int
 
 @export var are_doors_closed: bool = false
+
+@export var are_monitorable: bool = true
+
 var door_sound_event: FmodEvent = null
+var is_player_inside = false
+
+@onready var area_2d: Area2D = $Area2D
 
 func _ready() -> void:
 	DoorManager.all_door_registrate_in_scene_manager.emit(self, id)
+	area_2d.monitorable = are_monitorable
+	area_2d.monitoring = are_monitorable
 	#print("drzwi ", id)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var body_Name = body.name
+	is_player_inside = true
 	
 	if (body_Name != "Player"):
 		printerr("Doors.gd weszły w interakcje z wiezlem nie nazywajacym sie Player tylko: ", body_Name)
@@ -73,7 +92,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		pass
 		#print("Doors.gd weszło w interakcje z graczem ale przeszedl on juz przez drzwi")
 	elif are_doors_closed:
-		print("drzwi som zamkniete")
+		pass
+		#print("drzwi som zamkniete")
 	elif (orientation != null && next_scene != null && transition_choice != null && id != null):
 		 
 		DoorManager.player_entered_doors.emit(id, orientation, TRANSITION_VALUES[transition_choice], LEVELS[next_scene], position)
@@ -89,5 +109,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	is_player_inside = false
 	if !DoorManager.did_player_go_through_doors:
 		DoorManager.player_exited_doors.emit()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Interact") && are_doors_closed && is_player_inside && !GlobalVariables.has_dialog_started:
+		DialogueManager.show_example_dialogue_balloon(preload("res://dialogue/tutorial.dialogue"), "doors_closed")
+		GameProgressSaver.mark_dialogue_as_done(self.name)
+		is_player_inside = false

@@ -14,4 +14,23 @@ Nathan: For more information see the online documentation.
 ???: Foolish mortal. You dare tresspass the great taxation hill.
 ???: I am Lord Origami and I will drown the world in an endless sea of paper.
 Lord Origami: HAVE AT YOU, KNAVE.
+set GlobalVariables.is_in_battle = true
 => END
+
+~ after_teleportation
+Player: What is this place? Why is there huge pile of paper in front of me? Thought I was going in to my home office?!
+Player: It looks like a mountain... made of paper and I see something on top of it.
+Player: It is really huge, but why do I feel like I can jump there.
+Tutorial: (Press {{ConfigFileManager.config_file.get_value("keybinding", "Jumping")}} to jump)
+=> END
+
+~ with_friends
+Player: You too guys? What are you doing here?
+Robert: We have come to help you with work of course!
+Anna: Use our abilities to win this.
+Robert: [wave] Sting Ray! [/wave]
+Anna: [wave] And Sting Poison! [/wave]
+Player: Alright, guys thanks for your help.
+Tutorial: (You can use these Magic abilities under Magic tab in upcoming battle mode. Good luck!)
+=> END
+

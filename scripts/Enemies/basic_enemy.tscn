@@ -1,12 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs6f1jo7jg1c3"]
+[gd_scene load_steps=12 format=3 uid="uid://cs6f1jo7jg1c3"]
 
 [ext_resource type="Script" uid="uid://wlj56i5uxok7" path="res://scripts/Enemies/enemy_actionable.gd" id="1_il6if"]
 [ext_resource type="Script" uid="uid://cv0846abwnjra" path="res://scripts/Enemies/basic_enemy.gd" id="1_l7yrx"]
-[ext_resource type="Texture2D" uid="uid://emx53s8k80sc" path="res://assets/Battle/canvas6.png" id="1_xr4v0"]
 [ext_resource type="Resource" uid="uid://q2aajwnvk14q" path="res://dialogue/test.dialogue" id="2_il6if"]
+[ext_resource type="Texture2D" uid="uid://e08u106c0x2x" path="res://assets/Battle/Boss.png" id="4_vxw5x"]
+[ext_resource type="Texture2D" uid="uid://dfrfe08n5nwyn" path="res://assets/Battle/LordOrigami.png" id="5_n38xx"]
+[ext_resource type="Texture2D" uid="uid://cyhmmp1wqcais" path="res://assets/Battle/StoreManagerBoss.png" id="6_7htqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7yrx"]
 size = Vector2(290, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvnxn"]
+atlas = ExtResource("4_vxw5x")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p28sq"]
+atlas = ExtResource("5_n38xx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2og8x"]
+atlas = ExtResource("6_7htqc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvnxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvnxn")
+}],
+"loop": true,
+"name": &"Boss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p28sq")
+}],
+"loop": true,
+"name": &"LordOrigami",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2og8x")
+}],
+"loop": true,
+"name": &"StoreManager",
+"speed": 5.0
+}]
 
 [node name="BasicEnemy" type="Node2D"]
 script = ExtResource("1_l7yrx")
@@ -14,13 +55,19 @@ dialogue_resource = ExtResource("2_il6if")
 dialogue_start = "battle"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_il6if")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -30)
+position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_l7yrx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xr4v0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.000001, -12)
+scale = Vector2(2.393617, 1.8333334)
+sprite_frames = SubResource("SpriteFrames_nvnxn")
+animation = &"StoreManager"
 
+[connection signal="area_shape_entered" from="Area2D" to="Area2D" method="_on_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

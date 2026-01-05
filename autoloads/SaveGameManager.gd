@@ -1,11 +1,11 @@
 extends Node
 
-const SAVE_PATH := "user://save.tres"
+const SAVE_PATH := "user://currentLevelResource.tres"
 
 var currentLevel: CurrentLevel
 
 func _ready() -> void:
-	print(ResourceLoader.exists(SAVE_PATH))
+	#print(ResourceLoader.exists(SAVE_PATH))
 	if ResourceLoader.exists(SAVE_PATH):
 		_load()
 	else:

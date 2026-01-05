@@ -49,6 +49,5 @@ func _process(delta: float) -> void:
 		if (animation.get_basename() == "walking" || animation.get_basename() == "running") && (frame == 0 || frame == 3):
 			if(walking_sound.get_playback_state() == FmodServer.FMOD_STUDIO_PLAYBACK_PLAYING):
 				walking_sound.stop(FmodServer.FMOD_STUDIO_STOP_ALLOWFADEOUT)
-				walking_sound.release()
 			walking_sound.start()
 	frame_counter += 1

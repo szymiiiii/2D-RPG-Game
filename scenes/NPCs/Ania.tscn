@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://mn411bco744v"]
+
+[ext_resource type="Texture2D" uid="uid://bgdwdu3idbp24" path="res://assets/NPC/Ania.png" id="1_5ycma"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5x8t"]
+atlas = ExtResource("1_5ycma")
+region = Rect2(4, 13, 31, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wj4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5x8t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="Ania" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3wj4g")
+animation = &"idle"

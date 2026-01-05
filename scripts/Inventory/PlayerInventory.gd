@@ -19,6 +19,29 @@ var equips = {
 
 var inventory_ui = null
 
+const SAVE_PATH = "user://inventory_save.tres"
+
+func save_inventory():
+	var save_data = Inventory_Resource.new()
+	
+	save_data.inventory = inventory.duplicate(true)
+	save_data.equips = equips.duplicate(true)
+	
+	var result = ResourceSaver.save(save_data, SAVE_PATH)
+	if result != OK:
+		print("Błąd podczas zapisu ekwipunku: ", result)
+
+func load_inventory():
+	if not FileAccess.file_exists(SAVE_PATH):
+		print("Nie znaleziono pliku zapisu ekwipunku.")
+		return
+
+	var loaded_data = ResourceLoader.load(SAVE_PATH) as Inventory_Resource
+	
+	if loaded_data:
+		inventory = loaded_data.inventory.duplicate(true)
+		equips = loaded_data.equips.duplicate(true)
+
 func add_item(item_name, item_quanity, item_descryption, item_category, item_variable):
 	#print("add_item: ", item_name, ", quantity: ", item_quanity)
 	for item in inventory:

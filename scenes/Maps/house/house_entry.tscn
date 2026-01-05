@@ -178,6 +178,7 @@ id = 1
 [node name="OutsideDoor" parent="." instance=ExtResource("1_xxh34")]
 position = Vector2(96, -48)
 orientation = 2
+next_scene = 8
 id = 2
 
 [node name="Tilesets" type="Node2D" parent="."]
@@ -217,7 +218,7 @@ tile_map_data = PackedByteArray("AAALAPn/AQAEAAEAAAAKAPn/AQADAAEAAAAIAPn/AQADAAE
 tile_set = SubResource("TileSet_6f83k")
 
 [node name="Player" parent="." instance=ExtResource("2_6f83k")]
-position = Vector2(66, -17)
+position = Vector2(44, -17)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("3_xxh34")]

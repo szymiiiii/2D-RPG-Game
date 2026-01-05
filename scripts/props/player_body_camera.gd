@@ -10,10 +10,10 @@ func _ready() -> void:
 
 func _on_ready_to_teleport_to_door():
 	#print("camera physics reset")
-	
+	make_current()
 	reset_physics_interpolation()
 	
-	make_current()
+
 	#if(get_parent().name != "Player"):
 		#position.x = pos_x
 		#position.y = pos_y

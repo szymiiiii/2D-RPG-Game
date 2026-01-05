@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cqt2uf7yskxu8"]
+
+[ext_resource type="Script" uid="uid://dh7k3ifjmvm8s" path="res://scripts/Enemies/enemy.gd" id="1_8tfif"]
+[ext_resource type="Texture2D" uid="uid://e08u106c0x2x" path="res://assets/Battle/Boss.png" id="2_8tfif"]
+
+[resource]
+script = ExtResource("1_8tfif")
+name = "Angry Boss"
+health = 150
+texture = ExtResource("2_8tfif")
+damage = 30
+enemy_exp = 5
