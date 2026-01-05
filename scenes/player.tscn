@@ -281,7 +281,7 @@ script = ExtResource("11_ckg7o")
 [node name="ActionableFinder" type="Area2D" parent="."]
 position = Vector2(0, -12)
 rotation = 1.5708
-collision_layer = 0
+collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder"]

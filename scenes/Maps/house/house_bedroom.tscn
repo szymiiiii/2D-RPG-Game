@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=4 uid="uid://bv70ouxflgiq1"]
+[gd_scene load_steps=14 format=4 uid="uid://bv70ouxflgiq1"]
 
+[ext_resource type="Script" uid="uid://ugynrqr1l7ib" path="res://scenes/Maps/house/house_bedroom.gd" id="1_3hvhm"]
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_h4fv6"]
 [ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_lrjha"]
+[ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="1_w2yl7"]
+[ext_resource type="Resource" uid="uid://cp0xiun5ebeky" path="res://dialogue/tutorial.dialogue" id="2_3hvhm"]
 [ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="2_lrjha"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_j6jlh"]
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_w2yl7"]
+[ext_resource type="Resource" uid="uid://i14fhfqel8fp" path="res://dialogue/Player.dialogue" id="7_07bbs"]
+[ext_resource type="Resource" uid="uid://bghfdpt778kxp" path="res://dialogue/Day3.dialogue" id="8_pdjai"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mh8do"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_07bbs"]
 texture = ExtResource("2_lrjha")
 0:0/0 = 0
 1:0/0 = 0
@@ -200,9 +205,13 @@ texture = ExtResource("2_lrjha")
 
 [sub_resource type="TileSet" id="TileSet_w740c"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_mh8do")
+sources/1 = SubResource("TileSetAtlasSource_07bbs")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwvap"]
+size = Vector2(51, 56)
 
 [node name="HouseLevel" type="Node2D"]
+script = ExtResource("1_3hvhm")
 
 [node name="MusicScene2" parent="." instance=ExtResource("1_lrjha")]
 position = Vector2(-112, 64)
@@ -253,8 +262,56 @@ tile_set = SubResource("TileSet_w740c")
 position = Vector2(-8, 8)
 tile_set = SubResource("TileSet_w740c")
 
+[node name="DayOne" type="Node2D" parent="."]
+
+[node name="ActionableTutorial" parent="DayOne" instance=ExtResource("1_w2yl7")]
+position = Vector2(-60.76426, -31.909836)
+dialogue_resource = ExtResource("2_3hvhm")
+automatic_interaction = true
+can_be_completed = true
+
+[node name="DayOneCompletion" parent="DayOne" instance=ExtResource("1_w2yl7")]
+position = Vector2(56, -35)
+monitoring = false
+monitorable = false
+dialogue_resource = ExtResource("7_07bbs")
+dialogue_start = "end_day"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="DayTwo" type="Node2D" parent="."]
+
+[node name="DayTwoBegin" parent="DayTwo" instance=ExtResource("1_w2yl7")]
+position = Vector2(-60.76426, -31.909836)
+dialogue_resource = ExtResource("7_07bbs")
+dialogue_start = "begin_day"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="DayTwoCompletion" parent="DayTwo" instance=ExtResource("1_w2yl7")]
+position = Vector2(56, -35)
+monitoring = false
+monitorable = false
+dialogue_resource = ExtResource("7_07bbs")
+dialogue_start = "end_day"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="DayThree" type="Node2D" parent="."]
+
+[node name="EndingWithOutFriends" parent="DayThree" instance=ExtResource("1_w2yl7")]
+position = Vector2(38, -33)
+dialogue_resource = ExtResource("8_pdjai")
+dialogue_start = "no_friend_end"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayThree/EndingWithOutFriends"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_gwvap")
+
 [node name="Player" parent="." instance=ExtResource("3_j6jlh")]
-position = Vector2(56, -16)
+position = Vector2(-2, -18)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("4_w2yl7")]

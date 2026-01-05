@@ -7,9 +7,11 @@
 
 [node name="Actionable" type="Area2D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_mmc2d")
 dialogue_resource = ExtResource("2_2jdkn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2jdkn")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

@@ -17,20 +17,32 @@ Player: Wai-
 Coworker: [speed=5] Thanks, bye.[/speed]
 Player: ...
 Player: [wave] You have got to be kidding me.[/wave]
-if GlobalVariables.friendship == 2:
+if GameProgressSaver.is_completed("friends_with_anna") && GameProgressSaver.is_completed("friends_with_robert"):
 	Robert: Hey there what is wrong?
 	Player: Robert? Ania?
 	Ania: They really have it out for you.
 	Player: Day after day it's nothing, but work and work.
 	Robert: Don't worry we will take care of this together.
-	=> friend_end
+	Player: I wanted to go to my home office, so i can finish this work in peace. If you want to help me come with me.
+	Ania and Robert: Alright! Lets go then.
+	do GameProgressSaver.mark_dialogue_as_done("LastQuestWithFriends")
+	=> END
 else :
 	Player: [wave] I can't take this anymore.[/wave]
+	Player: I have to go home and take these documents with me, since i will have to work overtime anyway...
 	=> END
 	
 ~ friend_end
-Player: Thank you both for everything.
+Robert: Hey is there anything wrong?
+Ania: You worked so hard and right, that after finishing your work you passed out, are you alright?
+Robert: You should get a lot of rest now.
+Player: So the work is done?! Thank you both for everything.
 Ania: Don't worry about it and hey if you have the time maybe we can go on vacation together.
 Robert: How does that sound.
 Player: Great. I'll see you later.
 => END
+
+~ no_friend_end
+Robert: Finally I can go to sleep...
+=> END
+

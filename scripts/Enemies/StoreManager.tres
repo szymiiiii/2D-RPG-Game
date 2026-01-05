@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dvy5xexm83sau"]
+
+[ext_resource type="Script" uid="uid://dh7k3ifjmvm8s" path="res://scripts/Enemies/enemy.gd" id="1_3ifba"]
+[ext_resource type="Texture2D" uid="uid://cyhmmp1wqcais" path="res://assets/Battle/StoreManagerBoss.png" id="2_3ifba"]
+
+[resource]
+script = ExtResource("1_3ifba")
+name = "Store Manager"
+texture = ExtResource("2_3ifba")

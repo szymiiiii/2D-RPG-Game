@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2n0tg5kyc6i0"]
+
+[ext_resource type="Texture2D" uid="uid://cjkhxylajokjv" path="res://assets/NPC/Store_Manager.png" id="1_t2uik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr37r"]
+atlas = ExtResource("1_t2uik")
+region = Rect2(0, 8, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wj4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr37r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="StoreManager" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3wj4g")
+animation = &"idle"

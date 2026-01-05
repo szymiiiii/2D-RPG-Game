@@ -1,5 +1,7 @@
 extends Area2D
 
+var menu_interaction: FmodEvent = null
+
 var player = null
 var being_picked_up = false
 
@@ -40,6 +42,12 @@ func _ready() -> void:
 	item_descryption = ITEM_DESCRYPTION[item_choice]
 	item_category = ITEM_CATEGORY[item_choice]
 	item_variable = ITEM_VARIABLE[item_choice]
+	
+	menu_interaction = FmodServer.create_event_instance("event:/collect_effect")
+	menu_interaction.volume = 0.5
+	if GameProgressSaver.is_completed(self.name):
+		queue_free()
+	
 func _physics_process(delta):
 	if being_picked_up == false:
 		velocity = velocity.move_toward(Vector2(0, MAX_SPEED), ACCELERATION * delta)
@@ -50,9 +58,14 @@ func _physics_process(delta):
 		var distance = global_position.distance_to(player.global_position)
 		if distance < 4:
 			PlayerInventory.add_item(item_name, 1, item_descryption, item_category, item_variable)
+			GameProgressSaver.mark_dialogue_as_done(self.name)
 			queue_free()
 	#velocity = move_and_slide()
 
 func pick_up_item(body):
+	GameProgressSaver.mark_dialogue_as_done(self.name)
 	player = body
 	being_picked_up = true
+	menu_interaction.start()
+
+	

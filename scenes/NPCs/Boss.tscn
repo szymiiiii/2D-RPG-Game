@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsm2egb7yem4e"]
+
+[ext_resource type="Texture2D" uid="uid://dakumh37gypel" path="res://assets/NPC/Boss.png" id="1_hd16d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi6jc"]
+atlas = ExtResource("1_hd16d")
+region = Rect2(32, 17, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wj4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi6jc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="Boss" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3wj4g")
+animation = &"idle"

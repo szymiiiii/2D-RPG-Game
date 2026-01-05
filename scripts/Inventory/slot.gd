@@ -10,7 +10,7 @@ var taken_style: StyleBoxTexture = null
 var empty_style: StyleBoxTexture = null
 
 const Item = preload("res://scripts/Inventory/Item_script.tres.gd")
-var ItemClass = preload("res://scenes/Inventory/Item.tscn")
+var ItemClass = preload("res://scenes/Inventory/item.tscn")
 var item = null
 
 var descryption = load("res://scenes/Inventory/Descryption.tscn")

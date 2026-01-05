@@ -29,10 +29,13 @@ func _ready() -> void:
 	_content_finished_loading.connect(_on_content_finished_loading)
 	
 func _add_loading_screen(transition_type:String="fade_to_black"):
-	_transition = "no_to_transition" if transition_type == "no_transition" else transition_type
-	_loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
-	get_tree().root.add_child(_loading_screen)
-	_loading_screen.start_transition(_transition)
+	if GlobalVariables.special_transition == true:
+		pass
+	else:
+		_transition = "no_to_transition" if transition_type == "no_transition" else transition_type
+		_loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
+		get_tree().root.add_child(_loading_screen)
+		_loading_screen.start_transition(_transition)
 	
 func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node=null, transition_type:String="fade_to_black") -> void:
 	#print("swap_scenes( ",
@@ -45,7 +48,7 @@ func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node
 	if _loading_in_progress:
 		push_warning("SceneManager is already loading something")
 		while(_loading_in_progress):
-			await get_tree().create_timer(0.25).timeout
+			await get_tree().create_timer(0.75).timeout
 		
 	
 	_loading_in_progress = true
@@ -134,7 +137,7 @@ func _on_content_finished_loading(incoming_scene) -> void:
 		incoming_scene.init_scene()
 	
 	# probably not necssary since we split our _content_finished_loading but it won't hurt to have an extra check
-	if _loading_screen != null:
+	if !GlobalVariables.special_transition && _loading_screen != null:
 		_loading_screen.finish_transition()
 		
 		# Wait or loading animation to finish

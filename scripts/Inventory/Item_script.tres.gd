@@ -25,7 +25,7 @@ func _ready() -> void:
 		$Label.text = str(item_quantity)
 
 func set_item(nm, qt, dc, ct, iv):
-	print("setting item: ", nm, ", quantity: ", qt, ", with a descryption: ", dc)
+	#print("setting item: ", nm, ", quantity: ", qt, ", with a descryption: ", dc)
 	item_name = nm
 	item_quantity = qt
 	item_descryption = dc

@@ -3,14 +3,14 @@ extends Control
 signal item_press
 signal text_closed
 signal death
-@export var enemy: Resource = null
+var enemy: Resource = null
 var player_health = GlobalVariables.curr_health
 @export var e_health: int
 @export var e_exp: int
 const InventoryClass = preload("res://scripts/Inventory/PlayerInventory.gd")
 const ItemClass = preload("res://scripts/Inventory/Item_script.tres.gd")
 @onready var button = preload("res://scenes/Battle/Button1.tscn")
-
+var starting
 
 func _ready() -> void:
 	SignalBus.is_in_battle.connect(_player_joins_battle)
@@ -20,7 +20,7 @@ func _ready() -> void:
 	SignalBus.hiding.connect(hide_item)
 	SignalBus.health_up.connect(healing_item)
 	item_press.connect(_on_item_pressed)
-
+	
 	
 func _input(event) -> void:
 	if (Input.is_action_just_pressed("Interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $Textbox.visible:
@@ -76,20 +76,17 @@ func _on_magic_pressed() -> void:
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton.text = GlobalVariables.f_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button.show()
-		var b = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton
-		b.connect("pressed", fireball_pressed)
-	if GlobalVariables.poison_sting:
+		
+	if GlobalVariables.poison_sting && GameProgressSaver.is_completed("friends_with_anna"):
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton.text = GlobalVariables.p_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2.show()
-		var c = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton
-		c.connect("pressed", poison_pressed)
-	if GlobalVariables.sting_ray:
+		
+	if GlobalVariables.sting_ray && GameProgressSaver.is_completed("friends_with_robert"):
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton.text = GlobalVariables.b_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3.show()
-		var d =$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton
-		d.connect("pressed", bleed_pressed)
+		
 	
 
 func fireball_pressed():
@@ -140,7 +137,7 @@ func bleed_pressed():
 		enemy_turn()
 
 func _posion():
-	if get_tree().current_scene.name == "Battle1":
+	if name == "Battle1":
 		for i in range(15):
 			await get_tree().create_timer(2.0).timeout
 			e_health = max(0, e_health - GlobalVariables.p_effect)
@@ -150,7 +147,7 @@ func _posion():
 				break
 
 func _bleed():
-	if get_tree().current_scene.name == "Battle1":
+	if name == "Battle1":
 		for i in range(2):
 			await get_tree().create_timer(30.0).timeout
 			e_health = max(0, e_health - GlobalVariables.b_effect)
@@ -210,27 +207,36 @@ func dead():
 			PlayerLevel.new_level.emit()
 		await get_tree().create_timer(0.25).timeout
 		#get_tree().quit()
-		_end_battle(false)
+		_end_battle(true)
 	elif $PlayerPanel/HBoxContainer/ProgressBar.value == 0:
 		show_text("The Player has been defeated.")
 		await text_closed
 		await get_tree().create_timer(0.25).timeout
 		#get_tree().quit()
-		_end_battle(true)
+		_end_battle(false)
 
 
 #szymi 
 ##jest używane przy ucieczce, śmierci gracza lub przeciwnika
-func _end_battle(player_died: bool):
+func _end_battle(enemy_died: bool):
 	visible = false
 	GlobalVariables.is_in_battle = false
-	SignalBus.battle_ended.emit()
-	if player_died:
+	SignalBus.battle_ended.emit(enemy_died)
+	if GlobalVariables.curr_health <= 0:
+		GlobalVariables.curr_health = player_health 
 		SceneManager.swap_scenes("res://scenes/UI/Main_Menu.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
 	#get_tree().quit()
 	
 func _player_joins_battle():
 	#$ActionPanel/HBoxContainer/Item.emit(item_press)
+	print(GlobalVariables.cur_enemy)
+	match GlobalVariables.cur_enemy:
+		0:
+			enemy = load("res://scripts/Enemies/StoreManager.tres")
+		1:
+			enemy = load("res://scripts/Enemies/Boss.tres")
+		2:
+			enemy = load("res://scripts/Enemies/LordOrigami.tres")
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
 	$EnemyContainer/Enemy.texture = enemy.texture
