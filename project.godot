@@ -23,10 +23,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameProgressSaver="*res://autoloads/GameProgressSaver.gd"
+ConfigFileManager="*res://autoloads/ConfigFileManager.gd"
 DoorManager="*res://autoloads/DoorManager.gd"
 GlobalVariables="*res://autoloads/GlobalVariables.gd"
 SceneManager="*res://autoloads/SceneManager.gd"
-ConfigFileManager="*res://autoloads/ConfigFileManager.gd"
 VideoSettingsManager="*res://autoloads/VideoSettingsManager.gd"
 SaveGameManager="*res://autoloads/SaveGameManager.gd"
 SignalBus="*res://autoloads/SignalBus.gd"

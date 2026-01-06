@@ -5,15 +5,15 @@ const ItemClass = preload("res://scripts/Inventory/Item_script.tres.gd")
 const NUM_INVENTORY_SLOTS = 24
 
 var inventory = {
-	0: ["Orange", 1, "d", "Resource", 20],
-	1: ["RedDiamond", 23, "d", "Resource", 0],
-	2: ["RedDiamond", 95, "d", "Resource", 0]
+	0: ["Orange", 1, "Heals 20 HP during fight", "Resource", 20],
+	1: ["RedDiamond", 23, "Worthless", "Resource", 0],
+	2: ["RedDiamond", 95, "Worthless", "Resource", 0]
 }
 
 var equips = {
-	0: ["The Coat", 1, "d", "Shirt", 2],
-	1: ["The Pants", 1, "d", "Pants", 2],
-	2: ["The Boots", 1, "d", "Shoes", 2],
+	0: ["The Coat", 1, "Imagination tailored", "Shirt", 2],
+	1: ["The Pants", 1, "Imagination tailored", "Pants", 2],
+	2: ["The Boots", 1, "Imagination tailored", "Shoes", 2],
 	3: ["The Sword", 1, "Imagination tailored", "Sword", 5]
 }
 
@@ -23,15 +23,15 @@ const SAVE_PATH = "user://inventory_save.tres"
 
 func load_starting_inventory():
 	inventory = {
-		0: ["Orange", 1, "d", "Resource", 20],
-		1: ["RedDiamond", 23, "d", "Resource", 0],
-		2: ["RedDiamond", 95, "d", "Resource", 0]
+		0: ["Orange", 1, "Heals 20 HP during fight", "Resource", 20],
+		1: ["RedDiamond", 23, "Worthless", "Resource", 0],
+		2: ["RedDiamond", 95, "Worthless", "Resource", 0]
 	}
 
 	equips = {
-		0: ["The Coat", 1, "d", "Shirt", 2],
-		1: ["The Pants", 1, "d", "Pants", 2],
-		2: ["The Boots", 1, "d", "Shoes", 2],
+		0: ["The Coat", 1, "Imagination tailored", "Shirt", 2],
+		1: ["The Pants", 1, "Imagination tailored", "Pants", 2],
+		2: ["The Boots", 1, "Imagination tailored", "Shoes", 2],
 		3: ["The Sword", 1, "Imagination tailored", "Sword", 5]
 	}
 func save_inventory():
