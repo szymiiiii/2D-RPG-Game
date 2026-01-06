@@ -5,7 +5,7 @@ var menu_interaction: FmodEvent = null
 
 func _ready() -> void:
 	#print(SaveGameManager.checkIfSaveExists())
-	continueButton.visible = SaveGameManager.checkIfSaveExists() && FileAccess.file_exists("user://save_game.tres")
+	continueButton.visible = SaveGameManager.checkIfSaveExists() && FileAccess.file_exists("user://currentLevelResource.tres")
 	menu_interaction = FmodServer.create_event_instance("event:/menu event")
 	menu_interaction.set_parameter_by_name("Reverb Mix", 0.5)
 	menu_interaction.volume = 0.5
@@ -21,6 +21,7 @@ func _on_continue_pressed() -> void:
 		GameProgressSaver.load_saved_game()
 		GlobalVariables.load_game()
 		PlayerInventory.load_inventory()
+		SaveGameManager._load()
 		SceneManager.swap_scenes("res://scenes/Gameplay.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
 	else:
 		print("nie ma pliku zapisu gry")
@@ -31,7 +32,9 @@ func _on_start_pressed() -> void:
 	menu_interaction.start()
 	GlobalVariables.is_continue_enabled = false
 	GameProgressSaver.setup_new_game()
-	
+	PlayerInventory.load_starting_inventory()
+	GlobalVariables.curr_health = 100
+	GlobalVariables.health = 100
 	##Only use this signal in this script
 	SceneManager.start_swapping.emit()
 		

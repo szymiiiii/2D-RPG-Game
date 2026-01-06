@@ -775,7 +775,7 @@ tile_set = SubResource("TileSet_6b3pv")
 position = Vector2(-160, -48)
 
 [node name="Robert" parent="DayTwo" instance=ExtResource("11_clex7")]
-position = Vector2(814, 43)
+position = Vector2(765, 44)
 
 [node name="RobertDayTwoEnd" parent="DayTwo/Robert" instance=ExtResource("8_hbnf8")]
 position = Vector2(-2, 1)
@@ -797,7 +797,7 @@ position = Vector2(734, 40)
 item_choice = 1
 
 [node name="AniaDayOne" parent="." instance=ExtResource("10_jgugk")]
-position = Vector2(656, -4)
+position = Vector2(605, -4)
 
 [node name="AniaEndOfADay" parent="AniaDayOne" instance=ExtResource("8_hbnf8")]
 position = Vector2(-2, 0)
@@ -807,7 +807,7 @@ automatic_interaction = true
 can_be_completed = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AniaDayOne/AniaEndOfADay"]
-position = Vector2(-14, -15)
+position = Vector2(-12, -15)
 shape = SubResource("RectangleShape2D_clex7")
 
 [node name="Player" parent="." instance=ExtResource("2_56xvd")]

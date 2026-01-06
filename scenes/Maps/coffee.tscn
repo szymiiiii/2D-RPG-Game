@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="5_r1sn4"]
 [ext_resource type="PackedScene" uid="uid://cs6f1jo7jg1c3" path="res://scripts/Enemies/basic_enemy.tscn" id="5_rllla"]
 [ext_resource type="Resource" uid="uid://blm3detdh8qy5" path="res://dialogue/CEO.dialogue" id="6_d2il5"]
-[ext_resource type="PackedScene" uid="uid://dqv4yi2jb4ney" path="res://scenes/NPCs/workerThree.tscn" id="7_kblx6"]
 [ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="9_cnhl5"]
 [ext_resource type="PackedScene" uid="uid://cli2rs3k6r1k8" path="res://scenes/NPCs/Robert.tscn" id="9_kblx6"]
 [ext_resource type="Texture2D" uid="uid://ohpkd5kyfsl8" path="res://assets/handmade/bez nazwy.png" id="10_fsr54"]
+[ext_resource type="PackedScene" uid="uid://dsm2egb7yem4e" path="res://scenes/NPCs/Boss.tscn" id="11_fsr54"]
 [ext_resource type="Texture2D" uid="uid://lb0tkmqt6e8n" path="res://assets/handmade/rysnuek 3.png" id="11_pp2oa"]
 [ext_resource type="Texture2D" uid="uid://djbjmx1gmubxn" path="res://assets/handmade/ryzunek z ramka.png" id="12_ynqjo"]
 
@@ -259,11 +259,11 @@ boss_type = 1
 
 [node name="WithFriends" type="Node2D" parent="DayTwo"]
 
-[node name="Boss" parent="DayTwo/WithFriends" instance=ExtResource("7_kblx6")]
-position = Vector2(81, -32)
+[node name="Boss" parent="DayTwo/WithFriends" instance=ExtResource("11_fsr54")]
+position = Vector2(72, -27)
 
 [node name="BossCafeWithRobert" parent="DayTwo/WithFriends/Boss" instance=ExtResource("9_cnhl5")]
-position = Vector2(-2, 1)
+position = Vector2(0, -2)
 dialogue_resource = ExtResource("6_d2il5")
 dialogue_start = "cafe_with_friend"
 automatic_interaction = true
@@ -273,8 +273,8 @@ can_be_completed = true
 position = Vector2(-26, -6)
 shape = SubResource("RectangleShape2D_fsr54")
 
-[node name="Robert" parent="DayTwo/WithFriends/Boss" instance=ExtResource("9_kblx6")]
-position = Vector2(-26, -2)
+[node name="Robert" parent="DayTwo/WithFriends" instance=ExtResource("9_kblx6")]
+position = Vector2(55, -34)
 
 [node name="DayThree" type="Node2D" parent="."]
 

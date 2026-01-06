@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_bc1gg")
-name = "Living Lantern"
+name = "Lord Origami"
 health = 200
 texture = ExtResource("2_bc1gg")
 damage = 40
