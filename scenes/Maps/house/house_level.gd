@@ -47,7 +47,10 @@ func _ready() -> void:
 			if GameProgressSaver.is_completed("LordOrigami"):
 				house_entry_door.set("are_doors_closed", true)
 				house_toilet_door.set("are_doors_closed", true)
-				ending.visible = true
+				if GameProgressSaver.is_completed("LastQuestWithFriends"):
+					ending.visible = true
+				else:
+					ending.queue_free()
 			else:
 				ending.queue_free()
 				
