@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://brcdykxjwgt70" path="res://scenes/NPCs/workerTwo.tscn" id="6_43luw"]
 [ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="6_r5agy"]
 [ext_resource type="Resource" uid="uid://cdweb1weleovc" path="res://dialogue/NPC.dialogue" id="7_bit3p"]
-[ext_resource type="PackedScene" uid="uid://dqv4yi2jb4ney" path="res://scenes/NPCs/workerThree.tscn" id="7_r5agy"]
 [ext_resource type="PackedScene" uid="uid://bijkeajwlibt1" path="res://scenes/NPCs/workerFour.tscn" id="9_ces8x"]
 [ext_resource type="Resource" uid="uid://blm3detdh8qy5" path="res://dialogue/CEO.dialogue" id="10_0livc"]
 [ext_resource type="Resource" uid="uid://cp0xiun5ebeky" path="res://dialogue/tutorial.dialogue" id="10_bit3p"]
+[ext_resource type="PackedScene" uid="uid://dsm2egb7yem4e" path="res://scenes/NPCs/Boss.tscn" id="10_x2ea5"]
 [ext_resource type="Script" uid="uid://c13bdrqh1f5aw" path="res://scenes/NPCs/BossDayOne.gd" id="11_05e0s"]
 [ext_resource type="PackedScene" uid="uid://cli2rs3k6r1k8" path="res://scenes/NPCs/Robert.tscn" id="13_1u13o"]
 [ext_resource type="Resource" uid="uid://dxt2vqfa6ikuj" path="res://dialogue/Robert.dialogue" id="14_dnn7p"]
@@ -242,12 +242,12 @@ can_be_completed = true
 position = Vector2(-8, 4)
 shape = SubResource("RectangleShape2D_43luw")
 
-[node name="Boss" parent="DayOne" instance=ExtResource("7_r5agy")]
-position = Vector2(406, -14)
+[node name="Boss" parent="DayOne" instance=ExtResource("10_x2ea5")]
+position = Vector2(403, -14)
 script = ExtResource("11_05e0s")
 
 [node name="BossActionableDayOne" parent="DayOne/Boss" instance=ExtResource("6_r5agy")]
-position = Vector2(-3, 0)
+position = Vector2(-5, 1)
 dialogue_resource = ExtResource("10_0livc")
 dialogue_start = "quest_to_go_to_supermarket"
 automatic_interaction = true
@@ -258,7 +258,6 @@ position = Vector2(5, -14)
 shape = SubResource("RectangleShape2D_43luw")
 
 [node name="GotTheInk" parent="DayOne/Boss" instance=ExtResource("6_r5agy")]
-position = Vector2(-3, 0)
 dialogue_resource = ExtResource("10_0livc")
 dialogue_start = "got_the_ink"
 automatic_interaction = true

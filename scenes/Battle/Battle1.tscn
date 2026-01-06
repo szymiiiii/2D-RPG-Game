@@ -361,5 +361,6 @@ libraries = {
 
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Magic" to="." method="_on_magic_pressed"]
+[connection signal="press" from="ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button" to="." method="fireball_pressed"]
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Run" to="." method="_on_run_pressed"]

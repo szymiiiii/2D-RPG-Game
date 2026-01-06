@@ -5,8 +5,8 @@ var progress: DialogueProgress
 
 func setup_new_game():
 	progress = DialogueProgress.new()
-	if FileAccess.file_exists(SAVE_PATH):
-		DirAccess.remove_absolute(SAVE_PATH)
+	#if FileAccess.file_exists(SAVE_PATH):
+		#DirAccess.remove_absolute(SAVE_PATH)
 	print("Nowa gra rozpoczęta.")
 
 func load_saved_game():

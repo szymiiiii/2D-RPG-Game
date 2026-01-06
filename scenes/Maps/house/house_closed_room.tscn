@@ -299,6 +299,7 @@ amb_volume = 0.296
 amb_fade_in_time_msec = 5000
 
 [node name="HouseEntryDoor" parent="." instance=ExtResource("1_kt7c7")]
+visible = false
 position = Vector2(-136, -48)
 orientation = 2
 next_scene = 3
