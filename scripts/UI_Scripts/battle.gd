@@ -219,7 +219,7 @@ func _end_battle(enemy_died: bool):
 	GlobalVariables.is_in_battle = false
 	SignalBus.battle_ended.emit(enemy_died)
 	if GlobalVariables.curr_health <= 0:
-		GlobalVariables.curr_health = player_health 
+		GlobalVariables.curr_health = player_health
 		SceneManager.swap_scenes("res://scenes/UI/Main_Menu.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
 	self.queue_free()
 	#get_tree().quit()
