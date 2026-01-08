@@ -1,0 +1,32 @@
+~ start 
+System: Welcome to tutorial!
+System: Player movement: 
+	Up - {{ConfigFileManager.config_file.get_value("keybinding", "Jumping")}}
+	Left - {{ConfigFileManager.config_file.get_value("keybinding", "Move_Left")}}
+	Right - {{ConfigFileManager.config_file.get_value("keybinding", "Move_Right")}}
+System: Interaciton with NPCs and doors: {{ConfigFileManager.config_file.get_value("keybinding", "Interact")}} 
+System: Picking up items: {{ConfigFileManager.config_file.get_value("keybinding", "pickup")}} 
+System: Inventory: {{ConfigFileManager.config_file.get_value("keybinding", "Inventory")}}
+System: Open menu by pressing {{ConfigFileManager.config_file.get_value("keybinding", "Exit")}} key, with option to SAVE GAME, comeback to main menu or close the game.
+=> END
+
+~ doors_closed
+Player: It seems like these doors are shut. For now...
+=> END
+
+~ should_come_back
+Player: I think i should do something else first.
+=> END
+
+~ toilet_room
+Player: Nice, now I can look at my Inventory (press {{ConfigFileManager.config_file.get_value("keybinding", "Inventory")}})
+Player: If i press Right Mouse Button when looking at item, description will show up.
+Player: Some of these items can heal me while im in a fight
+Player: Now I have to get out of house and go to work. I hope I wont be late!
+=> END
+
+~ office
+Player: I should talk to all my coworkers (press {{ConfigFileManager.config_file.get_value("keybinding", "Interact")}})
+Player: Im sure they have something interesting to say!
+Player: Also, i have to talk with my Boss, for sure he will give me some kind of quest!
+=> END

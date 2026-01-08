@@ -1,9 +1,24 @@
-[gd_scene load_steps=12 format=4 uid="uid://bpvqdq1kde1le"]
+[gd_scene load_steps=28 format=4 uid="uid://bpvqdq1kde1le"]
 
 [ext_resource type="Texture2D" uid="uid://cycvipetr2gcp" path="res://assets/Items/Office.png" id="1_035nc"]
+[ext_resource type="Script" uid="uid://b7cf6exdwuvkn" path="res://scenes/Maps/office.gd" id="1_my6l4"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="2_mvod0"]
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="2_prvrn"]
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_prvrn"]
+[ext_resource type="PackedScene" uid="uid://c30asjwtngv0d" path="res://scenes/NPCs/workerOne.tscn" id="5_6ak86"]
+[ext_resource type="PackedScene" uid="uid://brcdykxjwgt70" path="res://scenes/NPCs/workerTwo.tscn" id="6_43luw"]
+[ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="6_r5agy"]
+[ext_resource type="Resource" uid="uid://cdweb1weleovc" path="res://dialogue/NPC.dialogue" id="7_bit3p"]
+[ext_resource type="PackedScene" uid="uid://bijkeajwlibt1" path="res://scenes/NPCs/workerFour.tscn" id="9_ces8x"]
+[ext_resource type="Resource" uid="uid://blm3detdh8qy5" path="res://dialogue/CEO.dialogue" id="10_0livc"]
+[ext_resource type="Resource" uid="uid://cp0xiun5ebeky" path="res://dialogue/tutorial.dialogue" id="10_bit3p"]
+[ext_resource type="PackedScene" uid="uid://dsm2egb7yem4e" path="res://scenes/NPCs/Boss.tscn" id="10_x2ea5"]
+[ext_resource type="Script" uid="uid://c13bdrqh1f5aw" path="res://scenes/NPCs/BossDayOne.gd" id="11_05e0s"]
+[ext_resource type="PackedScene" uid="uid://cli2rs3k6r1k8" path="res://scenes/NPCs/Robert.tscn" id="13_1u13o"]
+[ext_resource type="Resource" uid="uid://dxt2vqfa6ikuj" path="res://dialogue/Robert.dialogue" id="14_dnn7p"]
+[ext_resource type="Resource" uid="uid://bghfdpt778kxp" path="res://dialogue/Day3.dialogue" id="15_dnn7p"]
+[ext_resource type="PackedScene" uid="uid://mn411bco744v" path="res://scenes/NPCs/Ania.tscn" id="16_x2ea5"]
+[ext_resource type="PackedScene" uid="uid://clbqbcg4c0suy" path="res://scenes/Inventory/item_drop.tscn" id="19_bmnsv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_035nc"]
 texture = ExtResource("1_035nc")
@@ -121,6 +136,9 @@ texture = ExtResource("1_035nc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mvod0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43luw"]
+size = Vector2(51, 56)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_prvrn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkeh2"]
@@ -162,10 +180,12 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_prvrn")
 sources/0 = SubResource("TileSetAtlasSource_fkeh2")
 
 [node name="Office" type="Node2D"]
+script = ExtResource("1_my6l4")
 
-[node name="Doors" parent="." instance=ExtResource("2_prvrn")]
+[node name="OfficeOutDoors" parent="." instance=ExtResource("2_prvrn")]
 position = Vector2(25, -32)
 orientation = 1
+next_scene = 8
 id = 1
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -176,11 +196,149 @@ tile_set = SubResource("TileSet_mvod0")
 tile_map_data = PackedByteArray("AAAJAP7/AAAIAAAAAAAVAP7/AAAIAAAAAAAhAP7/AAAIAAAAAAAaAP7/AAAKAAIAAAAEAP7/AAAKAAIAAAAOAP3/AAAKAAcAAAACAPj/AAAHAAcAAAADAPj/AAAHAAcAAAAEAPj/AAAHAAcAAAAFAPj/AAAHAAcAAAAGAPj/AAAHAAcAAAAHAPj/AAAHAAcAAAAIAPj/AAAHAAcAAAAJAPj/AAAHAAcAAAAKAPj/AAAHAAcAAAALAPj/AAAHAAcAAAAMAPj/AAAHAAcAAAANAPj/AAAHAAcAAAAOAPj/AAAHAAcAAAAPAPj/AAAHAAcAAAAQAPj/AAAHAAcAAAARAPj/AAAHAAcAAAASAPj/AAAHAAcAAAATAPj/AAAHAAcAAAAUAPj/AAAHAAcAAAAVAPj/AAAHAAcAAAAWAPj/AAAHAAcAAAAXAPj/AAAHAAcAAAAYAPj/AAAHAAcAAAAZAPj/AAAHAAcAAAAaAPj/AAAHAAcAAAAbAPj/AAAHAAcAAAAcAPj/AAAHAAcAAAAdAPj/AAAHAAcAAAAeAPj/AAAHAAcAAAAfAPj/AAAHAAcAAAAgAPj/AAAHAAcAAAAhAPj/AAAHAAcAAAAiAPj/AAAHAAcAAAAjAPj/AAAHAAcAAAAkAPj/AAAHAAcAAAAlAPj/AAAHAAcAAAAmAPj/AAAHAAcAAAAnAPj/AAAHAAcAAAAoAPj/AAADAAcAAAABAPn/AAAJAAYAAAABAPr/AAAJAAYAAAABAPv/AAAJAAYAAAABAPz/AAAJAAcAAAAoAP//AAAJAAcAAAAoAP7/AAAJAAYAAAAoAP3/AAAJAAYAAAAoAPz/AAAJAAYAAAAoAPv/AAAJAAYAAAAoAPr/AAAJAAYAAAAoAPn/AAAJAAYAAAABAP7/AAAIAAgAAAALAPv/AAAHAAQAAAAWAPv/AAAHAAQAAAAjAPv/AAAHAAQAAAD7/wMAAAADAAkAAAD7/wIAAAADAAkAAAD7/wEAAAADAAkAAAD7/wAAAAADAAkAAAD7////AAADAAkAAAD7//7/AAADAAkAAAD7//3/AAADAAkAAAD7//z/AAADAAkAAAD7//v/AAADAAkAAAD7//r/AAADAAkAAAD7//n/AAADAAkAAAD7//j/AAADAAkAAAD7//f/AAADAAkAAAD7//b/AAADAAkAAAD7//X/AAADAAkAAAD7//T/AAADAAkAAAD7//P/AAADAAkAAAD+//T/AAADAAkAAAD///T/AAADAAkAAAAAAPT/AAADAAkAAAABAPT/AAADAAkAAAAAAAUAAAADAAkAAAD//wUAAAADAAkAAAD+/wUAAAADAAkAAAD9/wUAAAADAAkAAAD8/wUAAAADAAkAAAD7/wUAAAADAAkAAAD6/wUAAAADAAkAAAAjAAUAAAADAAkAAAAkAAUAAAADAAkAAAAlAAUAAAADAAkAAAAmAAUAAAADAAkAAAAnAAUAAAADAAkAAAAoAAUAAAADAAkAAAApAAUAAAADAAkAAAAqAAUAAAADAAkAAAArAAUAAAADAAkAAAAtAAUAAAADAAkAAAAtAAQAAAADAAkAAAAtAAMAAAADAAkAAAAtAAIAAAADAAkAAAAtAAEAAAADAAkAAAAtAAAAAAADAAkAAAAtAP//AAADAAkAAAAtAP7/AAADAAkAAAAtAP3/AAADAAkAAAAtAPz/AAADAAkAAAAtAPv/AAADAAkAAAAtAPr/AAADAAkAAAAtAPn/AAADAAkAAAAtAPj/AAADAAkAAAAtAPf/AAADAAkAAAAtAPb/AAADAAkAAAAtAPX/AAADAAkAAAAsAPX/AAADAAkAAAABAPj/AAAEAAcAAAA=")
 tile_set = SubResource("TileSet_fkeh2")
 
+[node name="WorkerOne" parent="." instance=ExtResource("5_6ak86")]
+position = Vector2(131, -29)
+
+[node name="WorkerOneActionable" parent="WorkerOne" instance=ExtResource("6_r5agy")]
+dialogue_resource = ExtResource("7_bit3p")
+dialogue_start = "coworker1"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorkerOne/WorkerOneActionable"]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="WorkerTwo" parent="." instance=ExtResource("6_43luw")]
+position = Vector2(321, -30)
+
+[node name="WorkerTwoActionable" parent="WorkerTwo" instance=ExtResource("6_r5agy")]
+dialogue_resource = ExtResource("7_bit3p")
+dialogue_start = "coworker4"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorkerTwo/WorkerTwoActionable"]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="workerFour" parent="." instance=ExtResource("9_ces8x")]
+position = Vector2(514, -29)
+
+[node name="WorkerThreeActionable" parent="workerFour" instance=ExtResource("6_r5agy")]
+dialogue_resource = ExtResource("7_bit3p")
+dialogue_start = "coworker5"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="workerFour/WorkerThreeActionable"]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="DayOne" type="Node2D" parent="."]
+
+[node name="TutorialInteraction" parent="DayOne" instance=ExtResource("6_r5agy")]
+position = Vector2(250, -32)
+dialogue_resource = ExtResource("10_bit3p")
+dialogue_start = "office"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayOne/TutorialInteraction"]
+position = Vector2(-8, 4)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="Boss" parent="DayOne" instance=ExtResource("10_x2ea5")]
+position = Vector2(403, -14)
+script = ExtResource("11_05e0s")
+
+[node name="BossActionableDayOne" parent="DayOne/Boss" instance=ExtResource("6_r5agy")]
+position = Vector2(-5, 1)
+dialogue_resource = ExtResource("10_0livc")
+dialogue_start = "quest_to_go_to_supermarket"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayOne/Boss/BossActionableDayOne"]
+position = Vector2(5, -14)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="GotTheInk" parent="DayOne/Boss" instance=ExtResource("6_r5agy")]
+dialogue_resource = ExtResource("10_0livc")
+dialogue_start = "got_the_ink"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayOne/Boss/GotTheInk"]
+position = Vector2(5, -14)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="OfficeDrop" parent="DayOne" instance=ExtResource("19_bmnsv")]
+position = Vector2(186, -17)
+item_choice = 1
+
+[node name="DayTwo" type="Node2D" parent="."]
+
+[node name="workerFour2" parent="DayTwo" instance=ExtResource("9_ces8x")]
+position = Vector2(257, -15)
+
+[node name="DayTwoQuest" parent="DayTwo" instance=ExtResource("6_r5agy")]
+position = Vector2(234, -17)
+dialogue_resource = ExtResource("10_0livc")
+dialogue_start = "important_message"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayTwo/DayTwoQuest"]
+position = Vector2(-4, -13)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="Robert" parent="DayTwo" instance=ExtResource("13_1u13o")]
+position = Vector2(407, -12)
+
+[node name="RobertActionableDayTwo" parent="DayTwo/Robert" instance=ExtResource("6_r5agy")]
+position = Vector2(-6, -1)
+dialogue_resource = ExtResource("14_dnn7p")
+dialogue_start = "introduction"
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayTwo/Robert/RobertActionableDayTwo"]
+position = Vector2(5, -15)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="OfficeDrop2" parent="DayTwo" instance=ExtResource("19_bmnsv")]
+position = Vector2(186, -17)
+item_choice = 1
+
+[node name="DayThree" type="Node2D" parent="."]
+
+[node name="workerFour2" parent="DayThree" instance=ExtResource("9_ces8x")]
+position = Vector2(254, -15)
+
+[node name="DayThreeQuest" parent="DayThree" instance=ExtResource("6_r5agy")]
+position = Vector2(234, -17)
+dialogue_resource = ExtResource("15_dnn7p")
+dialogue_start = "monologue"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayThree/DayThreeQuest"]
+position = Vector2(-4, -13)
+shape = SubResource("RectangleShape2D_43luw")
+
+[node name="WithFriends" type="Node2D" parent="DayThree"]
+visible = false
+
+[node name="Ania" parent="DayThree/WithFriends" instance=ExtResource("16_x2ea5")]
+position = Vector2(275, -14)
+
+[node name="Robert" parent="DayThree/WithFriends" instance=ExtResource("13_1u13o")]
+position = Vector2(192, -14)
+
+[node name="OfficeDrop3" parent="DayThree" instance=ExtResource("19_bmnsv")]
+position = Vector2(186, -17)
+item_choice = 1
+
 [node name="Player" parent="." instance=ExtResource("2_mvod0")]
-position = Vector2(195, -3)
+position = Vector2(85, 0)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("4_prvrn")]
+position = Vector2(0, -40)
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAAAVAAEAAAAAAAAAAAAWAAEAAAAAAAAAAAAXAAEAAAAAAAAAAAAYAAEAAAAAAAAAAAAZAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAbAAEAAAAAAAAAAAAcAAEAAAAAAAAAAAAdAAEAAAAAAAAAAAAeAAEAAAAAAAAAAAAfAAEAAAAAAAAAAAAgAAEAAAAAAAAAAAAhAAEAAAAAAAAAAAAiAAEAAAAAAAAAAAAjAAEAAAAAAAAAAAAkAAEAAAAAAAAAAAAlAAEAAAAAAAAAAAAmAAEAAAAAAAAAAAAnAAEAAAAAAAAAAAAHAP7/AAAFAAAAAAATAP7/AAAFAAAAAAAfAP7/AAAFAAAAAAA=")

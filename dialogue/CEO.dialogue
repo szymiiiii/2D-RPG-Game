@@ -23,6 +23,11 @@ Robert: Yes.
 Boss: I see.
 Boss: Well I can't blame an employee for doing his work. But next time try not to be late.
 {{GlobalVariables.player_name}}: Yes sir.
+{{GlobalVariables.player_name}}: (to myself) I finally did my work for today, by delivering this message! Time to go home and go to sleep!
+=> END
+
+~ after_defeating_boss
+{{GlobalVariables.player_name}}: (to myself) I finally did my work for today, by delivering this message! Time to go home and go to sleep!
 => END
 
 ~ cafe_without_friend
@@ -31,4 +36,29 @@ Boss: [wave]Do you have any idea how long I waited? [/speed]
 {{GlobalVariables.player_name}}: I under...
 Boss: [wave][speed=3]I haven't finished.[/wave][/speed]
 Boss: [speed=0.1] You have failed me for the last time.[/speed]
+set GlobalVariables.is_in_battle = true
 => END
+
+~ quest_to_go_to_supermarket
+Boss: [wave][speed=3]What took you so long?
+Boss: [wave]Why are you late at the office? [/speed]
+{{GlobalVariables.player_name}}: I'm sorry...
+Boss: [wave][speed=3]I haven't finished.[/wave][/speed]
+Boss: [speed=2] You need to go to local Supermarket. [/speed]
+Boss: [speed=1] We are running out of printer ink, so buy it. [/speed]
+=> END
+
+~ got_the_ink
+Boss: [wave][speed=3]You finally have the printer ink.
+Boss: [wave]Now we can print. You are free to go now.[/speed]
+{{GlobalVariables.player_name}}: (To myself) I should go back to my house and go to sleep in bedroom. It was a long day!
+=> END
+
+~ important_message
+CoWorker: [wave][speed=3]Deliver to your boss this important message!
+CoWorker: [wave]You will find him in the cafe next to supermarket[/speed]
+{{GlobalVariables.player_name}}: (To myself) Seems like Robert is today at work, i should say hi to him.
+=> END
+
+
+

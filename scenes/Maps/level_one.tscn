@@ -1,5 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://blygneb8hstup"]
+[gd_scene load_steps=15 format=3 uid="uid://blygneb8hstup"]
 
+[ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_00vmj"]
+[ext_resource type="Script" uid="uid://csg28xgm8keu1" path="res://scenes/Maps/level_one.gd" id="1_06thq"]
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_k6171"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="2_cbxj8"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_opmxo"]
@@ -7,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dmfhqptu21aou" path="res://scenes/penguin.tscn" id="5_2xung"]
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="5_su14p"]
 [ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="6_4otp6"]
+[ext_resource type="PackedScene" uid="uid://cs6f1jo7jg1c3" path="res://scripts/Enemies/basic_enemy.tscn" id="8_ltnli"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmk63"]
 distance = -13.0
@@ -620,6 +623,12 @@ sources/1 = SubResource("TileSetAtlasSource_1shnu")
 
 [node name="Scena1" type="Node2D"]
 position = Vector2(1, 0)
+script = ExtResource("1_06thq")
+
+[node name="MusicScene" parent="." instance=ExtResource("1_00vmj")]
+volume = 0.17
+ambience = 1
+amb_volume = 0.195
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(47, -13)
@@ -667,3 +676,7 @@ position = Vector2(134, -6)
 [node name="Actionable" parent="AppleStand" instance=ExtResource("6_4otp6")]
 position = Vector2(417, -5)
 dialogue_start = "get_apple"
+
+[node name="BasicEnemy" parent="." instance=ExtResource("8_ltnli")]
+position = Vector2(564, -79)
+scale = Vector2(0.5, 0.5)

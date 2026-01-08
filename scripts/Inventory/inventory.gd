@@ -20,9 +20,11 @@ func _ready() -> void:
 	e_slots[1].slotType = SlotClass.SlotType.PANTS
 	e_slots[2].slotType = SlotClass.SlotType.SHOES
 	e_slots[3].slotType = SlotClass.SlotType.SWORD
+	PlayerInventory.inventory_ui = self
 	initialize_inventory()
 	initialize_equips()
-		
+	
+	
 func initialize_inventory():
 	var slots = invent_slots.get_children()
 	for i in range(slots.size()):

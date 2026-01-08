@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt4oh68nhhnir"]
+[gd_scene load_steps=6 format=3 uid="uid://dt4oh68nhhnir"]
 
 [ext_resource type="Script" uid="uid://4tr6hl8gyo5b" path="res://scripts/level_container.gd" id="1_75vxi"]
+[ext_resource type="Script" uid="uid://cqmxvtxokw4h5" path="res://scenes/gameplay.gd" id="1_gnmmn"]
 [ext_resource type="PackedScene" uid="uid://bevkrrlrsecm1" path="res://scenes/UI/HUD.tscn" id="2_a8mty"]
 [ext_resource type="Script" uid="uid://cd2o3r1i7e3wb" path="res://scripts/Inventory/user_interface.gd" id="3_a8mty"]
 [ext_resource type="PackedScene" uid="uid://cp0dwcio5vdld" path="res://scenes/Inventory/Inventory.tscn" id="4_jfxgp"]
 
 [node name="Gameplay" type="Node2D"]
+script = ExtResource("1_gnmmn")
 
 [node name="Levels" type="Node2D" parent="."]
 script = ExtResource("1_75vxi")

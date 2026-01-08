@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4c001d44-7076-49af-bc6d-11909d633849}">
+		<property name="assetPath">
+			<value>walking-for-cartoon-1-7148.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>37.752000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1979996-f8e8-48fe-a856-54c63b3bf75a}</destination>
+		</relationship>
+	</object>
+</objects>

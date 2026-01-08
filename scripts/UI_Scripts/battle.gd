@@ -3,46 +3,20 @@ extends Control
 signal item_press
 signal text_closed
 signal death
-@export var enemy: Resource = null
+var enemy: Resource = null
 var player_health = GlobalVariables.curr_health
 @export var e_health: int
 @export var e_exp: int
 const InventoryClass = preload("res://scripts/Inventory/PlayerInventory.gd")
 const ItemClass = preload("res://scripts/Inventory/Item_script.tres.gd")
 @onready var button = preload("res://scenes/Battle/Button1.tscn")
-
+var starting
 
 func _ready() -> void:
-	death.connect(dead)
-	SignalBus.hiding.connect(hide_item)
-	SignalBus.health_up.connect(healing_item)
-	item_press.connect(_on_item_pressed)
-	#$ActionPanel/HBoxContainer/Item.emit(item_press)
-	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
-	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
-	$EnemyContainer/Enemy.texture = enemy.texture
-	e_health = enemy.health
-	e_exp = enemy.enemy_exp
-	$Textbox.hide()
-	$ActionPanel.hide()
-	$ActionPanel/HBoxContainer/Magic/MagicPanel.hide()
-	$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button.hide()
-	$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2.hide()
-	$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3.hide()
-	for i in PlayerInventory.equips:
-		if PlayerInventory.equips[i][3] == "Shirt":
-			GlobalVariables.player_shirt = PlayerInventory.equips[i][4]
-		if PlayerInventory.equips[i][3] == "Pants":
-			GlobalVariables.player_pants = PlayerInventory.equips[i][4]
-		if PlayerInventory.equips[i][3] == "Shoes":
-			GlobalVariables.player_boots = PlayerInventory.equips[i][4]
-		if PlayerInventory.equips[i][3] == "Sword":
-			GlobalVariables.sword = PlayerInventory.equips[i][4]
-	show_text("A wild %s appears" % enemy.name)
-	await text_closed
-	show_text("Stop right there")
-	await text_closed
-	$ActionPanel.show()
+	#SignalBus.is_in_battle.connect(_player_joins_battle)
+
+	visible = true
+	_player_joins_battle()
 	
 func _input(event) -> void:
 	if (Input.is_action_just_pressed("Interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $Textbox.visible:
@@ -74,9 +48,7 @@ func _on_run_pressed() -> void:
 	$ActionPanel/HBoxContainer/Magic/MagicPanel.hide()
 	$ActionPanel.hide()
 	show_text("You ran away")
-	await text_closed
-	await get_tree().create_timer(1.0).timeout
-	get_tree().quit()
+	_end_battle(false)
 
 
 func _on_attack_pressed() -> void:
@@ -100,20 +72,17 @@ func _on_magic_pressed() -> void:
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton.text = GlobalVariables.f_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button.show()
-		var b = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton
-		b.connect("pressed", fireball_pressed)
-	if GlobalVariables.poison_sting:
+
+	if GlobalVariables.poison_sting && GameProgressSaver.is_completed("friends_with_anna"):
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton.text = GlobalVariables.p_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2.show()
-		var c = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton
-		c.connect("pressed", poison_pressed)
-	if GlobalVariables.sting_ray:
+
+	if GlobalVariables.sting_ray && GameProgressSaver.is_completed("friends_with_robert"):
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton.text = GlobalVariables.b_name
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton/Label.text = ""
 		$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3.show()
-		var d =$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton
-		d.connect("pressed", bleed_pressed)
+
 	
 
 func fireball_pressed():
@@ -164,7 +133,7 @@ func bleed_pressed():
 		enemy_turn()
 
 func _posion():
-	if get_tree().current_scene.name == "Battle1":
+	if name == "Battle1":
 		for i in range(15):
 			await get_tree().create_timer(2.0).timeout
 			e_health = max(0, e_health - GlobalVariables.p_effect)
@@ -174,7 +143,7 @@ func _posion():
 				break
 
 func _bleed():
-	if get_tree().current_scene.name == "Battle1":
+	if name == "Battle1":
 		for i in range(2):
 			await get_tree().create_timer(30.0).timeout
 			e_health = max(0, e_health - GlobalVariables.b_effect)
@@ -219,23 +188,99 @@ func dead():
 		GlobalVariables.health = $PlayerPanel/HBoxContainer/ProgressBar.value
 		show_text("The %s has been defeated." % enemy.name)
 		await text_closed
-		PlayerLevel.exp_get(e_exp)
-		if PlayerLevel.current_exp >= PlayerLevel.level_2 and PlayerLevel.player_level == 1:
-			show_text("You are now level 2.")
-			await text_closed
-			show_text("You have learnt Poison Sting")
-			await text_closed
-			PlayerLevel.new_level.emit()
-		elif PlayerLevel.current_exp >= PlayerLevel.level_3 and PlayerLevel.player_level == 2:
-			show_text("You are now level 3.")
-			await text_closed
-			show_text("You have learnt Sting Ray")
-			await text_closed
-			PlayerLevel.new_level.emit()
+		#PlayerLevel.exp_get(e_exp)
+		#if PlayerLevel.current_exp >= PlayerLevel.level_2 and PlayerLevel.player_level == 1:
+			#show_text("You are now level 2.")
+			#await text_closed
+			#show_text("You have learnt Poison Sting")
+			#await text_closed
+			#PlayerLevel.new_level.emit()
+		#elif PlayerLevel.current_exp >= PlayerLevel.level_3 and PlayerLevel.player_level == 2:
+			#show_text("You are now level 3.")
+			#await text_closed
+			#show_text("You have learnt Sting Ray")
+			#await text_closed
+			#PlayerLevel.new_level.emit()
 		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		#get_tree().quit()
+		_end_battle(true)
 	elif $PlayerPanel/HBoxContainer/ProgressBar.value == 0:
 		show_text("The Player has been defeated.")
 		await text_closed
 		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		#get_tree().quit()
+		_end_battle(false)
+
+
+#szymi 
+##jest używane przy ucieczce, śmierci gracza lub przeciwnika
+func _end_battle(enemy_died: bool):
+	visible = false
+	GlobalVariables.is_in_battle = false
+	SignalBus.battle_ended.emit(enemy_died)
+	if GlobalVariables.curr_health <= 0:
+		GlobalVariables.curr_health = player_health 
+		SceneManager.swap_scenes("res://scenes/UI/Main_Menu.tscn" ,get_tree().root , self.get_parent().get_parent() ,"no_to_transition")
+	self.queue_free()
+	#get_tree().quit()
+	
+func _player_joins_battle():
+	###z ready
+	death.connect(dead)
+	SignalBus.hiding.connect(hide_item)
+	SignalBus.health_up.connect(healing_item)
+	item_press.connect(_on_item_pressed)
+	
+	var b = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button/MagicButton
+	b.connect("pressed", fireball_pressed)
+	
+	var c = $ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2/MagicButton
+	c.connect("pressed", poison_pressed)
+	
+	var d =$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3/MagicButton
+	d.connect("pressed", bleed_pressed)
+	#########
+	#$ActionPanel/HBoxContainer/Item.emit(item_press)
+	#print(GlobalVariables.cur_enemy)
+	match GlobalVariables.cur_enemy:
+		0:
+			enemy = load("res://scripts/Enemies/StoreManager.tres")
+		1:
+			enemy = load("res://scripts/Enemies/Boss.tres")
+		2:
+			enemy = load("res://scripts/Enemies/LordOrigami.tres")
+	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
+	set_health($PlayerPanel/HBoxContainer/ProgressBar, GlobalVariables.curr_health, GlobalVariables.health)
+	$EnemyContainer/Enemy.texture = enemy.texture
+	e_health = enemy.health
+	e_exp = enemy.enemy_exp
+	$Textbox.hide()
+	$ActionPanel.hide()
+	$ActionPanel/HBoxContainer/Magic/MagicPanel.hide()
+	$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button.hide()
+	$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button2.hide()
+	$ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button3.hide()
+	for i in PlayerInventory.equips:
+		if PlayerInventory.equips[i][3] == "Shirt":
+			GlobalVariables.player_shirt = PlayerInventory.equips[i][4]
+		if PlayerInventory.equips[i][3] == "Pants":
+			GlobalVariables.player_pants = PlayerInventory.equips[i][4]
+		if PlayerInventory.equips[i][3] == "Shoes":
+			GlobalVariables.player_boots = PlayerInventory.equips[i][4]
+		if PlayerInventory.equips[i][3] == "Sword":
+			GlobalVariables.sword = PlayerInventory.equips[i][4]
+	visible = true
+	$AnimationPlayer.play("RESET")
+	show_text("A wild %s appears" % enemy.name)
+	await text_closed
+	show_text("Stop right there")
+	await text_closed
+	$ActionPanel.show()
+	###z item_pressedA
+	#$ActionPanel/HBoxContainer/Item/ItemPanel.show()
+	var items = $ActionPanel/HBoxContainer/Item/ItemPanel/ItemContainer.get_children()
+	for i in range(0, items.size(), 2):
+		if items[i] == button:
+			var label_count = items[i].get_node("MagicButton/Label")
+			if label_count.text == "0":
+				items.remove_child(items[i])

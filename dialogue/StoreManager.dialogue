@@ -31,4 +31,15 @@ Manager: [wave][speed=5] WHAT DO YOU WANT? [/wave][/speed]
 {{GlobalVariables.player_name}}: I just wanted to a..
 Manager: [wave][speed=5] I AM EXTREMELY BUSY YOU LITTLE PUNK [/wave][/speed]
 Manager: [wave][speed=5] SO TAKE YOUR COMPLAINTS AND BRING THEM TO SOMEONE WHO CARES [/wave][/speed]
+set GlobalVariables.is_in_battle = true
+=> END
+
+~ bad_feeling
+{{GlobalVariables.player_name}}: [wave][speed=0.5] I have a bad feeling about this... [/wave][/speed]
+{{GlobalVariables.player_name}}: [wave][speed=1] This supermarket seems weird... [/wave][/speed]
+=> END
+
+~ got_printer_ink
+{{GlobalVariables.player_name}}: Alright! I've got printer ink my boss asked for!
+{{GlobalVariables.player_name}}: Time to come back to office
 => END

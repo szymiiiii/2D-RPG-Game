@@ -1,9 +1,237 @@
-[gd_scene load_steps=13 format=4 uid="uid://b4rflgfq6lu3"]
+[gd_scene load_steps=29 format=4 uid="uid://b4rflgfq6lu3"]
 
 [ext_resource type="Texture2D" uid="uid://cds04gadhsqv6" path="res://assets/Spritesheet.png" id="1_bbdkx"]
+[ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_f0lqu"]
+[ext_resource type="Script" uid="uid://dtqpffdqi1nex" path="res://scenes/Maps/night.gd" id="1_hbnf8"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="2_56xvd"]
 [ext_resource type="Texture2D" uid="uid://cgm15ojbte6tx" path="res://assets/Night_background.png" id="2_fo5is"]
 [ext_resource type="Texture2D" uid="uid://cph0ewpummes0" path="res://assets/10102017.png" id="3_fo5is"]
+[ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="3_im1dq"]
+[ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="4_nybde"]
+[ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="7_6b3pv"]
+[ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="8_hbnf8"]
+[ext_resource type="Resource" uid="uid://cp0xiun5ebeky" path="res://dialogue/tutorial.dialogue" id="9_hbnf8"]
+[ext_resource type="PackedScene" uid="uid://clbqbcg4c0suy" path="res://scenes/Inventory/item_drop.tscn" id="10_6o8o5"]
+[ext_resource type="PackedScene" uid="uid://mn411bco744v" path="res://scenes/NPCs/Ania.tscn" id="10_jgugk"]
+[ext_resource type="PackedScene" uid="uid://cli2rs3k6r1k8" path="res://scenes/NPCs/Robert.tscn" id="11_clex7"]
+[ext_resource type="Resource" uid="uid://b4ooj5og1gpsj" path="res://dialogue/Ania.dialogue" id="11_n6yrv"]
+[ext_resource type="Resource" uid="uid://dxt2vqfa6ikuj" path="res://dialogue/Robert.dialogue" id="12_6o8o5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kfwo"]
+texture = ExtResource("3_im1dq")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+8:4/0 = 0
+8:5/0 = 0
+7:5/0 = 0
+7:4/0 = 0
+7:3/0 = 0
+8:1/0 = 0
+6:4/0 = 0
+5:4/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+1:11/0 = 0
+1:12/0 = 0
+1:13/0 = 0
+1:14/0 = 0
+1:15/0 = 0
+1:16/0 = 0
+0:16/0 = 0
+0:15/0 = 0
+0:14/0 = 0
+0:13/0 = 0
+0:12/0 = 0
+0:11/0 = 0
+2:12/0 = 0
+2:13/0 = 0
+2:14/0 = 0
+2:15/0 = 0
+2:16/0 = 0
+2:17/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+16:12/0 = 0
+15:12/0 = 0
+14:12/0 = 0
+13:12/0 = 0
+12:12/0 = 0
+11:12/0 = 0
+10:12/0 = 0
+9:12/0 = 0
+8:12/0 = 0
+7:12/0 = 0
+7:11/0 = 0
+7:10/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+18:10/0 = 0
+18:11/0 = 0
+17:10/0 = 0
+16:10/0 = 0
+15:10/0 = 0
+14:10/0 = 0
+13:10/0 = 0
+12:10/0 = 0
+11:10/0 = 0
+12:7/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+14:8/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+15:7/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+11:6/0 = 0
+10:6/0 = 0
+9:6/0 = 0
+10:4/0 = 0
+10:3/0 = 0
+10:2/0 = 0
+10:1/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+11:1/0 = 0
+11:2/0 = 0
+11:3/0 = 0
+11:4/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+14:4/0 = 0
+14:3/0 = 0
+14:2/0 = 0
+14:1/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+13:0/0 = 0
+13:1/0 = 0
+13:2/0 = 0
+13:3/0 = 0
+13:4/0 = 0
+12:4/0 = 0
+12:3/0 = 0
+12:2/0 = 0
+12:1/0 = 0
+12:0/0 = 0
+16:8/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+17:6/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+18:7/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+19:7/0 = 0
+19:8/0 = 0
+3:6/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+4:8/0 = 0
+4:6/0 = 0
+3:8/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_c50xn"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_8kfwo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fo5is"]
 texture = ExtResource("1_bbdkx")
@@ -18,6 +246,12 @@ texture = ExtResource("2_fo5is")
 [sub_resource type="TileSet" id="TileSet_nybde"]
 sources/0 = SubResource("TileSetAtlasSource_fo5is")
 sources/1 = SubResource("TileSetAtlasSource_nybde")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clex7"]
+size = Vector2(51, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbnf8"]
+size = Vector2(26, 90)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0lqu"]
 texture = ExtResource("1_bbdkx")
@@ -405,6 +639,42 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_im1dq")
 
 [node name="Night" type="Node2D"]
+script = ExtResource("1_hbnf8")
+
+[node name="PhysicsLayer" type="TileMapLayer" parent="."]
+position = Vector2(502, 2)
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_c50xn")
+
+[node name="MusicScene" parent="." instance=ExtResource("1_f0lqu")]
+position = Vector2(700, -23)
+volume = 0.17
+ambience = 1
+amb_volume = 0.195
+
+[node name="OfficeDoors" parent="." instance=ExtResource("4_nybde")]
+position = Vector2(1005, -24)
+orientation = 2
+next_scene = 7
+id = 1
+
+[node name="HouseDoors" parent="." instance=ExtResource("4_nybde")]
+position = Vector2(700, -23)
+orientation = 2
+next_scene = 2
+id = 2
+
+[node name="CoffeeDoors" parent="." instance=ExtResource("4_nybde")]
+position = Vector2(251, -22)
+orientation = 2
+next_scene = 10
+id = 3
+
+[node name="ShopDoors" parent="." instance=ExtResource("4_nybde")]
+position = Vector2(61, -23)
+orientation = 2
+next_scene = 9
+id = 4
 
 [node name="Background" type="TileMapLayer" parent="."]
 position = Vector2(182, 17.999998)
@@ -424,21 +694,128 @@ scale = Vector2(2.0799994, 1.7200006)
 tile_map_data = PackedByteArray("AAALAAAAAAABABMAAAAjAAAAAAABABMAAAA=")
 tile_set = SubResource("TileSet_nybde")
 
+[node name="DayOne" type="Node2D" parent="."]
+position = Vector2(-160, -48)
+
+[node name="NightTownDrop2" parent="DayOne" instance=ExtResource("10_6o8o5")]
+position = Vector2(734, 40)
+item_choice = 1
+
+[node name="NightTownDrop" parent="DayOne" instance=ExtResource("10_6o8o5")]
+position = Vector2(510, 40)
+item_choice = 1
+
+[node name="Ania" parent="DayOne" instance=ExtResource("10_jgugk")]
+position = Vector2(301, 21)
+
+[node name="AniaIntroduction" parent="DayOne/Ania" instance=ExtResource("8_hbnf8")]
+position = Vector2(-4, 0)
+dialogue_resource = ExtResource("11_n6yrv")
+dialogue_start = "introduction"
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayOne/Ania/AniaIntroduction"]
+position = Vector2(10, 7)
+shape = SubResource("RectangleShape2D_clex7")
+
+[node name="Wall" type="Node2D" parent="DayOne"]
+position = Vector2(160, 48)
+
+[node name="WallLayer" type="TileMapLayer" parent="DayOne/Wall"]
+visible = false
+position = Vector2(502, 2)
+tile_map_data = PackedByteArray("AAABAAAAAQAEAAAAAAABAP//AQAEAAAAAAABAP7/AQAEAAAAAAABAP3/AQAEAAAAAAABAPz/AQAEAAAAAAABAPv/AQAEAAAAAAABAPr/AQAEAAAAAAABAPn/AQAEAAAAAAABAPj/AQAEAAAAAAABAPf/AQAEAAAAAAABAPb/AQAEAAAAAAABAPX/AQAEAAAAAAABAPT/AQAEAAAAAAA=")
+tile_set = SubResource("TileSet_c50xn")
+
+[node name="YouShouldDoSomethingElse" parent="DayOne/Wall" instance=ExtResource("8_hbnf8")]
+position = Vector2(526, -7)
+dialogue_resource = ExtResource("9_hbnf8")
+dialogue_start = "should_come_back"
+automatic_interaction = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayOne/Wall/YouShouldDoSomethingElse"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_hbnf8")
+
+[node name="DayThree" type="Node2D" parent="."]
+position = Vector2(-160, -48)
+
+[node name="Wall" type="Node2D" parent="DayThree"]
+position = Vector2(160, 48)
+
+[node name="WallLayer" type="TileMapLayer" parent="DayThree/Wall"]
+visible = false
+position = Vector2(502, 2)
+tile_map_data = PackedByteArray("AAABAAAAAQAEAAAAAAABAP//AQAEAAAAAAABAP7/AQAEAAAAAAABAP3/AQAEAAAAAAABAPz/AQAEAAAAAAABAPv/AQAEAAAAAAABAPr/AQAEAAAAAAABAPn/AQAEAAAAAAABAPj/AQAEAAAAAAABAPf/AQAEAAAAAAABAPb/AQAEAAAAAAABAPX/AQAEAAAAAAABAPT/AQAEAAAAAAA=")
+tile_set = SubResource("TileSet_c50xn")
+
+[node name="YouShouldDoSomethingElse" parent="DayThree/Wall" instance=ExtResource("8_hbnf8")]
+position = Vector2(526, -7)
+dialogue_resource = ExtResource("9_hbnf8")
+dialogue_start = "should_come_back"
+automatic_interaction = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayThree/Wall/YouShouldDoSomethingElse"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_hbnf8")
+
+[node name="NightTownDrop3" parent="DayThree" instance=ExtResource("10_6o8o5")]
+position = Vector2(934.99994, 40.000004)
+item_choice = 1
+
+[node name="NightTownDro4" parent="DayThree" instance=ExtResource("10_6o8o5")]
+position = Vector2(1044, 38)
+item_choice = 1
+
 [node name="Things" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAA9APr/AQAAAAAAAAA1APz/AQAfAAQAAAAxAPz/AQAfAAQAAAArAPv/AAAAAAAAAAADAPz/AAARAAEAAAAPAPv/AAAJAAAAAAAHAP//AAABAA8AAAAAAP//AAAEAA8AAAAIAP//AAAEAA8AAAAUAP//AQAOAAEAAAAVAP//AQAOAAEAAAAWAP//AQAOAAEAAAAXAP//AQAOAAEAAAAYAP//AQAOAAEAAAAZAP//AQAOAAEAAAAaAP//AQAOAAEAAAAbAP//AQAOAAEAAAAcAP//AQAOAAEAAAAdAP//AQAOAAEAAAAeAP//AQAOAAEAAAAfAP//AQAOAAEAAAAgAP//AQAOAAEAAAAhAP//AQAOAAEAAAAiAP//AQAOAAEAAAAjAP//AQAOAAEAAAAkAP//AQAOAAEAAAAlAP//AQAOAAEAAAAmAP//AQAOAAEAAAAnAP//AQAOAAEAAAAKAPz/AQAfAAQAAAA4APz/AQAfAAQAAAAWAPz/AQAfAAQAAAAcAPz/AQAfAAQAAAAhAPz/AQAfAAQAAAAlAPz/AQAfAAQAAAA=")
 tile_set = SubResource("TileSet_6b3pv")
 
-[node name="Player" parent="." instance=ExtResource("2_56xvd")]
-position = Vector2(152, 3)
+[node name="DayTwo" type="Node2D" parent="."]
+position = Vector2(-160, -48)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -8)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-drag_left_margin = 0.02
-drag_top_margin = 0.02
-drag_right_margin = 0.03
-drag_bottom_margin = 0.03
+[node name="Robert" parent="DayTwo" instance=ExtResource("11_clex7")]
+position = Vector2(765, 44)
+
+[node name="RobertDayTwoEnd" parent="DayTwo/Robert" instance=ExtResource("8_hbnf8")]
+position = Vector2(-2, 1)
+dialogue_resource = ExtResource("12_6o8o5")
+dialogue_start = "day2_end"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DayTwo/Robert/RobertDayTwoEnd"]
+position = Vector2(-12, -15)
+shape = SubResource("RectangleShape2D_clex7")
+
+[node name="NightTownDrop5" parent="DayTwo" instance=ExtResource("10_6o8o5")]
+position = Vector2(502.99997, 40)
+item_choice = 1
+
+[node name="NightTownDro6" parent="DayTwo" instance=ExtResource("10_6o8o5")]
+position = Vector2(734, 40)
+item_choice = 1
+
+[node name="AniaDayOne" parent="." instance=ExtResource("10_jgugk")]
+position = Vector2(605, -4)
+
+[node name="AniaEndOfADay" parent="AniaDayOne" instance=ExtResource("8_hbnf8")]
+position = Vector2(-2, 0)
+dialogue_resource = ExtResource("11_n6yrv")
+dialogue_start = "day1_end"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AniaDayOne/AniaEndOfADay"]
+position = Vector2(-12, -15)
+shape = SubResource("RectangleShape2D_clex7")
+
+[node name="Player" parent="." instance=ExtResource("2_56xvd")]
+position = Vector2(838, 5)
+is_jumping_allowed = false
+
+[node name="PlayerBodyCamera" parent="Player" instance=ExtResource("7_6b3pv")]
+position = Vector2(0, -40)
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAEAAAAKAAwAAAABAAEAAAAKAAwAAAACAAEAAAAKAAwAAAADAAEAAAAKAAwAAAAEAAEAAAAKAAwAAAAFAAEAAAAKAAwAAAAGAAEAAAAKAAwAAAAHAAEAAAAKAAwAAAAIAAEAAAAKAAwAAAAJAAEAAAAKAAwAAAAKAAEAAAAKAAwAAAALAAEAAAAKAAwAAAAMAAEAAAAKAAwAAAANAAEAAAAKAAwAAAAOAAEAAAAKAAwAAAAPAAEAAAAKAAwAAAAQAAEAAAAKAAwAAAARAAEAAAAKAAwAAAASAAEAAAAKAAwAAAATAAEAAAAKAAwAAAAUAAEAAAAKAAwAAAAVAAEAAAAKAAwAAAAWAAEAAAAKAAwAAAAXAAEAAAAKAAwAAAAYAAEAAAAKAAwAAAAZAAEAAAAKAAwAAAAaAAEAAAAKAAwAAAAbAAEAAAAKAAwAAAAcAAEAAAAKAAwAAAAdAAEAAAAKAAwAAAAeAAEAAAAKAAwAAAAfAAEAAAAKAAwAAAAgAAEAAAAKAAwAAAAhAAEAAAAKAAwAAAAiAAEAAAAKAAwAAAAjAAEAAAAKAAwAAAAkAAEAAAAKAAwAAAAlAAEAAAAKAAwAAAAmAAEAAAAKAAwAAAAnAAEAAAAKAAwAAAAoAAEAAAAKAAwAAAApAAEAAAAKAAwAAAAqAAEAAAAKAAwAAAArAAEAAAAKAAwAAAAsAAEAAAAKAAwAAAAtAAEAAAAKAAwAAAAuAAEAAAAKAAwAAAAvAAEAAAAKAAwAAAAwAAEAAAAKAAwAAAAxAAEAAAAKAAwAAAAyAAEAAAAKAAwAAAAzAAEAAAAKAAwAAAA0AAEAAAAKAAwAAAA1AAEAAAAKAAwAAAA2AAEAAAAKAAwAAAA3AAEAAAAKAAwAAAA4AAEAAAAKAAwAAAA5AAEAAAAKAAwAAAA6AAEAAAAKAAwAAAA7AAEAAAAKAAwAAAA8AAEAAAAKAAwAAAA9AAEAAAAKAAwAAAA+AAEAAAAKAAwAAAA/AAEAAAAKAAwAAABAAAEAAAAKAAwAAAAAAAMAAAAKAA4AAAABAAMAAAAKAA4AAAACAAMAAAAKAA4AAAADAAMAAAAKAA4AAAAEAAMAAAAKAA4AAAAFAAMAAAAKAA4AAAAGAAMAAAAKAA4AAAAHAAMAAAAKAA4AAAAIAAMAAAAKAA4AAAAJAAMAAAAKAA4AAAAKAAMAAAAKAA4AAAALAAMAAAAKAA4AAAAMAAMAAAAKAA4AAAANAAMAAAAKAA4AAAAOAAMAAAAKAA4AAAAPAAMAAAAKAA4AAAAQAAMAAAAKAA4AAAARAAMAAAAKAA4AAAASAAMAAAAKAA4AAAATAAMAAAAKAA4AAAAUAAMAAAAKAA4AAAAVAAMAAAAKAA4AAAAWAAMAAAAKAA4AAAAXAAMAAAAKAA4AAAAYAAMAAAAKAA4AAAAZAAMAAAAKAA4AAAAaAAMAAAAKAA4AAAAbAAMAAAAKAA4AAAAcAAMAAAAKAA4AAAAdAAMAAAAKAA4AAAAeAAMAAAAKAA4AAAAfAAMAAAAKAA4AAAAgAAMAAAAKAA4AAAAhAAMAAAAKAA4AAAAjAAMAAAAKAA4AAAAkAAMAAAAKAA4AAAAlAAMAAAAKAA4AAAAmAAMAAAAKAA4AAAAnAAMAAAAKAA4AAAAoAAMAAAAKAA4AAAApAAMAAAAKAA4AAAAqAAMAAAAKAA4AAAArAAMAAAAKAA4AAAAsAAMAAAAKAA4AAAAtAAMAAAAKAA4AAAAuAAMAAAAKAA4AAAAvAAMAAAAKAA4AAAAwAAMAAAAKAA4AAAAxAAMAAAAKAA4AAAAyAAMAAAAKAA4AAAAzAAMAAAAKAA4AAAA0AAMAAAAKAA4AAAA1AAMAAAAKAA4AAAA2AAMAAAAKAA4AAAA3AAMAAAAKAA4AAAA4AAMAAAAKAA4AAAA5AAMAAAAKAA4AAAA6AAMAAAAKAA4AAAA7AAMAAAAKAA4AAAA8AAMAAAAKAA4AAAA9AAMAAAAKAA4AAAA+AAMAAAAKAA4AAAA/AAMAAAAKAA4AAABAAAMAAAAKAA4AAAA=")

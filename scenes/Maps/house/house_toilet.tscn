@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://lcq34efw7nh4"]
+[gd_scene load_steps=12 format=4 uid="uid://lcq34efw7nh4"]
 
+[ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_14wv2"]
+[ext_resource type="Script" uid="uid://mcoptx8650d2" path="res://scenes/Maps/house/house_toilet.gd" id="1_e2ara"]
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_jq2tj"]
 [ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="2_3roai"]
+[ext_resource type="PackedScene" uid="uid://cmxvf8myyfhsa" path="res://scenes/UI/actionable.tscn" id="2_dhcme"]
+[ext_resource type="Resource" uid="uid://cp0xiun5ebeky" path="res://dialogue/tutorial.dialogue" id="3_libqj"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="3_olkda"]
 [ext_resource type="PackedScene" uid="uid://bvmqjptcybqc0" path="res://scenes/props/player_body_camera.tscn" id="4_n5fa0"]
+[ext_resource type="PackedScene" uid="uid://clbqbcg4c0suy" path="res://scenes/Inventory/item_drop.tscn" id="6_h73hs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mh8do"]
 texture = ExtResource("2_3roai")
@@ -222,6 +227,13 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_mh8do")
 
 [node name="HouseLevel" type="Node2D"]
+script = ExtResource("1_e2ara")
+
+[node name="MusicScene" parent="." instance=ExtResource("1_14wv2")]
+position = Vector2(-56, 32)
+songs = 4
+volume = 0.537
+fade_in_time_msec = 10000
 
 [node name="HouseEntryDoor" parent="." instance=ExtResource("1_jq2tj")]
 position = Vector2(-160, -48)
@@ -263,8 +275,50 @@ position = Vector2(-8, 8)
 tile_map_data = PackedByteArray("AAAAAPn/AQAEAAEAAAD2//n/AQACAAEAAAA=")
 tile_set = SubResource("TileSet_w740c")
 
+[node name="DayOne" type="Node2D" parent="."]
+position = Vector2(-160, -48)
+
+[node name="HouseToiletDropOne" parent="DayOne" instance=ExtResource("6_h73hs")]
+position = Vector2(70, 10)
+item_choice = 1
+
+[node name="HouseToiletDropTwo" parent="DayOne" instance=ExtResource("6_h73hs")]
+position = Vector2(118, 10)
+item_choice = 1
+
+[node name="HouseToiletTutorial" parent="DayOne" instance=ExtResource("2_dhcme")]
+position = Vector2(70, 16)
+monitoring = false
+monitorable = false
+dialogue_resource = ExtResource("3_libqj")
+dialogue_start = "toilet_room"
+automatic_interaction = true
+can_be_completed = true
+
+[node name="DayTwo" type="Node2D" parent="."]
+position = Vector2(-160, -48)
+
+[node name="DayTwoToiletDropOne" parent="DayTwo" instance=ExtResource("6_h73hs")]
+position = Vector2(70, 10)
+item_choice = 1
+
+[node name="DayTwoToiletDropTwo" parent="DayTwo" instance=ExtResource("6_h73hs")]
+position = Vector2(118, 10)
+item_choice = 1
+
+[node name="DayThree" type="Node2D" parent="."]
+position = Vector2(-160, -48)
+
+[node name="DayThreeToiletDropOne" parent="DayThree" instance=ExtResource("6_h73hs")]
+position = Vector2(70, 10)
+item_choice = 1
+
+[node name="DayThreeToiletDropTwo" parent="DayThree" instance=ExtResource("6_h73hs")]
+position = Vector2(118, 10)
+item_choice = 1
+
 [node name="Player" parent="." instance=ExtResource("3_olkda")]
-position = Vector2(-90, -17)
+position = Vector2(-117, -16)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("4_n5fa0")]

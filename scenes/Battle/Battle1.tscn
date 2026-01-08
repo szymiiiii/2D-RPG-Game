@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8110o5l0h5qb"]
+[gd_scene load_steps=16 format=3 uid="uid://b8110o5l0h5qb"]
 
 [ext_resource type="Script" uid="uid://dw5nqoboy003h" path="res://scripts/UI_Scripts/battle.gd" id="1_esrg0"]
 [ext_resource type="Texture2D" uid="uid://bdk6firel2l8o" path="res://assets/Battle/dece1057-525b-4aa0-b741-a7dc78be4bbc-117377410.jpg" id="1_xuh7r"]
 [ext_resource type="Texture2D" uid="uid://emx53s8k80sc" path="res://assets/Battle/canvas6.png" id="2_esrg0"]
-[ext_resource type="Resource" uid="uid://d4h0bt81bo4os" path="res://scripts/Enemies/Enemy.tres" id="2_iuoyu"]
 [ext_resource type="PackedScene" uid="uid://bjpgw2byhibxb" path="res://scenes/Battle/Button1.tscn" id="5_1t35d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuh7r"]
@@ -37,18 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_iuoyu"]
@@ -87,7 +74,7 @@ resource_name = "player_damage"
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -95,7 +82,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(50, 0), Vector2(-50, 0), Vector2(-6.44, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ru4m"]
@@ -114,7 +101,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_esrg0")
-enemy = ExtResource("2_iuoyu")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -373,10 +359,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_3ru4m")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Magic" to="." method="_on_magic_pressed"]
+[connection signal="press" from="ActionPanel/HBoxContainer/Magic/MagicPanel/MagicContainer/Button" to="." method="fireball_pressed"]
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionPanel/HBoxContainer/Run" to="." method="_on_run_pressed"]

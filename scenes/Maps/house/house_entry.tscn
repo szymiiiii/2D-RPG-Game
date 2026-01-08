@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://cptsmme1yc8hm"]
+[gd_scene load_steps=8 format=4 uid="uid://cptsmme1yc8hm"]
 
+[ext_resource type="PackedScene" uid="uid://dkhabu48y37ca" path="res://scenes/props/MusicScene.tscn" id="1_a6nta"]
 [ext_resource type="Texture2D" uid="uid://col7y354dtvnk" path="res://assets/handmade/tileset dom.png" id="1_e7pia"]
 [ext_resource type="PackedScene" uid="uid://b5ljrwmuctd3u" path="res://scenes/props/doors.tscn" id="1_xxh34"]
 [ext_resource type="PackedScene" uid="uid://dba6tbl6tl0go" path="res://scenes/player.tscn" id="2_6f83k"]
@@ -162,6 +163,12 @@ sources/1 = SubResource("TileSetAtlasSource_xxh34")
 
 [node name="HouseEntry" type="Node2D"]
 
+[node name="MusicScene" parent="." instance=ExtResource("1_a6nta")]
+position = Vector2(-56, 32)
+volume = 0.635
+ambience = 4
+amb_volume = 0.21
+
 [node name="HouseLevelDoor" parent="." instance=ExtResource("1_xxh34")]
 position = Vector2(16, -48)
 orientation = 1
@@ -171,6 +178,7 @@ id = 1
 [node name="OutsideDoor" parent="." instance=ExtResource("1_xxh34")]
 position = Vector2(96, -48)
 orientation = 2
+next_scene = 8
 id = 2
 
 [node name="Tilesets" type="Node2D" parent="."]
@@ -210,7 +218,7 @@ tile_map_data = PackedByteArray("AAALAPn/AQAEAAEAAAAKAPn/AQADAAEAAAAIAPn/AQADAAE
 tile_set = SubResource("TileSet_6f83k")
 
 [node name="Player" parent="." instance=ExtResource("2_6f83k")]
-position = Vector2(66, -17)
+position = Vector2(44, -17)
 is_jumping_allowed = false
 
 [node name="PlayerBodyCamera" parent="Player" instance=ExtResource("3_xxh34")]

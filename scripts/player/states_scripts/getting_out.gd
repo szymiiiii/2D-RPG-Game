@@ -7,6 +7,7 @@ var door_position_y
 var is_player_in_zone
 
 func enter(previous_state_path: String, data := {}) -> void:
+	#print("player got into getting OUT state")
 	is_player_on_ground =player.is_on_floor()
 	door_position_x = DoorManager.door_dictionary["door_position"].x
 	door_position_y = DoorManager.door_dictionary["door_position"].y
@@ -68,13 +69,19 @@ func physics_update(delta: float) -> void:
 	player.move_and_slide()
 	
 	if DoorManager.door_dictionary["door_orientation"] == 2:
-		print("udalo sie wyjsc")
+		#print("udalo sie wyjsc")
 		DoorManager.did_player_go_through_doors = false
+		
 		finished.emit(IDLE)
+		#get_tree().paused = true
+		#print("pauza")
+		#get_tree().create_timer(0.1).timeout
+		#get_tree().paused = false
+		#print("odpauzowanie")
 	elif movement_direction_x == 0 || !DoorManager.did_player_go_through_doors:
 		DoorManager.did_player_go_through_doors = false
-		get_tree().create_timer(0.05).timeout
-		print("udalo sie wyjsc")
+		#await player.get_tree().create_timer(0.25).timeout
+		#print("udalo sie wyjsc")
 		if not player.is_on_floor():
 			finished.emit(FALLING)
 		elif Input.is_action_just_pressed("Jumping") && player.is_jumping_allowed:
@@ -86,6 +93,7 @@ func physics_update(delta: float) -> void:
 				finished.emit(WALKING)
 		else:
 			finished.emit(IDLE)
+		
 	#if Input.is_action_pressed("ui_cancel"):
 		#DoorManager.did_player_go_through_doors = false
 		#finished.emit(IDLE)
