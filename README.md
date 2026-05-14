@@ -18,10 +18,10 @@ Game made with Godot Engine. It serves as practical part of our engineering degr
 
 ## Gameplay
 
-- **Turn-based Combat** Couple of enemies to defeat.
-- **World Exploration** Interactive 2D environments with NPCs and items.
-- **Dialogue System** NPC have their own stories.
-- **Save States** Ability to save players progress.
+- **Turn-based Combat** - Couple of enemies to defeat.
+- **World Exploration** - Interactive 2D environments with NPCs and items.
+- **Dialogue System** - NPC have their own stories.
+- **Save States** - Ability to save players progress.
 
 ### Protagonist House
 ![House](assets/Screenshots/House.png)
