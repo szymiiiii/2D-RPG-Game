@@ -2,7 +2,6 @@
 
 Game made with Godot Engine. It serves as practical part of our engineering degree.
 
-* [Documentation](https://github.com/szymiiiii/2D-RPG-Game/blob/main/Project%20Documentation.pdf)
 * This project uses Godot_v4.5-stable_win64.exe
 
 ## Authors
